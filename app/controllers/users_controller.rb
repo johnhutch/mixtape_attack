@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
   before_filter :check_administrator_role, :only => [:admin]
+  before_filter :login_required, :only => [:edit, :update]
   
   def show 
     @user = User.find(params[:id])
@@ -29,6 +30,34 @@ class UsersController < ApplicationController
     else
       create_new_user(params[:user])
     end
+  end
+  
+  def edit
+    if current_user.has_role?('admin')
+      @user = User.find(params[:id])
+    else 
+      @user = User.find(current_user)
+    end
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
+  
+  def update
+      @user = User.find(params[:id])
+
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          flash[:notice] = 'User was successfully updated.'
+          format.html { redirect_to(@user) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
+      end
   end
   
   def activate
