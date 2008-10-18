@@ -1,37 +1,32 @@
-set :stages, %w(staging production)
-set :default_stage, "production"
-require File.expand_path("#{File.dirname(__FILE__)}/../vendor/gems/capistrano-ext-1.2.1/lib/capistrano/ext/multistage")
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 
+set :application, "enum-and-the-protocols"
+set :repository,  "git@github.com:railsrumble/enum-and-the-protocols.git"
+set :user, "root"
 
-namespace :db do
-  desc 'Dumps the production database to db/production_data.sql on the remote server'
-  task :remote_db_dump, :roles => :db, :only => { :primary => true } do
-    run "cd #{deploy_to}/#{current_dir} && " +
-      "rake RAILS_ENV=#{rails_env} db:database_dump --trace" 
+role :app, "66.246.75.127"
+role :web, "66.246.75.127"
+role :db, "66.246.75.127", :primary => true
+
+set :deploy_to, "/var/www/apps/#{application}"
+set :scm, :git
+set :branch, "master"
+
+namespace :deploy do
+  desc "restart passenger"
+  task :restart, :roles => :app, :except => {:no_release => true} do
+    run "touch #{current_path}/tmp/restart.txt"
   end
-
-  desc 'Downloads db/production_data.sql from the remote production environment to your local machine'
-  task :remote_db_download, :roles => :db, :only => { :primary => true } do  
-    execute_on_servers(options) do |servers|
-      self.sessions[servers.first].sftp.connect do |tsftp|
-        tsftp.download!("#{deploy_to}/#{current_dir}/db/production_data.sql", "db/production_data.sql")
-      end
-    end
+  
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with passenger"
+    task t, :roles => :app do ; end
   end
-
-  desc 'Cleans up data dump file'
-  task :remote_db_cleanup, :roles => :db, :only => { :primary => true } do
-    execute_on_servers(options) do |servers|
-      self.sessions[servers.first].sftp.connect do |tsftp|
-        tsftp.remove! "#{deploy_to}/#{current_dir}/db/production_data.sql" 
-      end
+  
+  task :after_symlink do
+    %w[database.yml].each do |c|
+      run "ln -nsf #{shared_path}/system/config/#{c} #{current_path}/config/#{c}"
     end
-  end 
-
-  desc 'Dumps, downloads and then cleans up the production data dump'
-  task :remote_db_runner do
-    remote_db_dump
-    remote_db_download
-    remote_db_cleanup
   end
 end
