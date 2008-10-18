@@ -158,3 +158,35 @@ Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 02:52:56) [GET]
 Rendering template within layouts/application
 Rendering sessions/new
 Completed in 0.00909 (109 reqs/sec) | Rendering: 0.00652 (71%) | DB: 0.00016 (1%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 04:26:14) [GET]
+  Session ID: 3dbb42429baa6bc6def661b30ca605e1
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01031 (96 reqs/sec) | Rendering: 0.00705 (68%) | DB: 0.00025 (2%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-10-18 04:26:37) [GET]
+  Session ID: 3dbb42429baa6bc6def661b30ca605e1
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.01251 (79 reqs/sec) | Rendering: 0.00799 (63%) | DB: 0.00079 (6%) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 04:46:46) [GET]
+  Session ID: 3dbb42429baa6bc6def661b30ca605e1
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01201 (83 reqs/sec) | Rendering: 0.00852 (70%) | DB: 0.00107 (8%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-10-18 04:46:51) [GET]
+  Session ID: 3dbb42429baa6bc6def661b30ca605e1
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.01356 (73 reqs/sec) | Rendering: 0.00901 (66%) | DB: 0.00074 (5%) | 200 OK [http://localhost/signup]
