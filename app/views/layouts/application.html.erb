@@ -23,11 +23,14 @@
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/terms">Terms and Conditions</a></li>
 					<li><a href="/help">Help</a></li>
+				</ul>
+				<ul>
 					<% if logged_in? %>
-						<li><%= link_to 'Logout', logout_path %></li>
 						<% if current_user.has_role?('admin') %>
 							<li><%= link_to 'Administer Users', admin_users_path %></li>
 						<% end %>
+						<li><%= link_to 'Edit Profile', edit_user_path(current_user) %>
+						<li><%= link_to 'Logout', logout_path %></li>
 					<% else %>
 						<li><%= link_to 'Login', login_path %></li>
 						<li><%= link_to 'Signup', signup_path %></li>
