@@ -22,9 +22,7 @@
 
 <p>
 	<b>Ratings:</b>
-	<% for rating in @album.ratings %>
-		<%= @album.score %>
-	<% end %>
+	<%= sprintf ("%.1f", @album.score) %>
 </p>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |

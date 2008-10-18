@@ -13,7 +13,7 @@
 		<tr>
 			<td><%= link_to user.name, user_path(user) %></td>
 			<td><%= user.created_at %></td>
-			<td></td>
+			<td><% for role in user.roles %><%= role.name %><% end %></td>
 		</tr>
 	<% end %>
 </table>

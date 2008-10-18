@@ -29,7 +29,7 @@ class Album < ActiveRecord::Base
     self.ratings.each do |rating|
       score += rating.score
     end
-    score = score / self.ratings.length
+    score = score.to_f / self.ratings.length
   end
   
   def validate
