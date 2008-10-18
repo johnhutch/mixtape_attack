@@ -1,11 +1,13 @@
+<%= title "Show Album", :h2 %>
+
 <p>
   <b>Artist:</b>
-  <%=h @album.artist_id %>
+  <%=h @album.artist.name unless @album.artist.nil? %>
 </p>
 
 <p>
   <b>Label:</b>
-  <%=h @album.label_id %>
+  <%=h @album.label.name unless @album.label.nil? %>
 </p>
 
 <p>
@@ -18,6 +20,12 @@
   <%=h @album.release_date %>
 </p>
 
+<p>
+	<b>Ratings:</b>
+	<% for rating in @album.ratings %>
+		<%= @album.score %>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

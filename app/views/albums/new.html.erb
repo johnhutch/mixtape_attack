@@ -1,24 +1,28 @@
-<h1>New album</h1>
+<%= title "New Album", :h2 %>
 
 <% form_for(@album) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :artist_id %><br />
+    <%= f.label :artist_id %>:<br />
     <%= f.text_field :artist_id %>
   </p>
   <p>
-    <%= f.label :label_id %><br />
+    <%= f.label :label_id %>:<br />
     <%= f.text_field :label_id %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %>:<br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :release_date %><br />
-    <%= f.datetime_select :release_date %>
+    <%= f.label :release_date %>:<br />
+    <%= f.text_field :release_date_string %>
   </p>
+  <p>
+	<label>Rating:</label>
+	<%= text_field_tag :score %>
+  </p>	
   <p>
     <%= f.submit "Create" %>
   </p>

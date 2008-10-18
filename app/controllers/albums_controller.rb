@@ -41,6 +41,9 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
+    @rating = Rating.new()
+    @rating.score = params[:score]
+    @album.ratings<< @rating
 
     respond_to do |format|
       if @album.save
