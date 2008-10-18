@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
+  before_filter :check_administrator_role, :only => [:admin]
+  
+  def show 
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
   
   def new
     @user = User.new
@@ -35,6 +45,15 @@ class UsersController < ApplicationController
     else 
       flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
       redirect_back_or_default(root_path)
+    end
+  end
+  
+  def admin
+    @users = User.find(:all, :order => "name ASC")
+    
+    respond_to do |format|
+      format.html # admin.html.erb
+      format.xml  { render :xml => @users }
     end
   end
   

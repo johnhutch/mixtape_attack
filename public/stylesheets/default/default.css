@@ -1,11 +1,11 @@
 /************* HEADER *****************/
 
-#header { text-align: right;}
-#header ul { list-style: none; }
-#header ul li {	display: inline; padding-right: 1em;}
+#utility_top { text-align: right;}
+#utility_top ul { list-style: none; }
+#utility_top ul li {	display: inline; padding-right: 1em;}
 
 /************* FOOTER *****************/
 
-#footer {}
-#footer ul { list-style: none; text-align: right;}
-#footer ul li {display:inline; padding-right: 1em;}
+#utility_bottom {}
+#utility_bottom ul { list-style: none; text-align: right;}
+#utility_bottom ul li {display:inline; padding-right: 1em;}

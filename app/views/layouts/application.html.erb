@@ -17,26 +17,34 @@
 	</head>
 	<body>
 		<div class="container">
-			<div id="header">
+			<div id="utility_top">
 				<ul>
 					<li><a href="/about">About</a></li>
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/terms">Terms and Conditions</a></li>
 					<li><a href="/help">Help</a></li>
 					<% if logged_in? %>
-					<li><%= link_to 'Logout', logout_path %></li>
+						<li><%= link_to 'Logout', logout_path %></li>
+						<% if current_user.has_role?('admin') %>
+							<li><%= link_to 'Administer Users', admin_users_path %></li>
+						<% end %>
 					<% else %>
-					<li><%= link_to 'Login', login_path %></li>
-					<li><%= link_to 'Signup', signup_path %></li>
+						<li><%= link_to 'Login', login_path %></li>
+						<li><%= link_to 'Signup', signup_path %></li>
 					<% end %>
 				</ul>
+			</div>
+			
+			<div id="header">
+				<h1><a href="/">Mixtape Attack</a></h1>
 			</div>
 			
 			<div id="content">
 				<%= flash_messages %>
 				<%= yield :layout %>
 			</div>
-			<div id="footer">
+			
+			<div id="utility_bottom">
 				<ul id="nav">
 					<li><a href="/about">About</a></li>
 					<li><a href="/contact">Contact</a></li>

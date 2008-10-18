@@ -1,0 +1,19 @@
+<h2>Administer Mixtape Users</h2>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Join Date</th>
+			<th>Roles</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% for user in @users %>
+		<tr>
+			<td><%= link_to user.name, user_path(user) %></td>
+			<td><%= user.created_at %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>
