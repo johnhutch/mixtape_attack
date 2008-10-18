@@ -16,6 +16,14 @@ class Album < ActiveRecord::Base
     @release_date_invalid = true
   end
   
+  def artist_name
+    Artist.find(self.artist_id).name
+  end
+  
+  def label_name
+    Label.find(self.label_id).name
+  end
+  
   def score
     score = 0
     self.ratings.each do |rating|

@@ -41,9 +41,15 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
+    # Messy code to clean up with virtual attributes
     @rating = Rating.new()
     @rating.score = params[:score]
     @album.ratings<< @rating
+    @review = Review.new()
+    @review.body = params[:body]
+    @album.reviews<< @review
+    @album.artist = Artist.find_or_create_by_name(params[:album][:artist_id])
+    @album.label = Label.find_or_create_by_name(params[:album][:label_id])
 
     respond_to do |format|
       if @album.save
