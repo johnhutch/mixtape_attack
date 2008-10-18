@@ -1,0 +1,8 @@
+
+
+Processing ContentsController#about (for 127.0.0.1 at 2008-10-18 15:50:43) [GET]
+  Session ID: 4d724aca3b35d3200288900e9e94ce20
+  Parameters: {"action"=>"about", "controller"=>"contents"}
+Rendering template within layouts/application
+Rendering contents/about
+Completed in 0.00650 (153 reqs/sec) | Rendering: 0.00414 (63%) | DB: 0.00022 (3%) | 200 OK [http://localhost/about]
