@@ -1,0 +1,18 @@
+<p>
+  <b>User:</b>
+  <%=h @rating.user_id %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%=h @rating.album_id %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @rating.score %>
+</p>
+
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+<%= link_to 'Back', ratings_path %>

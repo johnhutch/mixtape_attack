@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  artist_id: 1
+  label_id: 1
+  name: MyString
+  release_date: 2008-10-18 14:07:28
+
+two:
+  artist_id: 1
+  label_id: 1
+  name: MyString
+  release_date: 2008-10-18 14:07:28

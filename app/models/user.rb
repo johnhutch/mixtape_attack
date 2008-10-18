@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   include Authorization::AasmRoles
+  
+  has_many :reviews
+  has_many :ratings
 
   # Validations
   validates_presence_of :login, :if => :not_using_openid?

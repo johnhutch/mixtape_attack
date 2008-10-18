@@ -1,4 +1,19 @@
-ActionController::Routing::Routes.draw do |map| 
+ActionController::Routing::Routes.draw do |map|
+  map.resources :labels
+
+  map.resources :reviews
+  map.resources :ratings
+  map.resources :albums  
+  map.resources :artists
+  
+  # Restful static pages
+  map.with_options :controller => 'contents' do |contents|
+    contents.about 'about', :action => 'about'
+    contents.contact 'contact', :action => 'contact'
+    contents.terms 'terms', :action => 'terms'
+    contents.help 'help', :action => 'help'
+  end
+ 
   # Restful Authentication Rewrites
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

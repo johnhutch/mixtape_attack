@@ -1,0 +1,23 @@
+<p>
+  <b>Artist:</b>
+  <%=h @album.artist_id %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%=h @album.label_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @album.name %>
+</p>
+
+<p>
+  <b>Release date:</b>
+  <%=h @album.release_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

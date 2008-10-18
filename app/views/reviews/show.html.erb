@@ -1,0 +1,23 @@
+<p>
+  <b>Album:</b>
+  <%=h @review.album_id %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%=h @review.rating_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @review.user_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @review.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
