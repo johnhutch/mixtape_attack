@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  before_filter :check_administrator_role, :only => [:admin]
+  require_role "admin", :only => :admin
   before_filter :login_required, :only => [:edit, :update]
   
   def show 
