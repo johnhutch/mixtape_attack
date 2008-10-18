@@ -190,3 +190,75 @@ Processing UsersController#new (for 127.0.0.1 at 2008-10-18 04:46:51) [GET]
 Rendering template within layouts/application
 Rendering users/new
 Completed in 0.01356 (73 reqs/sec) | Rendering: 0.00901 (66%) | DB: 0.00074 (5%) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:31:23) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00798 (125 reqs/sec) | Rendering: 0.00579 (72%) | DB: 0.00055 (6%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:32:58) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00435 (229 reqs/sec) | Rendering: 0.00221 (50%) | DB: 0.00064 (14%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:33:35) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00633 (158 reqs/sec) | Rendering: 0.00407 (64%) | DB: 0.00066 (10%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:36:21) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00462 (216 reqs/sec) | Rendering: 0.00244 (52%) | DB: 0.00064 (13%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:36:31) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00446 (223 reqs/sec) | Rendering: 0.00229 (51%) | DB: 0.00064 (14%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:36:38) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00484 (206 reqs/sec) | Rendering: 0.00261 (53%) | DB: 0.00069 (14%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:47:55) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00627 (159 reqs/sec) | Rendering: 0.00411 (65%) | DB: 0.00064 (10%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:50:19) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00642 (155 reqs/sec) | Rendering: 0.00427 (66%) | DB: 0.00065 (10%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-18 13:50:27) [GET]
+  Session ID: ca91f0ef0214986eaec1424129ff4688
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.00449 (222 reqs/sec) | Rendering: 0.00233 (51%) | DB: 0.00065 (14%) | 200 OK [http://localhost/]
