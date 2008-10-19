@@ -69,10 +69,8 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.xml
   def create
-    @album = Album.find_or_create_by_name(params[:album][:name].titleize)
-    @album.artist = Artist.find_or_create_by_name(params[:artist][:name].titleize)
+    @album = Album.create(params[:album])
     @album.label = Label.find_or_create_by_name(params[:label][:name].titleize)
-    @album.release_date = params[:album][:release_date_string]
 
     respond_to do |format|
       if @album.save

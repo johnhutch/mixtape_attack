@@ -1,0 +1,14 @@
+<%= title "Look up an artist", :h2 %>
+
+<% form_for(@artist, :url => new_artist_path) do |f| %>
+  <%= f.error_messages %>
+
+	<p>Would you like to rate <%= current_user.has_role?('editor') ? "or review" : "" %> an album? Type the artist name in the box below to get started.</p>
+  <p>
+    <label>Artist or Band Name:</label>
+    <%= text_field_with_auto_complete :artist, :name %>
+  </p>
+  <p>
+    <%= f.submit "Look them up" %>
+  </p>
+<% end %>

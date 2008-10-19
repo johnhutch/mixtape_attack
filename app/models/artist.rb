@@ -1,3 +1,5 @@
 class Artist < ActiveRecord::Base  
-  has_and_belongs_to_many :labels
+  
+  has_attached_file :photo,
+              :styles => { :show => "300x300>" }
 end

@@ -63,7 +63,7 @@
 						<li><%= link_to 'Administer Users', admin_users_path %></li>
 					<% end %>
 					<% if current_user.has_role?('editor') %>
-						<li><%= link_to 'Contribute to Mixtape',  new_artist_path %></li>
+						<li><%= link_to 'Contribute to Mixtape',  prelookup_artists_path %></li>
 					<% end %>
 					<li><%= link_to 'Edit Profile', edit_user_path(current_user) %>
 					<li><%= link_to 'Logout', logout_path %></li>

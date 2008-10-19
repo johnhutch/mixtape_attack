@@ -31,11 +31,15 @@
     <%= text_field_with_auto_complete :label, :name %>
   </p>
   <p>
-    <label>When? <small>(e.g., 10/7/1981 or October 7th, 1981)</label>
+    <label>When? <small>(e.g., 10/7/1981 or October 7th, 1981)</small></label>
     <%= f.text_field :release_date_string %>
   </p>
+	
+	<p><label>Upload a picture for album art:</label>
+	<%= f.file_field :art %></p>
+
 	<p>
-	<%= hidden_field :artist, :name %>
+	<%= f.hidden_field :artist_id, :value => @artist.id %>
 	</p>
   <p>
     <%= f.submit "Add Album" %>
