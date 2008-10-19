@@ -1,7 +1,27 @@
 <div class="column span-12 colborder">
-	<p>List of reviews</p>
+	<h3>Recent Albums Reviews</h3>
+	<% for review in @reviews %>
+		<div class="front_review">
+			<div class="rating"><%= review.score %></div>
+			<div class="albumartist"><%= link_to artist_album(review.album), review_path(review) %></div>
+			<div class="byline">Reviewed by <%= review.user.name %></div>
+			<div class="body"><%= review.truncated_body %></div>
+			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+		</div>
+	<% end %>
 </div>
 
 <div class="column span-11 last">
-	<p>Calender</p>
+	<h3>Upcoming Record Releases</h3>
+	<dl id="front_calendar">
+		<% @release_days = @albums.group_by { |a| a.release_date.beginning_of_day } unless @albums.nil? %>
+		<% unless @release_days.nil? %>
+			<% @release_days.keys.sort.each do |day| %>
+				<dt><%= day.strftime('%B %e')%></dt>
+				<% for album in @release_days[day] %>
+					<dd><%= link_to artist_album(album), album_path(album) %> on <%= link_to album.label.name, label_path(album.label) %></dd>
+				<% end %>
+			<% end %>
+		<% end %>
+	</dl>
 </div>

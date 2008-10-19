@@ -42,8 +42,15 @@ class AlbumsController < ApplicationController
 
   def review
     @album = Album.find(params[:id])
+<<<<<<< HEAD:app/controllers/albums_controller.rb
     @label = @album.label
     @artist = @album.artist
+=======
+    @rating = Rating.new
+    #in the view, display rating select and, if current_user.has_role?('editor') display review form
+    # give user option to do one, both, or neither
+    # form submits to create_review_album_path
+>>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:app/controllers/albums_controller.rb
   end
   
   def create_review

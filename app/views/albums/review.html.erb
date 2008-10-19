@@ -1,5 +1,6 @@
 <%= title "Rate/Review", :h2 %>
 
+<<<<<<< HEAD:app/views/albums/review.html.erb
 <p>
 	<%= @artist.name %>
 </p>
@@ -12,12 +13,29 @@
 <p>
 	<%= @album.release_date %>
 </p>
+=======
+<div id="review_form_info">
+	<div class="artist"><%= @album.artist.name %></div>
+	<div class="album"><%= @album.name %></div>
+	<div class="label"><%= @album.label.name %></div>
+	<div class="release"><%= @album.release_date %></div>
+</div>
+>>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:app/views/albums/review.html.erb
 
+<<<<<<< HEAD:app/views/albums/review.html.erb
 <% form_for @album, create_review_album_path do |f| %>
   <%= f.error_messages %>
+=======
+<% form_for @rating do |f| %>
+	<%= f.error_messages %>
+>>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:app/views/albums/review.html.erb
 
+<<<<<<< HEAD:app/views/albums/review.html.erb
   <p>
+=======
+>>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:app/views/albums/review.html.erb
 	<label>Rating:</label>
+<<<<<<< HEAD:app/views/albums/review.html.erb
 	<%= select_tag :score, "<option></option><option>1</option><option>2</option>
 							<option>3</option><option>4</option>
 							<option>5</option><option>6</option>
@@ -36,4 +54,19 @@
   <p>
     <%= f.submit "Submit" %>
   </p>
+=======
+	<%= f.select :score, 1..10 %>
+
+	<% if current_user.has_role?('editor') %>
+		<% fields_for Review.new do |r| %>
+			<%= r.error_messages %>
+			<label>Review:</label>
+			<%= r.text_area :body %>
+		<% end %>
+	<% end %>
+	
+	<%= hidden_field_tag :album, @album.id %>
+	
+	<p><%= f.submit "Submit" %></p>
+>>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:app/views/albums/review.html.erb
 <% end %>

@@ -1,11 +1,38 @@
-/************* HEADER *****************/
+a {text-decoration: none; border-bottom: 1px solid;}
+label { clear: left; display: block; margin-top: 2em;}
+
+/************* HEADER ***********************/
+
+#header {float: left;}
+
+/************* UTILITY NAVS *****************/
 
 #utility_top { text-align: right;}
 #utility_top ul { list-style: none; }
 #utility_top ul li {	display: inline; padding-right: 1em;}
 
-/************* FOOTER *****************/
-
 #utility_bottom {}
 #utility_bottom ul { list-style: none; text-align: right;}
 #utility_bottom ul li {display:inline; padding-right: 1em;}
+
+/************* NAV ********************/
+
+#nav { clear:both;}
+#nav ul {list-style-type: none;}
+#nav ul li {display:inline;}
+#nav ul li a {font-size: 1.4em; border-bottom-width: 0; padding-left: 1em; padding-right: 1em;}
+
+/************* FOOTER *****************/
+
+#footer {clear:both; text-align: right; margin-top: 2em; padding-top: 2em;}
+
+/************* FRONT PAGE *************/
+dl#front_calendar a {text-decoration: none; border-bottom-width: 0;}
+dl#front_calendar a:hover {border-bottom-width: 1px;}
+dl#front_calendar .artist {font-weight: bold;}
+
+.front_review { clear: left; margin-bottom: 2em;}
+.front_review .rating {float: right; padding: .2em .8em; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
+.front_review .albumartist {font-size: 1.2em; font-weight: bold;}
+.front_review .byline {font-size: .9em; line-height: 1em; font-variant: italic; margin-bottom: .6em;}
+.front_review a {color: #444; border-bottom-width: 0;}
