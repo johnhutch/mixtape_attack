@@ -4,37 +4,27 @@
 	<%= f.error_messages %>
 	<fieldset>
 		<legend>Your Details</legend>
-		<ol>
-			<li>
-				<%= f.label :name, 'Name' %>
-				<%= f.text_field :name %>
-			</li>
-			<li>
-				<%= f.label :login, 'Username' %>
-				<%= f.text_field :login %>
-			</li>
-			<li>
-				<%= f.label :email %>
-				<%= f.text_field :email %>
-			</li>
-			<li>
-				<%= f.label :password %>
-				<%= f.password_field :password %>
-			</li>
-			<li>
-				<%= f.label :password_confirmation, 'Confirm Password' %>
-				<%= f.password_field :password_confirmation %>
-			</li>
-		</ol>
+		<p><%= f.label :name, 'Name' %>
+		<%= f.text_field :name %></p>
+		
+		<p><%= f.label :login, 'Username' %>
+		<%= f.text_field :login %></p>
+		
+		<p><%= f.label :email %>
+		<%= f.text_field :email %></p>
+		
+		<p><%= f.label :password %>
+		<%= f.password_field :password %></p>
+		
+		<p><%= f.label :password_confirmation, 'Confirm Password' %>
+		<%= f.password_field :password_confirmation %>	</p>			
 	</fieldset>
 	<fieldset>
 		<legend>Signup with OpenID</legend>
-		<ol>
-			<li>
-				<label for="openid_url">OpenID URL</label>
-				<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %>
-			</li>
-		</ol>
+		
+		<p><label for="openid_url">OpenID URL</label>
+		<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %></p>
+				
 	</fieldset>
 	<div class="buttons">
 		<%= submit_tag 'Sign up' %>

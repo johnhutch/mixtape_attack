@@ -1,36 +1,32 @@
-<%= title "Show Album", :h2 %>
-<%= image_tag @album.art.url(:show) %>
+<%= title @album.name + " by " + @album.artist.name, :h2 %>
 
-<p>
-  <b>Artist:</b>
-  <%=h @album.artist.name unless @album.artist.nil? %>
-</p>
+<div id="album_header" class="clearfix">
+	<div id="albumart" class="column span-5 append-1">
+		<%= image_tag @album.art.url(:show) %>
+	</div>
+ 
+	<div id="albuminfo" class="column span-14 append-1">
+		<div id="label">Released by <%= @album.label.name unless @album.label.nil? %> on <%= @album.release_date.strftime('%B %e, %Y') %></div>
+		<div id="genres">Genres: 
+			<% for tag in @album.tags %>
+				<%= link_to tag, genre_album_path(tag.name) %>
+			<% end %>
+		</div>
+		
+	</div>
 
-<p>
-  <b>Label:</b>
-  <%=h @album.label.name unless @album.label.nil? %>
-</p>
-
-<div id="categories">Genres: 
-	<% for tag in @album.tags %>
-		<%= link_to tag, genre_album_path(tag.name) %>
-	<% end %>
+	<div id="scores" class="column span-3 last">
+		<%= sprintf ("%.1f", @album.score) %>
+	</div>
 </div>
 
-<p>
-  <b>Name:</b>
-  <%=h @album.name %>
-</p>
-
-<p>
-  <b>Release date:</b>
-  <%=h @album.release_date %>
-</p>
-
-<p>
-	<b>Ratings:</b>
-	<%= sprintf ("%.1f", @album.score) %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<div id="album_reviews">
+	<% @album.reviews.each_with_index do |review, i| %>
+		<div class="album_review column span-8 <%= i%3 == 0 ? "" : "last" %>">
+			<div class="rating"><%= review.score %></div>
+			<div class="byline">Reviewed by <%= review.user.name %></div>
+			<div class="body"><%= review.truncated_body %></div>
+			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+		</div>
+	<% end %>
+</div>

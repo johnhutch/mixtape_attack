@@ -27,7 +27,6 @@
 						<li><a href="/reviews">Our Reviews</a></li>
 						<li><a href="/users">Our Staff</a></li>
 						<li><a href="/albums/calendar">Calendar</a></li>
-						<li><a href="/">Recommended</a></li>
 					</ul>
 				</div>
 			</div>
@@ -57,6 +56,9 @@
 		</div>
 		
 		<div id="usernav">
+			<% if logged_in? %>
+	    		<h6>Hello, <%= link_to h(current_user.name.capitalize), user_path(current_user) %></h6>
+			<% end %>
 			<ul>
 				<% if logged_in? %>
 					<% if current_user.has_role?('admin') %>

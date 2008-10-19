@@ -19,7 +19,7 @@
 	
 <% end %>
 
-<% form_for(@album) do |f| %>
+<% form_for(@album, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <p>

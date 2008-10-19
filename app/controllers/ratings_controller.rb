@@ -49,13 +49,17 @@ class RatingsController < ApplicationController
       @review = Review.new(params[:review])
       @review.user = current_user
       @review.album = @album
-      @album.tag_list = params[:tag_list]
+      @a = Album.new()
+      @a.tag_list = params[:tag_list]
+      @album.tag_list.add(@a.tag_list)
     end
 
     respond_to do |format|
       if @rating.save
-        @review.save
-        @album.save
+        if params[:review]
+          @review.save
+          @album.save
+        end
         flash[:notice] = 'Rating was successfully created.'
         format.html { redirect_to album_path(@album) }
 
