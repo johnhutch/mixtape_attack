@@ -1,10 +1,11 @@
-<%= title "New Artist", :h2 %>
+<%= title "Find or add an artist", :h2 %>
 
 <% form_for(@artist) do |f| %>
   <%= f.error_messages %>
 
+	<p>Would you like to rate <%= current_user.has_role?('editor') ? "or review" : "" %> an album? Type the artist name in the box below to get started.</p>
   <p>
-    <%= f.label :name %>:<br />
+    <label>Artist or Band Name:</label>
     <%= text_field_with_auto_complete :artist, :name %>
   </p>
   <p>

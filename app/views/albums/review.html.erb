@@ -1,22 +1,19 @@
-<%= title "Rate/Review", :h2 %>
-
-<div id="review_form_info">
-	<div class="artist"><%= @album.artist.name %></div>
-	<div class="album"><%= @album.name %></div>
-	<div class="label"><%= @album.label.name %></div>
-	<div class="release"><%= @album.release_date %></div>
-</div>
+<%= title "Review " + @album.name + " by " + @album.artist.name, :h2 %>
 
 <% form_for @rating do |f| %>
 	<%= f.error_messages %>
 
-	<label>Rating:</label>
+	<label>On a scale of 1-10, how would you rate this album?</label>
 	<%= f.select :score, 1..10 %>
 
 	<% if current_user.has_role?('editor') %>
+		<label>What genre or genres would you say <%= @album.name %> falls under? <br />
+			<small>Please use commas to separate genres (e.g., metal, death metal, noise)</small></label>
+		<%= text_field_tag :tag_list %>
+			
 		<% fields_for Review.new do |r| %>
 			<%= r.error_messages %>
-			<label>Review:</label>
+			<label>Your review of <%= @album.name %>:</label>
 			<%= r.text_area :body %>
 		<% end %>
 	<% end %>

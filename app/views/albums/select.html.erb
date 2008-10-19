@@ -1,30 +1,37 @@
-<%= title "Albums", :h2 %>
+<%= title "Choose an album", :h2 %>
 
+<p>So you have an opinion on <%= @artist.name %>? Which album do you want rate <%= current_user.has_role?('editor') ? "or review" : "" %>?
+	
 <% if @albums.empty? %>
-<h3>Create the first album below:</h3>
-<% else %>
-<h3>Albums available:</h3>
-<ul id="albumlist">
-<% @albums.each do |album| %>
-	<li><%= link_to album.name, review_album_path(album) %></li>
-<% end %>
-</ul>
 
-<h3>Don't see the album above? Create it below:</h3>
+	<h3>Create the first album below:</h3>
+	
+<% else %>
+
+	<h3>We currently have these albums on file:</h3>
+	<ul id="albumlist">
+	<% @albums.each do |album| %>
+		<li><%= link_to album.name, review_album_path(album) %></li>
+	<% end %>
+	</ul>
+
+	<h3>Don't see the album you're looking for? Add it below:</h3>
+	
 <% end %>
+
 <% form_for(@album) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %>:<br />
+    <label>What's the album called?</label>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :label %>:<br />
+    <label>What label was the album released on?</label>
     <%= text_field_with_auto_complete :label, :name %>
   </p>
   <p>
-    <%= f.label :release_date %>:<br />
+    <label>When? <small>(e.g., 10/7/1981 or October 7th, 1981)</label>
     <%= f.text_field :release_date_string %>
   </p>
 	<p>

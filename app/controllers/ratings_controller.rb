@@ -49,11 +49,13 @@ class RatingsController < ApplicationController
       @review = Review.new(params[:review])
       @review.user = current_user
       @review.album = @album
+      @album.tag_list = params[:tag_list]
     end
 
     respond_to do |format|
       if @rating.save
         @review.save
+        @album.save
         flash[:notice] = 'Rating was successfully created.'
         format.html { redirect_to(@rating) }
         format.xml  { render :xml => @rating, :status => :created, :location => @rating }

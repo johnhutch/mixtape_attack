@@ -10,6 +10,12 @@
   <%=h @album.label.name unless @album.label.nil? %>
 </p>
 
+<div id="categories">Genres: 
+	<% for tag in @album.tags %>
+		<%= link_to tag, genre_album_path(tag.name) %>
+	<% end %>
+</div>
+
 <p>
   <b>Name:</b>
   <%=h @album.name %>

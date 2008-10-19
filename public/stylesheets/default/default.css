@@ -4,7 +4,7 @@ label { clear: left; display: block; margin-top: 2em;}
 
 /************* HEADER ***********************/
 
-#header { padding-bottom: 2em;}
+#header { padding-bottom: 2emcapt ;}
 
 /************* UTILITY NAVS *****************/
 
@@ -35,10 +35,10 @@ label { clear: left; display: block; margin-top: 2em;}
 
 /************* NAV ********************/
 
-#nav { }
-#nav ul {list-style-type: none;}
+#nav { text-align: right; padding-top: 1em;}
+#nav ul {list-style-type: none; margin: 0;}
 #nav ul li {display:inline;}
-#nav ul li a {font-size: 1.4em; border-bottom-width: 0; padding-left: 1em; padding-right: 1em;}
+#nav ul li a {font-size: 1.4em; border-bottom-width: 0; padding-left: 2em;}
 
 /************* CONTENT ****************/
 
@@ -54,7 +54,15 @@ dl#front_calendar a:hover {border-bottom-width: 1px;}
 dl#front_calendar .artist {font-weight: bold;}
 
 .front_review { clear: left; margin-bottom: 2em;}
-.front_review .rating {float: right; padding: .2em .8em; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
+.front_review .rating {float: right; padding: 0; padding-top: .2em; padding-bottom: .2em; width: 2em; text-align: center;
+	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
 .front_review .albumartist {font-size: 1.2em; font-weight: bold;}
-.front_review .byline {font-size: .9em; line-height: 1em; font-variant: italic; margin-bottom: .6em;}
+.front_review .byline {font-size: .9em;  font-variant: italic; margin-bottom: .6em;}
 .front_review a {color: #444; border-bottom-width: 0;}
+.front_review a:hover {color: #777; border-bottom-width: 1px;}
+.front_review .genres a {margin-right: .4em;}
+
+/************ REVIEW PROCESS **********/
+
+#review_form_info #artist { font-size: 1.2em; font-weight: bold;}
+#review_form_info h5 {margin-top: 1em;}
