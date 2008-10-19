@@ -1,23 +1,25 @@
-<p>
-  <b>Album:</b>
-  <%=h @review.album_id %>
-</p>
+<%= title @review.user.name + "'s " + @review.album.name + " review", :h2 %>
 
-<p>
-  <b>Rating:</b>
-  <%=h @review.rating_id %>
-</p>
+<div id="album_header" class="clearfix">
+	<div id="albumart" class="column span-5 append-1">
+		<%= image_tag @review.album.art.url(:show) %>
+	</div>
+ 
+	<div id="albuminfo" class="column span-14 append-1">
+		<div id="label">Released by <%= @review.album.label.name unless @review.album.label.nil? %> on <%= @review.album.release_date.strftime('%B %e, %Y') %></div>
+		<div id="genres">Genres: 
+			<% for tag in @review.album.tags %>
+				<%= link_to tag, genre_album_path(tag.name) %>
+			<% end %>
+		</div>
+		
+	</div>
 
-<p>
-  <b>User:</b>
-  <%=h @review.user_id %>
-</p>
+	<div id="scores" class="column span-3 last">
+		<%= sprintf ("%.1f", @review.score) %>
+	</div>
+</div>
 
-<p>
-  <b>Body:</b>
-  <%=h @review.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<div id="album_review">
+	<div class="body"><%= textilize(@review.body) %></div>
+</div>

@@ -66,3 +66,17 @@ dl#front_calendar .artist {font-weight: bold;}
 
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
+
+
+/************ ALBUMS AND REVIEWS GLOBAL*********/
+#scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
+/************ ALBUM SHOW PAGE *********/
+
+#album_reviews {clear: both; margin-top: 2em;}
+#album_reviews .album_review { margin-top: 2em;}
+#album_reviews .rating {float: left; margin-right: 1em; margin-bottom: 1em; padding: 0; padding-top: .2em; padding-bottom: .2em; width: 2em; text-align: center;
+	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
+	
+/************ REVIEW SHOW PAGE *********/
+
+#album_review {margin-top: 2em;}

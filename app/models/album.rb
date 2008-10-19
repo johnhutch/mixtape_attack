@@ -4,7 +4,9 @@ class Album < ActiveRecord::Base
   has_attached_file :art,
               :styles => { :frontlist => "90x90>",
                            :show => "300x300>" }
-  
+                           
+  validates_presence_of :artist_id, :name
+                           
   belongs_to :artist
   belongs_to :label
   has_many :ratings

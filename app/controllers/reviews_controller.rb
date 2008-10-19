@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.xml
   def create
     @review = Review.new(params[:review])
+    @review.user_id = current_user.id
 
     respond_to do |format|
       if @review.save
