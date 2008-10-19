@@ -54,8 +54,8 @@ class RatingsController < ApplicationController
     respond_to do |format|
       if @rating.save
         @review.save
-        flash[:notice] = 'Rating was successfully created.'
-        format.html { redirect_to(@rating) }
+        # flash[:notice] = 'Rating was successfully created.'
+        format.html { redirect_to show_album_path(@album) }
         format.xml  { render :xml => @rating, :status => :created, :location => @rating }
       else
         format.html { render :action => "new" }

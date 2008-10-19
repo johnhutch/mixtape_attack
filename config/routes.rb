@@ -3,11 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :reviews
   map.resources :ratings
-<<<<<<< HEAD:config/routes.rb
-  map.resources :albums, :member => { :select => :get, :review => :get, :create_review => :get }
-=======
-  map.resources :albums, :member => { :select => :get, :review => :get}
->>>>>>> 2fe5b96893c2280282e598f7b9b532e22f05eddb:config/routes.rb
+  map.resources :albums, :member => { :select => :get, :review => :get, :show => :get }
   map.resources :artists
   
   # Restful static pages
