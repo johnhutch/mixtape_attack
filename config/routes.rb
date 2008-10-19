@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :reviews
   map.resources :ratings
-  map.resources :albums  
+  map.resources :albums, :member => { :select => :get, :review => :get }
   map.resources :artists
   
   # Restful static pages

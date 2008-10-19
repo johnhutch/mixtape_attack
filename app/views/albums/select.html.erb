@@ -1,0 +1,36 @@
+<%= title "Albums", :h2 %>
+
+<% if @albums.empty? %>
+<h3>Create the first album below:</h3>
+<% else %>
+<h3>Albums available:</h3>
+<ul id="albumlist">
+<% @albums.each do |album| %>
+	<li><%= link_to album.name, review_album_path(album) %></li>
+<% end %>
+</ul>
+
+<h3>Don't see the album above? Create it below:</h3>
+<% end %>
+<% form_for(@album) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %>:<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :label %>:<br />
+    <%= text_field_with_auto_complete :label, :name %>
+  </p>
+  <p>
+    <%= f.label :release_date %>:<br />
+    <%= f.text_field :release_date_string %>
+  </p>
+	<p>
+	<%= hidden_field :artist, :name %>
+	</p>
+  <p>
+    <%= f.submit "Add Album" %>
+  </p>
+<% end %>

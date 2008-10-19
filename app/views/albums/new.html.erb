@@ -4,16 +4,16 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :name %>:<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
     <%= f.label :artist_id %>:<br />
-    <%= f.text_field :artist_id %>
+    <%= text_field_with_auto_complete :artist, :name %>
   </p>
   <p>
     <%= f.label :label_id %>:<br />
-    <%= f.text_field :label_id %>
-  </p>
-  <p>
-    <%= f.label :name %>:<br />
-    <%= f.text_field :name %>
+    <%= text_field_with_auto_complete :label, :name %>
   </p>
   <p>
     <%= f.label :release_date %>:<br />
@@ -28,7 +28,7 @@
 							<option>9</option><option>10</option>" %>
   </p>
 	<p>
-		<label>Review:</label>
+		<label>Review:</label><br />
 		<%= text_area_tag :review %>
 	</p>
   <p>

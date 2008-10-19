@@ -10,8 +10,8 @@
 
 <% for album in @albums %>
   <tr>
-    <td><%=h album.artist_id %></td>
-    <td><%=h album.label_id %></td>
+    <td><%=h album.artist_name %></td>
+    <td><%=h album.label_name %></td>
     <td><%=h album.name %></td>
     <td><%=h album.release_date %></td>
     <td><%= link_to 'Show', album %></td>
