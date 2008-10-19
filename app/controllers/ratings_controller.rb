@@ -57,7 +57,8 @@ class RatingsController < ApplicationController
         @review.save
         @album.save
         flash[:notice] = 'Rating was successfully created.'
-        format.html { redirect_to(@rating) }
+        format.html { redirect_to album_path(@album) }
+
         format.xml  { render :xml => @rating, :status => :created, :location => @rating }
       else
         format.html { render :action => "new" }

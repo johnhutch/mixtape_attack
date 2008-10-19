@@ -13602,3 +13602,986 @@ The error occurred while evaluating nil.name) on line #4 of albums/review.html.e
     script/server:3
 
 Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000355)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000353)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001478)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.018589)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000436)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000259)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to BortMigration (20080929171348)
+  [4;36;1mSQL (0.001692)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.005512)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (0.001348)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.000540)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.003454)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.000694)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001656)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.008365)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.005472)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.001547)[0m   [0mCREATE TABLE "passwords" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "reset_code" varchar(255), "expiration_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.003871)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.007436)[0m   [0mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;36;1mRole Create (0.000491)[0m   [0;1mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;35;1mRole Create (0.000570)[0m   [0mINSERT INTO "roles" ("name") VALUES('editor')[0m
+  [4;36;1mSQL (0.000324)[0m   [0;1mSELECT "login" FROM "users" WHERE (LOWER("users".login) = 'admin') [0m
+  [4;35;1mSQL (0.000186)[0m   [0mSELECT "email" FROM "users" WHERE (LOWER("users".email) = 'johnhutch@gmail.com') [0m
+  [4;36;1mUser Create (0.000472)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "updated_at", "crypted_password", "deleted_at", "activation_code", "remember_token_expires_at", "identity_url", "remember_token", "login", "email", "state", "created_at") VALUES('', 'eee23031cfbfff8a9a141b4d0fcb469fac32e5ee', NULL, '2008-10-19 06:48:40', 'f7f028908578c4005760bad7f82adb6c4d8222ec', NULL, NULL, NULL, NULL, NULL, 'admin', 'johnhutch@gmail.com', 'passive', '2008-10-19 06:48:40')[0m
+Sent mail to johnhutch@gmail.com
+
+Date: Sun, 19 Oct 2008 02:48:40 -0400
+From: johnhutch@gmail.com
+To: johnhutch@gmail.com
+Subject: [Mixtape Attack] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+Username: admin
+
+Visit this url to activate your account:
+
+http://localhost:3000/activate/
+  [4;35;1mUser Update (0.000456)[0m   [0mUPDATE "users" SET "activation_code" = 'dd71cee4c1387c1dd28057ccb623eee2a680f908', "state" = 'pending', "updated_at" = '2008-10-19 06:48:40' WHERE "id" = 1[0m
+  [4;36;1mUser Update (0.000508)[0m   [0;1mUPDATE "users" SET "activated_at" = '2008-10-19 06:48:40', "activation_code" = NULL, "state" = 'active', "updated_at" = '2008-10-19 06:48:40' WHERE "id" = 1[0m
+Sent mail to johnhutch@gmail.com
+
+Date: Sun, 19 Oct 2008 02:48:40 -0400
+From: johnhutch@gmail.com
+To: johnhutch@gmail.com
+Subject: [Mixtape Attack] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  Welcome aboard!
+
+http://localhost:3000
+  [4;35;1mSQL (0.000405)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (0.007857)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080929171348')[0m
+Migrating to CreateArtists (20081018180248)
+  [4;35;1mSQL (0.001559)[0m   [0mCREATE TABLE "artists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.004802)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018180248')[0m
+Migrating to CreateAlbums (20081018180728)
+  [4;35;1mSQL (0.001393)[0m   [0mCREATE TABLE "albums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "artist_id" integer, "label_id" integer, "name" varchar(255), "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.004114)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018180728')[0m
+Migrating to CreateRatings (20081018181024)
+  [4;35;1mSQL (0.002043)[0m   [0mCREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "album_id" integer, "score" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001390)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018181024')[0m
+Migrating to CreateReviews (20081018181536)
+  [4;35;1mSQL (0.004056)[0m   [0mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "album_id" integer, "rating_id" integer, "user_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.005051)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018181536')[0m
+Migrating to CreateLabels (20081018184520)
+  [4;35;1mSQL (0.002017)[0m   [0mCREATE TABLE "labels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.008939)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018184520')[0m
+Migrating to ArtistsLabels (20081018184602)
+  [4;35;1mSQL (0.002273)[0m   [0mCREATE TABLE "artists_labels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "artist_id" integer, "label_id" integer) [0m
+  [4;36;1mSQL (0.001298)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018184602')[0m
+Migrating to ActsAsTaggableMigration (20081018185738)
+  [4;35;1mSQL (0.001684)[0m   [0mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (0.001630)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime) [0m
+  [4;35;1mSQL (0.012549)[0m   [0mCREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [4;36;1mSQL (0.007003)[0m   [0;1mCREATE INDEX "index_taggings_on_taggable_id_and_taggable_type" ON "taggings" ("taggable_id", "taggable_type")[0m
+  [4;35;1mSQL (0.001358)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081018185738')[0m
+  [4;36;1mSQL (0.002165)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001184)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002067)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000162)[0m   [0mPRAGMA index_list("albums")[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mPRAGMA index_list("artists")[0m
+  [4;35;1mSQL (0.000175)[0m   [0mPRAGMA index_list("artists_labels")[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mPRAGMA index_list("labels")[0m
+  [4;35;1mSQL (0.000158)[0m   [0mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;36;1mSQL (0.000158)[0m   [0;1mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;35;1mSQL (0.000219)[0m   [0mPRAGMA index_list("passwords")[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mPRAGMA index_list("ratings")[0m
+  [4;35;1mSQL (0.000188)[0m   [0mPRAGMA index_list("reviews")[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.000158)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.000623)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.000434)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.000422)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.000614)[0m   [0mPRAGMA index_list("taggings")[0m
+  [4;36;1mSQL (0.000609)[0m   [0;1mPRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type')[0m
+  [4;35;1mSQL (0.000423)[0m   [0mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.000428)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.000424)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 02:49:28) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;36;1mAlbum Load (0.000768)[0m   [0;1mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;35;1mReview Load (0.000651)[0m   [0mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;36;1mUser Load (0.000394)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '') LIMIT 1[0m
+Completed in 0.08133 (12 reqs/sec) | Rendering: 0.02897 (35%) | DB: 0.00233 (2%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-19 02:49:32) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+  [4;35;1mUser Load (0.000330)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '') LIMIT 1[0m
+Completed in 0.03310 (30 reqs/sec) | Rendering: 0.02203 (66%) | DB: 0.00160 (4%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-10-19 02:49:36) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"commit"=>"Login", "openid_url"=>"", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (0.001240)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+Cookie set: auth_token=; path=/
+Redirected to http://localhost:3000/
+Completed in 0.03341 (29 reqs/sec) | DB: 0.00251 (7%) | 302 Found [http://localhost/session]
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 02:49:36) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;35;1mAlbum Load (0.000732)[0m   [0mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;36;1mReview Load (0.000664)[0m   [0;1mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;35;1mUser Load (0.001194)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000644)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.08810 (11 reqs/sec) | Rendering: 0.03466 (39%) | DB: 0.00453 (5%) | 200 OK [http://localhost/]
+
+
+Processing ArtistsController#new (for 127.0.0.1 at 2008-10-19 02:49:39) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"new", "controller"=>"artists"}
+Rendering template within layouts/application
+Rendering artists/new
+  [4;35;1mUser Load (0.001212)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000650)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.08255 (12 reqs/sec) | Rendering: 0.04894 (59%) | DB: 0.00314 (3%) | 200 OK [http://localhost/artists/new]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 02:49:42) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"a"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;35;1mArtist Load (0.000673)[0m   [0mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%a%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02881 (34 reqs/sec) | Rendering: 0.00197 (6%) | DB: 0.00193 (6%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 02:49:48) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.000697)[0m   [0;1mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%weezer%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02879 (34 reqs/sec) | Rendering: 0.00151 (5%) | DB: 0.00194 (6%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing ArtistsController#create (for 127.0.0.1 at 2008-10-19 02:49:49) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "commit"=>"To Albums", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"artists"}
+  [4;35;1mArtist Load (0.000271)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."name" = 'Weezer') LIMIT 1[0m
+  [4;36;1mArtist Create (0.000472)[0m   [0;1mINSERT INTO "artists" ("name", "updated_at", "created_at") VALUES('Weezer', '2008-10-19 06:49:49', '2008-10-19 06:49:49')[0m
+Redirected to http://localhost:3000/albums/1/select
+Completed in 0.04232 (23 reqs/sec) | DB: 0.00198 (4%) | 302 Found [http://localhost/artists]
+
+
+Processing AlbumsController#select (for 127.0.0.1 at 2008-10-19 02:49:49) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"select", "id"=>"1", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000288)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."artist_id" = '1') [0m
+  [4;36;1mArtist Load (0.000611)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/select
+  [4;35;1mUser Load (0.001206)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000631)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.11433 (8 reqs/sec) | Rendering: 0.05241 (45%) | DB: 0.00406 (3%) | 200 OK [http://localhost/albums/1/select]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 02:49:55) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"G"}}
+  [4;35;1mLabel Load (0.000728)[0m   [0mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%g%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03079 (32 reqs/sec) | Rendering: 0.00154 (4%) | DB: 0.00200 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 02:49:56) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Geffen"}}
+  [4;36;1mLabel Load (0.000665)[0m   [0;1mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%geffen%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03023 (33 reqs/sec) | Rendering: 0.00150 (4%) | DB: 0.00191 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2008-10-19 02:50:04) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "commit"=>"Add Album", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"albums", "album"=>{"name"=>"Blue Album", "release_date_string"=>"May 8, 1994"}, "label"=>{"name"=>"Geffen"}}
+  [4;35;1mAlbum Load (0.000294)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."name" = 'Blue Album') LIMIT 1[0m
+  [4;36;1mAlbum Create (0.000498)[0m   [0;1mINSERT INTO "albums" ("name", "artist_id", "updated_at", "label_id", "release_date", "created_at") VALUES('Blue Album', NULL, '2008-10-19 06:50:04', NULL, NULL, '2008-10-19 06:50:04')[0m
+  [4;35;1mArtist Load (0.000635)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."name" = 'Weezer') LIMIT 1[0m
+  [4;36;1mLabel Load (0.000311)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."name" = 'Geffen') LIMIT 1[0m
+  [4;35;1mLabel Create (0.000483)[0m   [0mINSERT INTO "labels" ("name", "updated_at", "created_at") VALUES('Geffen', '2008-10-19 06:50:04', '2008-10-19 06:50:04')[0m
+  [4;36;1mAlbum Update (0.000499)[0m   [0;1mUPDATE "albums" SET "release_date" = '1994-05-08 00:00:00', "label_id" = 1, "updated_at" = '2008-10-19 06:50:04', "artist_id" = 1 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/albums/1/review
+Completed in 0.34536 (2 reqs/sec) | DB: 0.00399 (1%) | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#review (for 127.0.0.1 at 2008-10-19 02:50:04) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"review", "id"=>"1", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000765)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/review
+  [4;36;1mArtist Load (0.000621)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mLabel Load (0.000589)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;36;1mUser Load (0.001238)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000643)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.18659 (5 reqs/sec) | Rendering: 0.12641 (67%) | DB: 0.00513 (2%) | 200 OK [http://localhost/albums/1/review]
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 02:50:19) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"9"}, "commit"=>"Submit", "review"=>{"body"=>"Classic."}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"1"}
+  [4;36;1mAlbum Load (0.000773)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+  [4;35;1mUser Load (0.001196)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRating Create (0.000533)[0m   [0;1mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(9, '2008-10-19 06:50:19', 1, 1, '2008-10-19 06:50:19')[0m
+  [4;35;1mReview Create (0.000424)[0m   [0mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 06:50:19', 'Classic.', 1, NULL, 1, '2008-10-19 06:50:19')[0m
+Redirected to http://localhost:3000/ratings/1
+Completed in 0.12302 (8 reqs/sec) | DB: 0.00427 (3%) | 302 Found [http://localhost/ratings]
+
+
+Processing RatingsController#show (for 127.0.0.1 at 2008-10-19 02:50:20) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"ratings"}
+  [4;36;1mRating Load (0.000731)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering ratings/show
+  [4;35;1mUser Load (0.001227)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000651)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07357 (13 reqs/sec) | Rendering: 0.03969 (53%) | DB: 0.10196 (138%) | 200 OK [http://localhost/ratings/1]
+
+
+Processing ReviewsController#index (for 127.0.0.1 at 2008-10-19 02:50:27) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"index", "controller"=>"reviews"}
+  [4;35;1mReview Load (0.000812)[0m   [0mSELECT * FROM "reviews" [0m
+Rendering template within layouts/application
+Rendering reviews/index
+  [4;36;1mUser Load (0.001209)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000627)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07651 (13 reqs/sec) | Rendering: 0.04634 (60%) | DB: 0.00402 (5%) | 200 OK [http://localhost/reviews]
+
+
+Processing RatingsController#index (for 127.0.0.1 at 2008-10-19 02:50:34) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"index", "controller"=>"ratings"}
+  [4;36;1mRating Load (0.000759)[0m   [0;1mSELECT * FROM "ratings" [0m
+Rendering template within layouts/application
+Rendering ratings/index
+  [4;35;1mUser Load (0.001220)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000625)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07508 (13 reqs/sec) | Rendering: 0.04490 (59%) | DB: 0.00390 (5%) | 200 OK [http://localhost/ratings]
+
+
+Processing ArtistsController#new (for 127.0.0.1 at 2008-10-19 02:51:09) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"new", "controller"=>"artists"}
+Rendering template within layouts/application
+Rendering artists/new
+  [4;35;1mUser Load (0.001219)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000633)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07412 (13 reqs/sec) | Rendering: 0.04046 (54%) | DB: 0.00317 (4%) | 200 OK [http://localhost/artists/new]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 02:51:48) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;35;1mArtist Load (0.001117)[0m   [0mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%weezer%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03195 (31 reqs/sec) | Rendering: 0.00418 (13%) | DB: 0.00237 (7%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing ArtistsController#create (for 127.0.0.1 at 2008-10-19 02:51:51) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "commit"=>"To Albums", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.000637)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."name" = 'Weezer') LIMIT 1[0m
+Redirected to http://localhost:3000/albums/1/select
+Completed in 0.03622 (27 reqs/sec) | DB: 0.00209 (5%) | 302 Found [http://localhost/artists]
+
+
+Processing AlbumsController#select (for 127.0.0.1 at 2008-10-19 02:51:51) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"select", "id"=>"1", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000788)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."artist_id" = '1') [0m
+  [4;36;1mArtist Load (0.000771)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/select
+  [4;35;1mUser Load (0.001197)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000625)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.10868 (9 reqs/sec) | Rendering: 0.04648 (42%) | DB: 0.00463 (4%) | 200 OK [http://localhost/albums/1/select]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 02:51:57) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Geffe"}}
+  [4;35;1mLabel Load (0.001099)[0m   [0mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%geffe%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03345 (29 reqs/sec) | Rendering: 0.00416 (12%) | DB: 0.00243 (7%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 02:52:01) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"g"}}
+  [4;36;1mLabel Load (0.001031)[0m   [0;1mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%g%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03348 (29 reqs/sec) | Rendering: 0.00415 (12%) | DB: 0.00229 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2008-10-19 02:52:11) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Weezer"}, "commit"=>"Add Album", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"albums", "album"=>{"name"=>"Pinkerton", "release_date_string"=>"June 25, 1997"}, "label"=>{"name"=>"Geffen"}}
+  [4;35;1mAlbum Load (0.000291)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."name" = 'Pinkerton') LIMIT 1[0m
+  [4;36;1mAlbum Create (0.000500)[0m   [0;1mINSERT INTO "albums" ("name", "artist_id", "updated_at", "label_id", "release_date", "created_at") VALUES('Pinkerton', NULL, '2008-10-19 06:52:11', NULL, NULL, '2008-10-19 06:52:11')[0m
+  [4;35;1mArtist Load (0.000641)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."name" = 'Weezer') LIMIT 1[0m
+  [4;36;1mLabel Load (0.000590)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."name" = 'Geffen') LIMIT 1[0m
+  [4;35;1mAlbum Update (0.000461)[0m   [0mUPDATE "albums" SET "release_date" = '1997-06-25 00:00:00', "label_id" = 1, "updated_at" = '2008-10-19 06:52:11', "artist_id" = 1 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/albums/2/review
+Completed in 0.10182 (9 reqs/sec) | DB: 0.00372 (3%) | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#review (for 127.0.0.1 at 2008-10-19 02:52:12) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"review", "id"=>"2", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000790)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering albums/review
+  [4;35;1mArtist Load (0.000605)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mLabel Load (0.000600)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;35;1mUser Load (0.001188)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000628)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.17632 (5 reqs/sec) | Rendering: 0.11669 (66%) | DB: 0.00510 (2%) | 200 OK [http://localhost/albums/2/review]
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 02:52:20) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"10"}, "commit"=>"Submit", "review"=>{"body"=>"Flawless."}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"2"}
+  [4;35;1mAlbum Load (0.000863)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 2) [0m
+  [4;36;1mUser Load (0.001223)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000497)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(10, '2008-10-19 06:52:20', 2, 1, '2008-10-19 06:52:20')[0m
+  [4;36;1mReview Create (0.000406)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 06:52:20', 'Flawless.', 2, NULL, 1, '2008-10-19 06:52:20')[0m
+Redirected to http://localhost:3000/ratings/2
+Completed in 0.12639 (7 reqs/sec) | DB: 0.00425 (3%) | 302 Found [http://localhost/ratings]
+
+
+Processing RatingsController#show (for 127.0.0.1 at 2008-10-19 02:52:20) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"ratings"}
+  [4;35;1mRating Load (0.000720)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering ratings/show
+  [4;36;1mUser Load (0.001235)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000625)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07078 (14 reqs/sec) | Rendering: 0.03739 (52%) | DB: 0.00384 (5%) | 200 OK [http://localhost/ratings/2]
+
+
+Processing ArtistsController#new (for 127.0.0.1 at 2008-10-19 02:54:38) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"new", "controller"=>"artists"}
+Rendering template within layouts/application
+Rendering artists/new
+  [4;36;1mUser Load (0.001226)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000631)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07485 (13 reqs/sec) | Rendering: 0.04181 (55%) | DB: 0.00314 (4%) | 200 OK [http://localhost/artists/new]
+
+
+Processing ArtistsController#create (for 127.0.0.1 at 2008-10-19 02:56:46) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"The Beach Boys"}, "commit"=>"To Albums", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.000282)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."name" = 'The Beach Boys') LIMIT 1[0m
+  [4;35;1mArtist Create (0.000487)[0m   [0mINSERT INTO "artists" ("name", "updated_at", "created_at") VALUES('The Beach Boys', '2008-10-19 06:56:46', '2008-10-19 06:56:46')[0m
+Redirected to http://localhost:3000/albums/2/select
+Completed in 0.04247 (23 reqs/sec) | DB: 0.00204 (4%) | 302 Found [http://localhost/artists]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 02:56:46) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"The Beach Boys"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.001100)[0m   [0;1mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%the beach boys%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03257 (30 reqs/sec) | Rendering: 0.00419 (12%) | DB: 0.00239 (7%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing AlbumsController#select (for 127.0.0.1 at 2008-10-19 02:56:47) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"select", "id"=>"2", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000304)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."artist_id" = '2') [0m
+  [4;36;1mArtist Load (0.000597)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering albums/select
+  [4;35;1mUser Load (0.001207)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000626)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.10802 (9 reqs/sec) | Rendering: 0.04625 (42%) | DB: 0.00398 (3%) | 200 OK [http://localhost/albums/2/select]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 02:56:55) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Capitol"}}
+  [4;35;1mLabel Load (0.000718)[0m   [0mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%capitol%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03012 (33 reqs/sec) | Rendering: 0.00150 (4%) | DB: 0.00197 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2008-10-19 02:57:04) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"The Beach Boys"}, "commit"=>"Add Album", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"albums", "album"=>{"name"=>"Pet Sounds", "release_date_string"=>"May 8, 1960"}, "label"=>{"name"=>"Capitol"}}
+  [4;36;1mAlbum Load (0.000286)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."name" = 'Pet Sounds') LIMIT 1[0m
+  [4;35;1mAlbum Create (0.000481)[0m   [0mINSERT INTO "albums" ("name", "artist_id", "updated_at", "label_id", "release_date", "created_at") VALUES('Pet Sounds', NULL, '2008-10-19 06:57:04', NULL, NULL, '2008-10-19 06:57:04')[0m
+  [4;36;1mArtist Load (0.000662)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."name" = 'The Beach Boys') LIMIT 1[0m
+  [4;35;1mLabel Load (0.000262)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."name" = 'Capitol') LIMIT 1[0m
+  [4;36;1mLabel Create (0.000496)[0m   [0;1mINSERT INTO "labels" ("name", "updated_at", "created_at") VALUES('Capitol', '2008-10-19 06:57:04', '2008-10-19 06:57:04')[0m
+  [4;35;1mAlbum Update (0.000403)[0m   [0mUPDATE "albums" SET "release_date" = '1960-05-08 00:00:00', "label_id" = 2, "updated_at" = '2008-10-19 06:57:04', "artist_id" = 2 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/albums/3/review
+Completed in 0.10979 (9 reqs/sec) | DB: 0.00385 (3%) | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#review (for 127.0.0.1 at 2008-10-19 02:57:05) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"review", "id"=>"3", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000789)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering albums/review
+  [4;35;1mArtist Load (0.000610)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 2) [0m
+  [4;36;1mLabel Load (0.000602)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 2) [0m
+  [4;35;1mUser Load (0.001195)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000642)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.17816 (5 reqs/sec) | Rendering: 0.11774 (66%) | DB: 0.00513 (2%) | 200 OK [http://localhost/albums/3/review]
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 02:57:27) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"8"}, "commit"=>"Submit", "review"=>{"body"=>"Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"3"}
+  [4;35;1mAlbum Load (0.000780)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 3) [0m
+  [4;36;1mUser Load (0.001211)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000787)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(8, '2008-10-19 06:57:27', 3, 1, '2008-10-19 06:57:27')[0m
+  [4;36;1mReview Create (0.000439)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 06:57:27', 'Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. ', 3, NULL, 1, '2008-10-19 06:57:27')[0m
+
+
+NoMethodError (undefined method `show_album_path' for #<RatingsController:0x251c988>):
+    /app/controllers/ratings_controller.rb:58:in `create'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/ratings_controller.rb:54:in `create'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 02:58:06) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"8"}, "commit"=>"Submit", "review"=>{"body"=>"Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  Son of a beach.  "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"3"}
+  [4;35;1mAlbum Load (0.000793)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 3) [0m
+  [4;36;1mUser Load (0.001227)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000541)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(8, '2008-10-19 06:58:06', 3, 1, '2008-10-19 06:58:06')[0m
+  [4;36;1mReview Create (0.000408)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 06:58:06', 'Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. Son of a beach. ', 3, NULL, 1, '2008-10-19 06:58:06')[0m
+
+
+NameError (undefined local variable or method `show_album_path' for #<RatingsController:0x1fe7d00>):
+    /app/controllers/ratings_controller.rb:58:in `create'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/ratings_controller.rb:54:in `create'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2008-10-19 03:00:03) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"index", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001488)[0m   [0mSELECT * FROM "albums" [0m
+Rendering template within layouts/application
+Rendering albums/index
+  [4;36;1mArtist Load (0.000617)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mLabel Load (0.000628)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;36;1mArtist Load (0.000609)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 2) [0m
+  [4;35;1mLabel Load (0.000557)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 2) [0m
+  [4;36;1mUser Load (0.001310)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000640)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.23569 (4 reqs/sec) | Rendering: 0.19549 (82%) | DB: 0.00713 (3%) | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2008-10-19 03:00:06) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000779)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/show
+  [4;35;1mArtist Load (0.000595)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mLabel Load (0.000590)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;35;1mRating Load (0.000782)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".album_id = 1) [0m
+  [4;36;1mUser Load (0.001230)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000638)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.15471 (6 reqs/sec) | Rendering: 0.11159 (72%) | DB: 0.00586 (3%) | 200 OK [http://localhost/albums/1]
+
+
+Processing ArtistsController#new (for 127.0.0.1 at 2008-10-19 03:00:30) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"new", "controller"=>"artists"}
+Rendering template within layouts/application
+Rendering artists/new
+  [4;36;1mUser Load (0.001216)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000622)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07320 (13 reqs/sec) | Rendering: 0.04001 (54%) | DB: 0.00310 (4%) | 200 OK [http://localhost/artists/new]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 03:01:38) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Bob Dylan"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.000783)[0m   [0;1mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%bob dylan%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02907 (34 reqs/sec) | Rendering: 0.00156 (5%) | DB: 0.00203 (6%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing ArtistsController#create (for 127.0.0.1 at 2008-10-19 03:01:39) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Bob Dylan"}, "commit"=>"To Albums", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"artists"}
+  [4;35;1mArtist Load (0.000277)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."name" = 'Bob Dylan') LIMIT 1[0m
+  [4;36;1mArtist Create (0.000480)[0m   [0;1mINSERT INTO "artists" ("name", "updated_at", "created_at") VALUES('Bob Dylan', '2008-10-19 07:01:39', '2008-10-19 07:01:39')[0m
+Redirected to http://localhost:3000/albums/3/select
+Completed in 0.04223 (23 reqs/sec) | DB: 0.00201 (4%) | 302 Found [http://localhost/artists]
+
+
+Processing AlbumsController#select (for 127.0.0.1 at 2008-10-19 03:01:40) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"select", "id"=>"3", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000303)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."artist_id" = '3') [0m
+  [4;36;1mArtist Load (0.000588)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering albums/select
+  [4;35;1mUser Load (0.001203)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000621)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.10738 (9 reqs/sec) | Rendering: 0.04651 (43%) | DB: 0.00398 (3%) | 200 OK [http://localhost/albums/3/select]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 03:01:48) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Columbia"}}
+  [4;35;1mLabel Load (0.000730)[0m   [0mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%columbia%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03106 (32 reqs/sec) | Rendering: 0.00154 (4%) | DB: 0.00197 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2008-10-19 03:01:55) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"artist"=>{"name"=>"Bob Dylan"}, "commit"=>"Add Album", "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"albums", "album"=>{"name"=>"New Morning", "release_date_string"=>"May 20, 1977"}, "label"=>{"name"=>"Columbia"}}
+  [4;36;1mAlbum Load (0.000326)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."name" = 'New Morning') LIMIT 1[0m
+  [4;35;1mAlbum Create (0.000485)[0m   [0mINSERT INTO "albums" ("name", "artist_id", "updated_at", "label_id", "release_date", "created_at") VALUES('New Morning', NULL, '2008-10-19 07:01:55', NULL, NULL, '2008-10-19 07:01:55')[0m
+  [4;36;1mArtist Load (0.000636)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."name" = 'Bob Dylan') LIMIT 1[0m
+  [4;35;1mLabel Load (0.000277)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."name" = 'Columbia') LIMIT 1[0m
+  [4;36;1mLabel Create (0.000551)[0m   [0;1mINSERT INTO "labels" ("name", "updated_at", "created_at") VALUES('Columbia', '2008-10-19 07:01:55', '2008-10-19 07:01:55')[0m
+  [4;35;1mAlbum Update (0.000416)[0m   [0mUPDATE "albums" SET "release_date" = '1977-05-20 00:00:00', "label_id" = 3, "updated_at" = '2008-10-19 07:01:55', "artist_id" = 3 WHERE "id" = 4[0m
+Redirected to http://localhost:3000/albums/4/review
+Completed in 0.21234 (4 reqs/sec) | DB: 0.00401 (1%) | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#review (for 127.0.0.1 at 2008-10-19 03:01:56) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"review", "id"=>"4", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000805)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering albums/review
+  [4;35;1mArtist Load (0.000611)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 3) [0m
+  [4;36;1mLabel Load (0.000603)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 3) [0m
+  [4;35;1mUser Load (0.001200)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000623)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.17645 (5 reqs/sec) | Rendering: 0.11795 (66%) | DB: 0.00512 (2%) | 200 OK [http://localhost/albums/4/review]
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 03:02:09) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"6"}, "commit"=>"Submit", "review"=>{"body"=>"Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"4"}
+  [4;35;1mAlbum Load (0.000769)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+  [4;36;1mUser Load (0.001221)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000504)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(6, '2008-10-19 07:02:09', 4, 1, '2008-10-19 07:02:09')[0m
+  [4;36;1mReview Create (0.000452)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 07:02:09', 'Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... ', 4, NULL, 1, '2008-10-19 07:02:09')[0m
+
+
+NoMethodError (undefined method `album' for #<RatingsController:0x2470ca0>):
+    /app/controllers/ratings_controller.rb:58:in `create'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/ratings_controller.rb:54:in `create'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 03:02:24) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"6"}, "commit"=>"Submit", "review"=>{"body"=>"Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"4"}
+  [4;35;1mAlbum Load (0.000793)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+  [4;36;1mUser Load (0.001219)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000753)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(6, '2008-10-19 07:02:24', 4, 1, '2008-10-19 07:02:24')[0m
+  [4;36;1mReview Create (0.000433)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 07:02:24', 'Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... ', 4, NULL, 1, '2008-10-19 07:02:24')[0m
+
+
+NoMethodError (undefined method `show_album_path' for #<RatingsController:0x25428e0>):
+    /app/controllers/ratings_controller.rb:58:in `create'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/ratings_controller.rb:54:in `create'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 03:02:37) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"6"}, "commit"=>"Submit", "review"=>{"body"=>"Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"4"}
+  [4;35;1mAlbum Load (0.000833)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+  [4;36;1mUser Load (0.001260)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000523)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(6, '2008-10-19 07:02:37', 4, 1, '2008-10-19 07:02:37')[0m
+  [4;36;1mReview Create (0.000417)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 07:02:37', 'Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... ', 4, NULL, 1, '2008-10-19 07:02:37')[0m
+
+
+NameError (undefined local variable or method `show_album_path' for #<RatingsController:0x1ff18a0>):
+    /app/controllers/ratings_controller.rb:58:in `create'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/ratings_controller.rb:54:in `create'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 03:03:52) [POST]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"rating"=>{"score"=>"6"}, "commit"=>"Submit", "review"=>{"body"=>"Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... "}, "action"=>"create", "authenticity_token"=>"e39f83217e0d25105aa3986faf0cc3db8807e6fd", "controller"=>"ratings", "album"=>"4"}
+  [4;36;1mAlbum Load (0.000820)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+  [4;35;1mUser Load (0.001291)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRating Create (0.183298)[0m   [0;1mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(6, '2008-10-19 07:03:52', 4, 1, '2008-10-19 07:03:52')[0m
+  [4;35;1mReview Create (0.096796)[0m   [0mINSERT INTO "reviews" ("updated_at", "body", "album_id", "rating_id", "user_id", "created_at") VALUES('2008-10-19 07:03:52', 'Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... Meh... meh... ', 4, NULL, 1, '2008-10-19 07:03:52')[0m
+Redirected to http://localhost:3000/albums/4/show
+Completed in 0.53042 (1 reqs/sec) | DB: 0.28292 (53%) | 302 Found [http://localhost/ratings]
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2008-10-19 03:03:53) [GET]
+  Session ID: 94e4ba0b6409afb2099b1ebde3ddd101
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000808)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering albums/show
+  [4;35;1mArtist Load (0.000618)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 3) [0m
+  [4;36;1mLabel Load (0.000646)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 3) [0m
+  [4;35;1mRating Load (0.001735)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".album_id = 4) [0m
+  [4;36;1mUser Load (0.001257)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000680)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.45367 (2 reqs/sec) | Rendering: 0.40759 (89%) | DB: 0.00704 (1%) | 200 OK [http://localhost/albums/4/show]
