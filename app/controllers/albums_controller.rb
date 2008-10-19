@@ -55,6 +55,11 @@ class AlbumsController < ApplicationController
     #redirect to album show with review highlighted?
   end
   
+  def genre
+    @albums = Album.find_tagged_with(params[:genre])
+    @genre = params[:genre]
+  end
+  
   def select
     @albums = Album.find_all_by_artist_id(params[:id])
     @artist = Artist.find(params[:id])
