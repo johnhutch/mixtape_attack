@@ -1,4 +1,4 @@
-log/*
+log/
 tmp/
 db/development.sqlite3
 arts/

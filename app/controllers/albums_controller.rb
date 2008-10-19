@@ -12,6 +12,18 @@ class AlbumsController < ApplicationController
       format.xml  { render :xml => @albums }
     end
   end
+  
+  def calendar
+      @albums = Album.find(:all, 
+                            :conditions => ['release_date > ?', Date.today], 
+                            :order => "release_date ASC")
+      @albums = @albums.paginate :per_page => 25, :page => params[:page]
+      
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @albums }
+      end
+  end
 
   # GET /albums/1
   # GET /albums/1.xml

@@ -20,6 +20,22 @@
 	</div>
 </div>
 
-<div id="album_review">
+<div id="album_review" class="column span-16 colborder">
 	<div class="body"><%= textilize(@review.body) %></div>
+</div>
+
+<div id="related" class="column span-7 last">
+	<h3>Other albums by <%= @review.album.artist.name %></h3>
+	<ul>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+	</ul>
+	
+	<h3>Other reviews by <%= @review.user.name %></h3>
+	<ul>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+	</ul>
 </div>

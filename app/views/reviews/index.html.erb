@@ -1,6 +1,6 @@
 <%= title "Browse Reviews", :h2 %>
 
-<%= will_paginate @reviews %>
+<p><%= will_paginate @reviews %></p>
 
 <% for review in @reviews %>
 	<div class="front_review">
@@ -19,6 +19,4 @@
 
 <% end %>
 
-<%= will_paginate @reviews %>
-
-<%= link_to 'New review', new_review_path %>
+<p><%= will_paginate @reviews %></p>

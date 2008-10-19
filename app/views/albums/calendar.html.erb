@@ -1,0 +1,16 @@
+<h3>Upcoming Record Releases</h3>
+
+<p><%= will_paginate @reviews %></p>
+<dl id="front_calendar">
+	<% @release_days = @albums.group_by { |a| a.release_date.beginning_of_day } unless @albums.nil? %>
+	<% unless @release_days.nil? %>
+		<% @release_days.keys.sort.each do |day| %>
+			<dt><%= day.strftime('%B %e')%></dt>
+			<% for album in @release_days[day] %>
+				<dd><%= link_to artist_album(album), album_path(album) %> on <%= link_to album.label.name, label_path(album.label) unless album.label.nil? %></dd>
+			<% end %>
+		<% end %>
+	<% end %>
+	
+	<p><%= will_paginate @reviews %></p>
+</dl>

@@ -2,8 +2,8 @@ class Album < ActiveRecord::Base
   acts_as_taggable
   
   has_attached_file :art,
-              :styles => { :frontlist => "90x90>",
-                           :show => "300x300>" }
+              :styles => { :frontlist => "90x90<",
+                           :show => "190x190<" }
                            
   validates_presence_of :artist_id, :name
                            

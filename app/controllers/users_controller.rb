@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   require_role "admin", :only => :admin
   before_filter :login_required, :only => [:edit, :update]
   
+  def index
+  end 
+  
   def show 
     @user = User.find(params[:id])
     

@@ -4,8 +4,9 @@ label { clear: left; display: block; margin-top: 2em;}
 
 /************* HEADER ***********************/
 
-#header { padding-bottom: 2emcapt ;}
-
+#header { padding-bottom: 2em;}
+#header h1 {display: none;}
+#header a { border-bottom-width: 0;}
 /************* UTILITY NAVS *****************/
 
 #utility_bottom { float: left;}
@@ -35,10 +36,20 @@ label { clear: left; display: block; margin-top: 2em;}
 
 /************* NAV ********************/
 
-#nav { text-align: right; padding-top: 1em;}
-#nav ul {list-style-type: none; margin: 0;}
-#nav ul li {display:inline;}
-#nav ul li a {font-size: 1.4em; border-bottom-width: 0; padding-left: 2em;}
+#nav { text-align: right; padding-top: 19px; }
+#nav ul {list-style-type: none; margin: 0; width: 300px; float: right; margin-right: 3em;}
+#nav ul li { text-align: right; margin-top: .5em;}
+#nav ul li a {
+	display: block;
+	font-size: 1.8em; 
+	border-bottom-width: 0; 
+	font-weight: bold;
+	text-transform: uppercase; 
+	color: #333;
+	 width: 300px; 
+	padding-right: 1em;
+}
+#nav ul li a:hover { background-color: #333; color: white; }
 
 /************* CONTENT ****************/
 
@@ -70,6 +81,7 @@ dl#front_calendar .artist {font-weight: bold;}
 
 /************ ALBUMS AND REVIEWS GLOBAL*********/
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
+#related {margin-top: 2em;}
 /************ ALBUM SHOW PAGE *********/
 
 #album_reviews {clear: both; margin-top: 2em;}

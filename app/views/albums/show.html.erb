@@ -20,13 +20,23 @@
 	</div>
 </div>
 
-<div id="album_reviews">
+<div id="album_reviews" class="column span-16 colborder">
 	<% @album.reviews.each_with_index do |review, i| %>
-		<div class="album_review column span-8 <%= i%3 == 0 ? "" : "last" %>">
+		<div class="album_review column span-8 <%= i%2 == 0 ? "" : "last" %>">
 			<div class="rating"><%= review.score %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
 			<div class="body"><%= review.truncated_body %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>
+</div>
+
+<div id="related" class="column span-7 last">
+	<h3>Other albums by <%= @album.artist.name %></h3>
+	<ul>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+		<li><a href="">Blah</a></li>
+	</ul>
+	
 </div>
