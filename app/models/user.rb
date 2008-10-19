@@ -31,6 +31,17 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
 
+
+  def unreviewed(album)
+    @review = Review.find(:first, :conditions => ['user_id = ? and album_id = ?', self.id, album.id])
+    @review.nil?
+  end
+  
+  def unrated(album)
+    @rating = Rating.find(:first, :conditions => ['user_id = ? and album_id = ?', self.id, album.id])
+    @rating.nil?
+  end
+  
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_in_state :first, :active, :conditions => { :login => login } # need to get the salt

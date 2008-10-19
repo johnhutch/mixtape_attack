@@ -3,10 +3,14 @@
 <% form_for @rating do |f| %>
 	<%= f.error_messages %>
 
-	<label>On a scale of 1-10, how would you rate this album?</label>
-	<%= f.select :score, 1..10 %>
-
-	<% if current_user.has_role?('editor') %>
+	<% if current_user.unrated(@album) %>
+		<label>On a scale of 1-10, how would you rate this album?</label>
+		<%= f.select :score, 1..10 %>
+	<% else %>
+		<p>You already rated this album.</p>
+	<% end %>
+	
+	<% if current_user.has_role?('editor') && current_user.unreviewed(@album) %>
 		<label>What genre or genres would you say <%= @album.name %> falls under? <br />
 			<small>Please use commas to separate genres (e.g., metal, death metal, noise)</small></label>
 		<%= text_field_tag :tag_list %>
@@ -16,9 +20,14 @@
 			<label>Your review of <%= @album.name %>:</label>
 			<%= r.text_area :body %>
 		<% end %>
+	<% else %>
+		<p>You already reviewed this album! <%= link_to "View it here.", album_path(@album) %></p>
 	<% end %>
 	
 	<%= hidden_field_tag :album, @album.id %>
 	
-	<p><%= f.submit "Submit" %></p>
+	
+	<% if current_user.unrated(@album) || current_user.unreviewed(@album) %>
+		<p><%= f.submit "Submit" %></p>
+	<% end %>
 <% end %>
