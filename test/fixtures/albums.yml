@@ -1,13 +1,49 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  artist_id: 1
-  label_id: 1
-  name: MyString
-  release_date: 2008-10-18 14:07:28
+blue_album:
+  artist: weezer
+  label: geffen
+  name: Blue Album
+  release_date: 1995-2-18 14:07:28
 
-two:
-  artist_id: 1
-  label_id: 1
-  name: MyString
-  release_date: 2008-10-18 14:07:28
+pinkerton:
+  artist: weezer
+  label: geffen
+  name: Pinkerton
+  release_date: 1998-10-18 14:07:28
+
+green_album:
+  artist: weezer
+  label: geffen
+  name: Green Album
+  release_date: 2000-3-10 14:07:28
+
+feels:
+  artist: animal_collective
+  label: fat_cat
+  name: Feels
+  release_date: 20001-5-7 14:07:28
+  
+merriweather_post_pavilion:
+  artist: animal_collective
+  label: domino
+  name: Merriweather Post Pavilion
+  release_date: 2009-1-21 14:07:28
+  
+freewheelin:
+  artist: bob_dylan
+  label: columbia
+  name: Freewheelin
+  release_date: 1963-2-18 14:07:28
+  
+mirrored:
+  artist: battles
+  label: warp
+  name: Mirrored
+  release_date: 2006-11-13 14:07:28
+  
+gulag_orkestra:
+  artist: beirut
+  label: ba_da_bing
+  name: Gulag Orkestra
+  release_date: 2002-4-27 14:07:28

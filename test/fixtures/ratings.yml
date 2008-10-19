@@ -1,11 +1,101 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  user_id: 1
-  album_id: 1
-  score: 1
+  user: admin
+  album: blue_album
+  score: 7
 
 two:
-  user_id: 1
-  album_id: 1
-  score: 1
+  user: hutch
+  album: blue_album
+  score: 8
+
+three:
+  user: paris
+  album: blue_album
+  score: 6
+
+four:
+  user: hutch
+  album: pinkerton
+  score: 9
+
+five:
+  user: test
+  album: pinkerton
+  score: 5
+
+five_a:
+  user: test2
+  album: pinkerton
+  score: 8
+
+six:
+  user: paris
+  album: green_album
+  score: 3
+
+seven:
+  user: test
+  album: green_album
+  score: 8
+
+eight:
+  user: admin
+  album: feels
+  score: 6
+
+nine:
+  user: hutch
+  album: feels
+  score: 9
+
+ten:
+  user: paris
+  album: feels
+  score: 8
+
+eleven:
+  user: paris
+  album: freewheelin
+  score: 7
+
+twelve:
+  user: test
+  album: freewheelin
+  score: 4
+  
+twelve_a:
+  user: test2
+  album: freewheelin
+  score: 5
+
+thirteen:
+  user: admin
+  album: freewheelin
+  score: 5
+
+fourteen:
+  user: hutch
+  album: mirrored
+  score: 6
+
+fifteen:
+  user: paris
+  album: mirrored
+  score: 7
+
+sixteen:
+  user: test2
+  album: mirrored
+  score: 2
+
+seventeen:
+  user: admin
+  album: gulag_orkestra
+  score: 3
+
+eighteen:
+  user: hutch
+  album: gulag_orkestra
+  score: 6
