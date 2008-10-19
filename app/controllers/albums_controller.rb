@@ -1,4 +1,7 @@
 class AlbumsController < ApplicationController
+  protect_from_forgery :except => [:auto_complete_for_label_name]
+  auto_complete_for :label, :name
+  
   # GET /albums
   # GET /albums.xml
   def index
@@ -37,24 +40,45 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def review
+    @album = Album.find(params[:id])
+    @label = @album.label
+    @artist = @album.artist
+    #in the view, display rating select and, if current_user.has_role?('editor') display review form
+    # give user option to do one, both, or neither
+    # form submits to create_review_album_path
+  end
+  
+  def create_review
+    #lookg up album from params
+    #create rating from params and assign to album
+    #create review from params and assign to album
+    #redirect to album show with review highlighted?
+  end
+  
+  def select
+    @albums = Album.find_all_by_artist_id(params[:id])
+    @artist = Artist.find(params[:id])
+    @album = Album.new
+    
+    respond_to do |format|
+      format.html # select.html.erb
+      format.xml  { render :xml => @albums }
+    end
+  end
+
   # POST /albums
   # POST /albums.xml
   def create
-    @album = Album.new(params[:album])
-    # Messy code to clean up with virtual attributes
-    @rating = Rating.new()
-    @rating.score = params[:score]
-    @album.ratings<< @rating
-    @review = Review.new()
-    @review.body = params[:body]
-    @album.reviews<< @review
-    @album.artist = Artist.find_or_create_by_name(params[:album][:artist_id])
-    @album.label = Label.find_or_create_by_name(params[:album][:label_id])
+    @album = Album.find_or_create_by_name(params[:album][:name].titleize)
+    @album.artist = Artist.find_or_create_by_name(params[:artist][:name].titleize)
+    @album.label = Label.find_or_create_by_name(params[:label][:name].titleize)
+    @album.release_date = params[:album][:release_date_string]
 
     respond_to do |format|
       if @album.save
-        flash[:notice] = 'Album was successfully created.'
-        format.html { redirect_to(@album) }
+        # flash[:notice] = 'Album was successfully created.'
+        format.html { redirect_to review_album_path(@album) }
         format.xml  { render :xml => @album, :status => :created, :location => @album }
       else
         format.html { render :action => "new" }
@@ -70,7 +94,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        flash[:notice] = 'Album was successfully updated.'
+        # flash[:notice] = 'Album was successfully updated.'
         format.html { redirect_to(@album) }
         format.xml  { head :ok }
       else

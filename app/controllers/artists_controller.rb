@@ -1,4 +1,7 @@
 class ArtistsController < ApplicationController
+  protect_from_forgery :except => [:auto_complete_for_artist_name]
+  auto_complete_for :artist, :name
+  
   # GET /artists
   # GET /artists.xml
   def index
@@ -40,12 +43,12 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.xml
   def create
-    @artist = Artist.new(params[:artist])
+    @artist = Artist.find_or_create_by_name(params[:artist][:name].titleize)
 
     respond_to do |format|
       if @artist.save
-        flash[:notice] = 'Artist was successfully created.'
-        format.html { redirect_to(@artist) }
+        # flash[:notice] = 'Artist was successfully created.'
+        format.html { redirect_to select_album_path(@artist) }
         format.xml  { render :xml => @artist, :status => :created, :location => @artist }
       else
         format.html { render :action => "new" }
@@ -61,7 +64,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.update_attributes(params[:artist])
-        flash[:notice] = 'Artist was successfully updated.'
+        # flash[:notice] = 'Artist was successfully updated.'
         format.html { redirect_to(@artist) }
         format.xml  { head :ok }
       else
