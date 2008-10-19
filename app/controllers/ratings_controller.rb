@@ -40,10 +40,20 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.xml
   def create
+    @album = Album.find(params[:album])
     @rating = Rating.new(params[:rating])
+    @rating.user = current_user
+    @rating.album = @album
+    
+    if params[:review]
+      @review = Review.new(params[:review])
+      @review.user = current_user
+      @review.album = @album
+    end
 
     respond_to do |format|
       if @rating.save
+        @review.save
         flash[:notice] = 'Rating was successfully created.'
         format.html { redirect_to(@rating) }
         format.xml  { render :xml => @rating, :status => :created, :location => @rating }

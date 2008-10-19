@@ -1,14 +1,27 @@
 <%= title "Rate/Review", :h2 %>
 
-<p>
-	<%= @artist.name %>
-</p>
-<p>
-	<%= @album.name %>
-</p>
-<p>
-	<%= @label.name %>
-</p>
-<p>
-	<%= @album.release_date %>
-</p>
+<div id="review_form_info">
+	<div class="artist"><%= @album.artist.name %></div>
+	<div class="album"><%= @album.name %></div>
+	<div class="label"><%= @album.label.name %></div>
+	<div class="release"><%= @album.release_date %></div>
+</div>
+
+<% form_for @rating do |f| %>
+	<%= f.error_messages %>
+
+	<label>Rating:</label>
+	<%= f.select :score, 1..10 %>
+
+	<% if current_user.has_role?('editor') %>
+		<% fields_for Review.new do |r| %>
+			<%= r.error_messages %>
+			<label>Review:</label>
+			<%= r.text_area :body %>
+		<% end %>
+	<% end %>
+	
+	<%= hidden_field_tag :album, @album.id %>
+	
+	<p><%= f.submit "Submit" %></p>
+<% end %>
