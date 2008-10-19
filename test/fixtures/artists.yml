@@ -1,7 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+weezer:
+  name: Weezer
 
-two:
-  name: MyString
+beirut:
+  name: Beirut
+
+animal_collective:
+  name: Animal Collective
+  
+bob_dylan:
+  name: Bob Dylan
+
+battles:
+  name: Battles

@@ -1,7 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+geffen:
+  name: Geffen
 
-two:
-  name: MyString
+columbia:
+  name: Columbia
+
+fat_cat:
+  name: Fat Cat
+
+warp:
+  name: Warp
+
+domino:
+  name: Domino
+  
+ba_da_bing:
+  name: Ba Da Bing!

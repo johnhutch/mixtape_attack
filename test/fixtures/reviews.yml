@@ -2,12 +2,25 @@
 
 one:
   album_id: 1
-  rating_id: 1
-  user_id: 1
-  body: MyText
+  user_id: 2
+  body: This album is so so so so so so so.
 
 two:
   album_id: 1
-  rating_id: 1
+  user_id: 3
+  body: Pinkerton is so so so so so much better.
+
+three:
+  album_id: 7
   user_id: 1
-  body: MyText
+  body: I can't stop moving while listening to this.
+
+four:
+  album_id: 8
+  user_id: 3
+  body: Horns everywhere!  So good.
+
+five:
+  album_id: 4
+  user_id: 2
+  body: I wish I made music like this.

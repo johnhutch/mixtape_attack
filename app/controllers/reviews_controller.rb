@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.xml
   def index
-    @reviews = Review.find(:all)
+    @reviews = Review.paginate :per_page => 5, :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

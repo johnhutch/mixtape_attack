@@ -1,26 +1,24 @@
-<h1>Listing reviews</h1>
+<%= title "Browse Reviews", :h2 %>
 
-<table>
-  <tr>
-    <th>Album</th>
-    <th>Rating</th>
-    <th>User</th>
-    <th>Body</th>
-  </tr>
+<%= will_paginate @reviews %>
 
 <% for review in @reviews %>
-  <tr>
-    <td><%=h review.album_id %></td>
-    <td><%=h review.rating_id %></td>
-    <td><%=h review.user_id %></td>
-    <td><%=h review.body %></td>
-    <td><%= link_to 'Show', review %></td>
-    <td><%= link_to 'Edit', edit_review_path(review) %></td>
-    <td><%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<div class="front_review">
+		<div class="rating"><%= review.score %></div>
+		<div class="albumartist"><%= link_to artist_album(review.album), review_path(review) %></div>
+		<div class="genres">Genres: 
+			<% for tag in review.album.tags %>
+				<%= link_to tag, genre_album_path(tag.name) %>
+			<% end %>
+		</div>
+		<div class="byline">Reviewed by <%= review.user.name %></div>
+		<div class="body"><%= review.truncated_body %></div>
+		<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+	<!--<%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %>-->
+	</div>
 
-<br />
+<% end %>
+
+<%= will_paginate @reviews %>
 
 <%= link_to 'New review', new_review_path %>
