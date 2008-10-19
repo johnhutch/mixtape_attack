@@ -12,3 +12,28 @@
 <p>
 	<%= @album.release_date %>
 </p>
+
+<% form_for @album, create_review_album_path do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+	<label>Rating:</label>
+	<%= select_tag :score, "<option></option><option>1</option><option>2</option>
+							<option>3</option><option>4</option>
+							<option>5</option><option>6</option>
+							<option>7</option><option>8</option>
+							<option>9</option><option>10</option>" %>
+  </p>
+<% if current_user.has_role?('editor') %>
+	<p>
+		<label>Review:</label><br />
+		<%= text_area_tag :review %>
+	</p>
+<% end %>
+	<p>
+	<%= hidden_field :album, :name %>
+	</p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>

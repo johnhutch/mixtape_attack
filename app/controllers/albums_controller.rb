@@ -44,16 +44,24 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @label = @album.label
     @artist = @album.artist
-    #in the view, display rating select and, if current_user.has_role?('editor') display review form
-    # give user option to do one, both, or neither
-    # form submits to create_review_album_path
   end
   
   def create_review
-    #lookg up album from params
-    #create rating from params and assign to album
-    #create review from params and assign to album
-    #redirect to album show with review highlighted?
+    @album = Album.find(params[:album][:name])
+    
+      @rating = Rating.new
+      @rating.score = params[:score]
+      @rating.user = current_user
+      @rating.album = @album
+      @rating.save
+
+      @review = Review.new
+      @review.body = params[:review]
+      @review.user = current_user
+      @review.album = @album
+      @rating.save
+
+    redirect_to show_album_path(@album)
   end
   
   def select
