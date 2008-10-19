@@ -29,3 +29,9 @@ a {text-decoration: none; border-bottom: 1px solid;}
 dl#front_calendar a {text-decoration: none; border-bottom-width: 0;}
 dl#front_calendar a:hover {border-bottom-width: 1px;}
 dl#front_calendar .artist {font-weight: bold;}
+
+.front_review { clear: left; margin-bottom: 2em;}
+.front_review .rating {float: right; padding: .2em .8em; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
+.front_review .albumartist {font-size: 1.2em; font-weight: bold;}
+.front_review .byline {font-size: .9em; line-height: 1em; font-variant: italic; margin-bottom: .6em;}
+.front_review a {color: #444; border-bottom-width: 0;}
