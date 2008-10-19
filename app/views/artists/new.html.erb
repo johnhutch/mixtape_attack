@@ -1,14 +1,26 @@
-<%= title "Find or add an artist", :h2 %>
+<%= title "Add " + @artist_name, :h2 %>
 
-<% form_for(@artist) do |f| %>
-  <%= f.error_messages %>
+<p>We couldn't find <%= @artist_name %> in our files. Would you like to add them?</p>
 
-	<p>Would you like to rate <%= current_user.has_role?('editor') ? "or review" : "" %> an album? Type the artist name in the box below to get started.</p>
+<p><%= link_to "Oops! That's not who I wanted to review &gt;", prelookup_artists_path %></p>
+
+<h4>If you want to add this artist, please complete the information below</h4>
+
+<% form_for :artist, :html => { :multipart => true }, :url => artists_path do |form| %>
+	
+  <%= flash[:notice] %>
+  <%= form.error_messages %>
+
+  <label>Artist Name:</label>
+  <p><%= @artist_name %></p>
+  <%= form.hidden_field :name, :value => @artist_name %>
+
+  <p><label>Upload an image for <%= @artist_name %>:</label>
+  <%= form.file_field :photo %></p>
+
+  <p><%= check_box_tag '1' %> I do hereby certify that I have a legal right to copy and distribute this image.</p>
+
   <p>
-    <label>Artist or Band Name:</label>
-    <%= text_field_with_auto_complete :artist, :name %>
-  </p>
-  <p>
-    <%= f.submit "To Albums" %>
+    <%= form.submit "Add #{@artist_name}" %>
   </p>
 <% end %>

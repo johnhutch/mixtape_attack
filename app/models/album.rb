@@ -1,6 +1,10 @@
 class Album < ActiveRecord::Base
   acts_as_taggable
   
+  has_attached_file :art,
+              :styles => { :frontlist => "90x90>",
+                           :show => "300x300>" }
+  
   belongs_to :artist
   belongs_to :label
   has_many :ratings

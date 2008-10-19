@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081018185738) do
+ActiveRecord::Schema.define(:version => 20081019173502) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id"
@@ -18,17 +18,18 @@ ActiveRecord::Schema.define(:version => 20081018185738) do
     t.datetime "release_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "art_file_name"
+    t.string   "art_content_type"
+    t.string   "art_file_size"
   end
 
   create_table "artists", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "artists_labels", :force => true do |t|
-    t.integer "artist_id"
-    t.integer "label_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.string   "photo_file_size"
   end
 
   create_table "labels", :force => true do |t|
@@ -70,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20081018185738) do
 
   create_table "reviews", :force => true do |t|
     t.integer  "album_id"
-    t.integer  "rating_id"
     t.integer  "user_id"
     t.text     "body"
     t.datetime "created_at"

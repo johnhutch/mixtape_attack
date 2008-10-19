@@ -24,9 +24,9 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # GET /artists/new
-  # GET /artists/new.xml
-  def new
+  # GET /artists/prelookup
+  # GET /artists/prelookup.xml
+  def prelookup
     @artist = Artist.new
 
     respond_to do |format|
@@ -39,18 +39,37 @@ class ArtistsController < ApplicationController
   def edit
     @artist = Artist.find(params[:id])
   end
+  
+  def new
+    @artist = Artist.find_by_name(params[:artist][:name].titleize)
+    
+    if @artist.nil?
+      # artist does not exist and we ask them to add it
+      @artist_name = params[:artist][:name].titleize
+      respond_to do |format|
+          format.html # prelookup.html.erb
+      end
+    else
+      respond_to do |format|
+        # artist exists and we ask them to choose or add an album
+        format.html { redirect_to select_album_path(@artist) }
+        format.xml  { render :xml => @artist, :status => :created, :location => @artist }
+      end
+    end
+  end
 
   # POST /artists
   # POST /artists.xml
   def create
-    @artist = Artist.find_or_create_by_name(params[:artist][:name].titleize)
+    @artist = Artist.create(params[:artist])
 
     respond_to do |format|
       if @artist.save
-        # flash[:notice] = 'Artist was successfully created.'
+        flash[:notice] = 'Artist was successfully created.'
         format.html { redirect_to select_album_path(@artist) }
         format.xml  { render :xml => @artist, :status => :created, :location => @artist }
       else
+        flash[:notice] = 'Hrm, something went wrong...'
         format.html { render :action => "new" }
         format.xml  { render :xml => @artist.errors, :status => :unprocessable_entity }
       end
