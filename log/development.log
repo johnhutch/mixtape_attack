@@ -18753,3 +18753,1738 @@ ActionView::TemplateError (undefined method `genre_album_path' for #<ActionView:
     script/server:3
 
 Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000369)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000347)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001330)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001203)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000400)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000279)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to BortMigration (20080929171348)
+  [4;36;1mSQL (0.001755)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.001367)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (0.001350)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.000556)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.003725)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.000655)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001637)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.007751)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001516)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.004032)[0m   [0mCREATE TABLE "passwords" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "reset_code" varchar(255), "expiration_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.004835)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.001743)[0m   [0mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;36;1mRole Create (0.000510)[0m   [0;1mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;35;1mRole Create (0.000449)[0m   [0mINSERT INTO "roles" ("name") VALUES('editor')[0m
+  [4;36;1mSQL (0.000326)[0m   [0;1mSELECT "login" FROM "users" WHERE (LOWER("users".login) = 'admin') [0m
+  [4;35;1mSQL (0.000198)[0m   [0mSELECT "email" FROM "users" WHERE (LOWER("users".email) = 'johnhutch@gmail.com') [0m
+  [4;36;1mUser Create (0.000487)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "updated_at", "crypted_password", "deleted_at", "activation_code", "remember_token_expires_at", "identity_url", "remember_token", "login", "email", "state", "created_at") VALUES('', 'de89273882a289cf8a9e9eebf7a6ed9993230fc3', NULL, '2008-10-19 18:47:18', 'd4ed4389f7be5d61c91023eec3c09bdccde7debc', NULL, NULL, NULL, NULL, NULL, 'admin', 'johnhutch@gmail.com', 'passive', '2008-10-19 18:47:18')[0m
+Sent mail to johnhutch@gmail.com
+
+Date: Sun, 19 Oct 2008 14:47:18 -0400
+From: johnhutch@gmail.com
+To: johnhutch@gmail.com
+Subject: [Mixtape Attack] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+Username: admin
+
+Visit this url to activate your account:
+
+http://localhost:3000/activate/
+  [4;35;1mUser Update (0.000507)[0m   [0mUPDATE "users" SET "activation_code" = '031f2828e46878b7d1f2f0bd144065d98d7c14b2', "state" = 'pending', "updated_at" = '2008-10-19 18:47:34' WHERE "id" = 1[0m
+  [4;36;1mUser Update (0.000523)[0m   [0;1mUPDATE "users" SET "activated_at" = '2008-10-19 18:47:34', "activation_code" = NULL, "state" = 'active', "updated_at" = '2008-10-19 18:47:34' WHERE "id" = 1[0m
+Sent mail to johnhutch@gmail.com
+
+Date: Sun, 19 Oct 2008 14:47:34 -0400
+From: johnhutch@gmail.com
+To: johnhutch@gmail.com
+Subject: [Mixtape Attack] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  Welcome aboard!
+
+http://localhost:3000
+  [4;35;1mSQL (0.000393)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (0.001322)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080929171348')[0m
+Migrating to CreateArtists (20081018180248)
+  [4;35;1mSQL (0.001893)[0m   [0mCREATE TABLE "artists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001323)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018180248')[0m
+Migrating to CreateAlbums (20081018180728)
+  [4;35;1mSQL (0.005880)[0m   [0mCREATE TABLE "albums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "artist_id" integer, "label_id" integer, "name" varchar(255), "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001960)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018180728')[0m
+Migrating to CreateRatings (20081018181024)
+  [4;35;1mSQL (0.003927)[0m   [0mCREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "album_id" integer, "score" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001300)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018181024')[0m
+Migrating to CreateReviews (20081018181536)
+  [4;35;1mSQL (0.004441)[0m   [0mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "album_id" integer, "user_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.002236)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018181536')[0m
+Migrating to CreateLabels (20081018184520)
+  [4;35;1mSQL (0.002161)[0m   [0mCREATE TABLE "labels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.001576)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081018184520')[0m
+Migrating to ActsAsTaggableMigration (20081018185738)
+  [4;35;1mSQL (0.001757)[0m   [0mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (0.001506)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime) [0m
+  [4;35;1mSQL (0.008718)[0m   [0mCREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [4;36;1mSQL (0.001524)[0m   [0;1mCREATE INDEX "index_taggings_on_taggable_id_and_taggable_type" ON "taggings" ("taggable_id", "taggable_type")[0m
+  [4;35;1mSQL (0.001460)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081018185738')[0m
+Migrating to AddPhotoToArtist (20081019172236)
+  [4;36;1mSQL (0.001417)[0m   [0;1mALTER TABLE "artists" ADD "photo_file_name" varchar(255)[0m
+  [4;35;1mSQL (0.010481)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002041)[0m   [0;1mALTER TABLE "artists" ADD "photo_content_type" varchar(255)[0m
+  [4;35;1mSQL (0.006805)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002166)[0m   [0;1mALTER TABLE "artists" ADD "photo_file_size" varchar(255)[0m
+  [4;35;1mSQL (0.013464)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.001949)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081019172236')[0m
+Migrating to AddArtToAlbum (20081019173502)
+  [4;35;1mSQL (0.004028)[0m   [0mALTER TABLE "albums" ADD "art_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.008718)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.002266)[0m   [0mALTER TABLE "albums" ADD "art_content_type" varchar(255)[0m
+  [4;36;1mSQL (0.013941)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.002296)[0m   [0mALTER TABLE "albums" ADD "art_file_size" varchar(255)[0m
+  [4;36;1mSQL (0.013032)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.002143)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081019173502')[0m
+  [4;36;1mSQL (0.002122)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001273)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001961)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000175)[0m   [0mPRAGMA index_list("albums")[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mPRAGMA index_list("artists")[0m
+  [4;35;1mSQL (0.000179)[0m   [0mPRAGMA index_list("labels")[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (0.000202)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (0.000180)[0m   [0;1mPRAGMA index_list("passwords")[0m
+  [4;35;1mSQL (0.000163)[0m   [0mPRAGMA index_list("ratings")[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mPRAGMA index_list("reviews")[0m
+  [4;35;1mSQL (0.000173)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.000622)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.000430)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.000427)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mSQL (0.000622)[0m   [0;1mPRAGMA index_list("taggings")[0m
+  [4;35;1mSQL (0.000617)[0m   [0mPRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type')[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [4;35;1mSQL (0.000158)[0m   [0mPRAGMA index_list("tags")[0m
+  [4;36;1mSQL (0.000439)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.000431)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 14:49:41) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;36;1mAlbum Load (0.000826)[0m   [0;1mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;35;1mReview Load (0.000688)[0m   [0mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;36;1mUser Load (0.000369)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '') LIMIT 1[0m
+Completed in 0.08328 (12 reqs/sec) | Rendering: 0.02894 (34%) | DB: 0.00242 (2%) | 200 OK [http://localhost/]
+
+
+Processing ReviewsController#index (for 127.0.0.1 at 2008-10-19 14:49:47) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"index", "controller"=>"reviews"}
+  [4;35;1mReview Load (0.000311)[0m   [0mSELECT * FROM "reviews" LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering reviews/index
+  [4;36;1mUser Load (0.000306)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '') LIMIT 1[0m
+Completed in 0.04671 (21 reqs/sec) | Rendering: 0.01758 (37%) | DB: 0.00193 (4%) | 200 OK [http://localhost/reviews]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-10-19 14:49:56) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+  [4;35;1mUser Load (0.000321)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '') LIMIT 1[0m
+Completed in 0.03842 (26 reqs/sec) | Rendering: 0.02016 (52%) | DB: 0.00168 (4%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-10-19 14:49:58) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"commit"=>"Login", "openid_url"=>"", "action"=>"create", "authenticity_token"=>"de64d67cdd3578f8bfdc1a30c0bcc6399c74ef21", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (0.001294)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+Cookie set: auth_token=; path=/
+Redirected to http://localhost:3000/
+Completed in 0.03408 (29 reqs/sec) | DB: 0.00255 (7%) | 302 Found [http://localhost/session]
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 14:49:59) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;35;1mAlbum Load (0.000726)[0m   [0mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;36;1mReview Load (0.000713)[0m   [0;1mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;35;1mUser Load (0.001234)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000656)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.09380 (10 reqs/sec) | Rendering: 0.03805 (40%) | DB: 0.00461 (4%) | 200 OK [http://localhost/]
+
+
+Processing ArtistsController#prelookup (for 127.0.0.1 at 2008-10-19 14:50:01) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"prelookup", "controller"=>"artists"}
+Rendering template within layouts/application
+Rendering artists/prelookup
+  [4;35;1mUser Load (0.001252)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000643)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.08218 (12 reqs/sec) | Rendering: 0.04910 (59%) | DB: 0.00323 (3%) | 200 OK [http://localhost/artists/prelookup]
+
+
+Processing ArtistsController#auto_complete_for_artist_name (for 127.0.0.1 at 2008-10-19 14:50:45) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"artist"=>{"name"=>"Bob Dylan"}, "action"=>"auto_complete_for_artist_name", "controller"=>"artists"}
+  [4;35;1mArtist Load (0.000773)[0m   [0mSELECT * FROM "artists" WHERE (LOWER(name) LIKE '%bob dylan%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02787 (35 reqs/sec) | Rendering: 0.00201 (7%) | DB: 0.00210 (7%) | 200 OK [http://localhost/artists/auto_complete_for_artist_name]
+
+
+Processing ArtistsController#new (for 127.0.0.1 at 2008-10-19 14:50:48) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"artist"=>{"name"=>"Bob Dylan"}, "commit"=>"Look them up", "action"=>"new", "authenticity_token"=>"de64d67cdd3578f8bfdc1a30c0bcc6399c74ef21", "controller"=>"artists"}
+  [4;36;1mArtist Load (0.000295)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."name" = 'Bob Dylan') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering artists/new
+  [4;35;1mUser Load (0.001234)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000677)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07793 (12 reqs/sec) | Rendering: 0.04044 (51%) | DB: 0.00349 (4%) | 200 OK [http://localhost/artists/new]
+
+
+Processing ArtistsController#create (for 127.0.0.1 at 2008-10-19 14:51:04) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"artist"=>{"photo"=>#<ActionController::UploadedStringIO:0x21527bc>, "name"=>"Bob Dylan"}, "commit"=>"Add Bob Dylan", "action"=>"create", "authenticity_token"=>"de64d67cdd3578f8bfdc1a30c0bcc6399c74ef21", "controller"=>"artists", "1"=>"1"}
+[paperclip] Paperclip attachment photo on Artist initialized.
+[paperclip] Assigning #<ActionController::UploadedStringIO:0x21527bc> to photo
+[paperclip] Writing attributes for photo
+[paperclip] Post-processing photo
+  [4;35;1mArtist Create (0.000630)[0m   [0mINSERT INTO "artists" ("name", "updated_at", "photo_file_name", "photo_file_size", "photo_content_type", "created_at") VALUES('Bob Dylan', '2008-10-19 18:51:05', '250px-Bob_Dylan_by_Daniel_Kramer.jpg', 18471, 'image/jpeg', '2008-10-19 18:51:05')[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for photo
+[paperclip] Deleting files for photo
+[paperclip] Writing files for photo
+[paperclip] -> /Users/paris/Sites/mixtape/public/photos/1/original/250px-Bob_Dylan_by_Daniel_Kramer.jpg
+[paperclip] Saving attachments.
+[paperclip] Saving files for photo
+[paperclip] Deleting files for photo
+[paperclip] Writing files for photo
+Redirected to http://localhost:3000/albums/1/select
+Completed in 0.08663 (11 reqs/sec) | DB: 0.00190 (2%) | 302 Found [http://localhost/artists]
+
+
+Processing AlbumsController#select (for 127.0.0.1 at 2008-10-19 14:51:05) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"select", "id"=>"1", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000289)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."artist_id" = '1') [0m
+  [4;35;1mArtist Load (0.000775)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/select
+  [4;36;1mUser Load (0.001294)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000651)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.12112 (8 reqs/sec) | Rendering: 0.05668 (46%) | DB: 0.00430 (3%) | 200 OK [http://localhost/albums/1/select]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 14:54:08) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Colum"}}
+  [4;36;1mLabel Load (0.000800)[0m   [0;1mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%colum%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02845 (35 reqs/sec) | Rendering: 0.00151 (5%) | DB: 0.00209 (7%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 14:54:09) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Columb"}}
+  [4;35;1mLabel Load (0.000699)[0m   [0mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%columb%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.02860 (34 reqs/sec) | Rendering: 0.00151 (5%) | DB: 0.00196 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#auto_complete_for_label_name (for 127.0.0.1 at 2008-10-19 14:54:09) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"auto_complete_for_label_name", "controller"=>"albums", "label"=>{"name"=>"Columbia"}}
+  [4;36;1mLabel Load (0.000713)[0m   [0;1mSELECT * FROM "labels" WHERE (LOWER(name) LIKE '%columbia%') ORDER BY name ASC LIMIT 10[0m
+Completed in 0.03054 (32 reqs/sec) | Rendering: 0.00152 (4%) | DB: 0.00199 (6%) | 200 OK [http://localhost/albums/auto_complete_for_label_name]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2008-10-19 14:54:37) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"commit"=>"Add Album", "action"=>"create", "authenticity_token"=>"de64d67cdd3578f8bfdc1a30c0bcc6399c74ef21", "controller"=>"albums", "album"=>{"name"=>"Freewheelin'", "artist_id"=>"1", "art"=>"the_freewheelin_bob_dylan.jpg", "release_date_string"=>"May 12, 1963"}, "label"=>{"name"=>"Columbia"}}
+[paperclip] Paperclip attachment art on Album initialized.
+  [4;35;1mAlbum Create (0.000575)[0m   [0mINSERT INTO "albums" ("name", "artist_id", "updated_at", "label_id", "art_file_name", "art_file_size", "release_date", "created_at", "art_content_type") VALUES('Freewheelin''', 1, '2008-10-19 18:54:37', NULL, NULL, NULL, '1963-05-12 04:00:00', '2008-10-19 18:54:37', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for art
+[paperclip] Deleting files for art
+[paperclip] Writing files for art
+  [4;36;1mLabel Load (0.000318)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."name" = 'Columbia') LIMIT 1[0m
+  [4;35;1mLabel Create (0.000496)[0m   [0mINSERT INTO "labels" ("name", "updated_at", "created_at") VALUES('Columbia', '2008-10-19 18:54:37', '2008-10-19 18:54:37')[0m
+  [4;36;1mAlbum Update (0.000414)[0m   [0;1mUPDATE "albums" SET "label_id" = 1, "updated_at" = '2008-10-19 18:54:37' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for art
+[paperclip] Deleting files for art
+[paperclip] Writing files for art
+Redirected to http://localhost:3000/albums/1/review
+Completed in 0.24434 (4 reqs/sec) | DB: 0.00312 (1%) | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#review (for 127.0.0.1 at 2008-10-19 14:54:38) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"review", "id"=>"1", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000939)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/review
+  [4;36;1mArtist Load (0.000835)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mUser Load (0.001241)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000643)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.16359 (6 reqs/sec) | Rendering: 0.10071 (61%) | DB: 0.00495 (3%) | 200 OK [http://localhost/albums/1/review]
+
+
+Processing RatingsController#create (for 127.0.0.1 at 2008-10-19 14:55:17) [POST]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"rating"=>{"score"=>"8"}, "commit"=>"Submit", "review"=>{"body"=>"Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  Love that album art.  "}, "action"=>"create", "authenticity_token"=>"de64d67cdd3578f8bfdc1a30c0bcc6399c74ef21", "controller"=>"ratings", "tag_list"=>"folk, singer/songwriter, country", "album"=>"1"}
+  [4;35;1mAlbum Load (0.000940)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+  [4;36;1mUser Load (0.001236)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRating Create (0.000519)[0m   [0mINSERT INTO "ratings" ("score", "updated_at", "album_id", "user_id", "created_at") VALUES(8, '2008-10-19 18:55:17', 1, 1, '2008-10-19 18:55:17')[0m
+  [4;36;1mReview Create (0.000407)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "album_id", "user_id", "created_at") VALUES('2008-10-19 18:55:17', 'Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. Love that album art. ', 1, 1, '2008-10-19 18:55:17')[0m
+[paperclip] Paperclip attachment art on Album initialized.
+  [4;35;1mTag Load (0.000426)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id WHERE (("taggings".taggable_type = 'Album') AND ("taggings".taggable_id = 1)) [0m
+  [4;36;1mTag Load (0.000202)[0m   [0;1mSELECT * FROM "tags" WHERE (name LIKE 'folk') LIMIT 1[0m
+  [4;35;1mSQL (0.000266)[0m   [0mSELECT "name" FROM "tags" WHERE ("tags".name = 'folk') [0m
+  [4;36;1mTag Create (0.000428)[0m   [0;1mINSERT INTO "tags" ("name") VALUES('folk')[0m
+  [4;35;1mTagging Create (0.000299)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "created_at") VALUES(1, 'Album', 1, '2008-10-19 18:55:17')[0m
+  [4;36;1mTag Load (0.000205)[0m   [0;1mSELECT * FROM "tags" WHERE (name LIKE 'singer/songwriter') LIMIT 1[0m
+  [4;35;1mSQL (0.000200)[0m   [0mSELECT "name" FROM "tags" WHERE ("tags".name = 'singer/songwriter') [0m
+  [4;36;1mTag Create (0.000192)[0m   [0;1mINSERT INTO "tags" ("name") VALUES('singer/songwriter')[0m
+  [4;35;1mTagging Create (0.000216)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "created_at") VALUES(2, 'Album', 1, '2008-10-19 18:55:17')[0m
+  [4;36;1mTag Load (0.000199)[0m   [0;1mSELECT * FROM "tags" WHERE (name LIKE 'country') LIMIT 1[0m
+  [4;35;1mSQL (0.000231)[0m   [0mSELECT "name" FROM "tags" WHERE ("tags".name = 'country') [0m
+  [4;36;1mTag Create (0.000202)[0m   [0;1mINSERT INTO "tags" ("name") VALUES('country')[0m
+  [4;35;1mTagging Create (0.000223)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "created_at") VALUES(3, 'Album', 1, '2008-10-19 18:55:17')[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for art
+[paperclip] Deleting files for art
+[paperclip] Writing files for art
+Redirected to http://localhost:3000/albums/1
+Completed in 0.32947 (3 reqs/sec) | DB: 0.00772 (2%) | 302 Found [http://localhost/ratings]
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2008-10-19 14:55:18) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000959)[0m   [0;1mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/show
+[paperclip] Paperclip attachment art on Album initialized.
+  [4;35;1mArtist Load (0.000779)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mLabel Load (0.000673)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;35;1mTag Load (0.001056)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id WHERE (("taggings".taggable_type = 'Album') AND ("taggings".taggable_id = 1)) [0m
+
+
+ActionView::TemplateError (undefined method `genre_album_path' for #<ActionView::Base:0x218c9f8>) on line #16 of albums/show.html.erb:
+13: 
+14: <div id="categories">Genres: 
+15: 	<% for tag in @album.tags %>
+16: 		<%= link_to tag, genre_album_path(tag.name) %>
+17: 	<% end %>
+18: </div>
+19: 
+
+    app/views/albums/show.html.erb:16:in `_run_erb_47app47views47albums47show46html46erb'
+    vendor/rails/activerecord/lib/active_record/associations/association_collection.rb:277:in `method_missing_without_paginate'
+    vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:171:in `method_missing'
+    vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:171:in `each'
+    vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:171:in `send'
+    vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:171:in `method_missing'
+    vendor/rails/activerecord/lib/active_record/associations/association_collection.rb:277:in `method_missing_without_paginate'
+    vendor/plugins/will_paginate/lib/will_paginate/finder.rb:164:in `method_missing'
+    app/views/albums/show.html.erb:15:in `_run_erb_47app47views47albums47show46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:21:in `show'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 15:02:38) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;36;1mAlbum Load (0.000812)[0m   [0;1mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;35;1mReview Load (0.001181)[0m   [0mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;36;1mUser Load (0.001301)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAlbum Load (0.000908)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+  [4;36;1mRating Load (0.000693)[0m   [0;1mSELECT * FROM "ratings" WHERE (user_id = 1 and album_id = 1) LIMIT 1[0m
+  [4;35;1mArtist Load (0.000807)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mTag Load (0.000914)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id WHERE (("taggings".taggable_type = 'Album') AND ("taggings".taggable_id = 1)) [0m
+  [4;35;1mUser Load (0.001270)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000662)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.22982 (4 reqs/sec) | Rendering: 0.16953 (73%) | DB: 0.00921 (4%) | 200 OK [http://localhost/]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:02:43) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (can't convert nil into String) on line #1 of albums/genre.html.erb:
+1: <%= title "Genre: " + @genre, :h2 %>
+    app/views/albums/genre.html.erb:1:in `+'
+    app/views/albums/genre.html.erb:1:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:845:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1161:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:03:22) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #1 of albums/genre.html.erb:
+1: <%= title "Genre: " + @genre.name, :h2 %>
+2: 
+
+    app/views/albums/genre.html.erb:1:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:845:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1161:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:03:33) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001230)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000649)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.17196 (5 reqs/sec) | Rendering: 0.13622 (79%) | DB: 0.00314 (1%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:03:46) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001227)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000636)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07070 (14 reqs/sec) | Rendering: 0.03572 (50%) | DB: 0.00317 (4%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:04:38) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001253)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000647)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07277 (13 reqs/sec) | Rendering: 0.03661 (50%) | DB: 0.00327 (4%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:04:47) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #1 of albums/genre.html.erb:
+1: <%= title @genre.name, :h2 %>
+2: 
+
+    app/views/albums/genre.html.erb:1:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:62:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:04:57) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001319)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000644)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07622 (13 reqs/sec) | Rendering: 0.03662 (48%) | DB: 0.00323 (4%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:06:32) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+ERROR: compiling _run_erb_47app47views47albums47genre46html46erb RAISED compile error
+/Users/paris/Sites/mixtape/app/views/albums/genre.html.erb:1: syntax error, unexpected ':', expecting ')'
+_erbout = ''; _erbout.concat(( title "Genre" :h2 ).to_s); _erbout.concat "\n"
+                                              ^
+Function body: def _run_erb_47app47views47albums47genre46html46erb(local_assigns)
+_erbout = ''; _erbout.concat(( title "Genre" :h2 ).to_s); _erbout.concat "\n"
+_erbout.concat "\n"
+ @albums.each do |album| ; _erbout.concat "\n"
+_erbout.concat "<p>\n"
+_erbout.concat "\t"; _erbout.concat(( ).to_s); _erbout.concat "@album.name %>\n"
+_erbout.concat "</p>\n"
+ end ; _erbout.concat "\n"
+_erbout
+end
+Backtrace: /Users/paris/Sites/mixtape/app/views/albums/genre.html.erb:9:in `compile_template'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_view/template.rb:55:in `prepare!'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_view/template.rb:34:in `render'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/paris/Sites/mixtape/app/controllers/albums_controller.rb:62:in `genre'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/Users/paris/Sites/mixtape/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/Users/paris/Sites/mixtape/vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+/Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+/Users/paris/Sites/mixtape/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+/Users/paris/Sites/mixtape/vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+/Users/paris/Sites/mixtape/vendor/rails/railties/lib/commands/server.rb:39
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/Users/paris/Sites/mixtape/app/views/albums/genre.html.erb:1: syntax error, unexpected ':', expecting ')'
+_erbout = ''; _erbout.concat(( title "Genre" :h2 ).to_s); _erbout.concat "\n"
+                                              ^) on line #1 of albums/genre.html.erb:
+1: <%= title "Genre" :h2 %>
+2: 
+3: <% @albums.each do |album| %>
+4: <p>
+
+    app/views/albums/genre.html.erb:9:in `compile_template'
+    vendor/rails/actionpack/lib/action_view/template.rb:55:in `prepare!'
+    vendor/rails/actionpack/lib/action_view/template.rb:34:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:62:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:06:40) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001220)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000640)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07241 (13 reqs/sec) | Rendering: 0.03594 (49%) | DB: 0.00320 (4%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:07:37) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000865)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'genre')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mUser Load (0.001233)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000676)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07393 (13 reqs/sec) | Rendering: 0.03539 (47%) | DB: 0.00405 (5%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:10:46) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+    /app/controllers/albums_controller.rb:59:in `genre'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:10:53) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"singer/songwriter", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mUser Load (0.001240)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000643)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07151 (13 reqs/sec) | Rendering: 0.03495 (48%) | DB: 0.00318 (4%) | 200 OK [http://localhost/albums/singer%2Fsongwriter/genre]
+
+
+Processing ContentsController#front (for 127.0.0.1 at 2008-10-19 15:11:00) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"front", "controller"=>"contents"}
+  [4;36;1mAlbum Load (0.000813)[0m   [0;1mSELECT * FROM "albums" WHERE (release_date > '2008-10-19') ORDER BY release_date ASC LIMIT 15[0m
+  [4;35;1mReview Load (0.001548)[0m   [0mSELECT * FROM "reviews" ORDER BY created_at DESC LIMIT 5[0m
+Rendering template within layouts/application
+Rendering contents/front
+  [4;36;1mUser Load (0.001364)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAlbum Load (0.000922)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+  [4;36;1mRating Load (0.000692)[0m   [0;1mSELECT * FROM "ratings" WHERE (user_id = 1 and album_id = 1) LIMIT 1[0m
+  [4;35;1mArtist Load (0.000769)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mTag Load (0.000872)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id WHERE (("taggings".taggable_type = 'Album') AND ("taggings".taggable_id = 1)) [0m
+  [4;35;1mUser Load (0.001223)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000629)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.20107 (4 reqs/sec) | Rendering: 0.12179 (60%) | DB: 0.01009 (5%) | 200 OK [http://localhost/]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:11:03) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001225)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000649)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.07120 (14 reqs/sec) | Rendering: 0.03512 (49%) | DB: 0.00314 (4%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:13:24) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mUser Load (0.001256)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000643)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.16838 (5 reqs/sec) | Rendering: 0.03670 (21%) | DB: 0.00320 (1%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:13:58) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001525)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #5 of albums/genre.html.erb:
+2: 
+3: <% @albums.each do |album| %>
+4: <p>
+5: 	<%= @album.name %>
+6: </p>
+7: <% end %>
+
+    app/views/albums/genre.html.erb:5:in `_run_erb_47app47views47albums47genre46html46erb'
+    app/views/albums/genre.html.erb:3:in `each'
+    app/views/albums/genre.html.erb:3:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:61:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:15:15) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.001538)[0m   [0;1mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #5 of albums/genre.html.erb:
+2: 
+3: <% @albums.each do |album| %>
+4: <p>
+5: 	<%= @album.name %>
+6: </p>
+7: <% end %>
+
+    app/views/albums/genre.html.erb:5:in `_run_erb_47app47views47albums47genre46html46erb'
+    app/views/albums/genre.html.erb:3:in `each'
+    app/views/albums/genre.html.erb:3:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:61:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:15:49) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001603)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #5 of albums/genre.html.erb:
+2: 
+3: <% @albums.each do |album| %>
+4: <p>
+5: 	<%= @album.name %>
+6: </p>
+7: <% end %>
+
+    app/views/albums/genre.html.erb:5:in `_run_erb_47app47views47albums47genre46html46erb'
+    app/views/albums/genre.html.erb:3:in `each'
+    app/views/albums/genre.html.erb:3:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:61:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:16:46) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.001565)[0m   [0;1mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #5 of albums/genre.html.erb:
+2: 
+3: <% @albums.each do |album| %>
+4: <p>
+5: 	<%= @album.name %>
+6: </p>
+7: <% end %>
+
+    app/views/albums/genre.html.erb:5:in `_run_erb_47app47views47albums47genre46html46erb'
+    app/views/albums/genre.html.erb:3:in `each'
+    app/views/albums/genre.html.erb:3:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:61:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:17:50) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001530)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mUser Load (0.001222)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000626)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.08653 (11 reqs/sec) | Rendering: 0.04737 (54%) | DB: 0.00466 (5%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2008-10-19 15:18:50) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"index", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.000987)[0m   [0;1mSELECT * FROM "albums" [0m
+Rendering template within layouts/application
+Rendering albums/index
+  [4;35;1mArtist Load (0.000796)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mLabel Load (0.000619)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;35;1mUser Load (0.001240)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000631)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.27955 (3 reqs/sec) | Rendering: 0.23995 (85%) | DB: 0.00558 (1%) | 200 OK [http://localhost/albums/]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:20:24) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001516)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mArtist Load (0.000801)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mLabel Load (0.000661)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;36;1mUser Load (0.001262)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000636)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.23926 (4 reqs/sec) | Rendering: 0.19878 (83%) | DB: 0.00616 (2%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:25:59) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.001695)[0m   [0;1mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;35;1mArtist Load (0.000786)[0m   [0mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;36;1mLabel Load (0.000890)[0m   [0;1mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;35;1mUser Load (0.001215)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000632)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.13389 (7 reqs/sec) | Rendering: 0.09281 (69%) | DB: 0.00651 (4%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:28:09) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001588)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mArtist Load (0.000788)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mUser Load (0.001226)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000645)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.11113 (8 reqs/sec) | Rendering: 0.07093 (63%) | DB: 0.00555 (4%) | 200 OK [http://localhost/albums/folk/genre]
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2008-10-19 15:28:12) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.000985)[0m   [0mSELECT * FROM "albums" WHERE ("albums"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering albums/show
+[paperclip] Paperclip attachment art on Album initialized.
+  [4;36;1mArtist Load (0.000798)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mLabel Load (0.000654)[0m   [0mSELECT * FROM "labels" WHERE ("labels"."id" = 1) [0m
+  [4;36;1mTag Load (0.000866)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id WHERE (("taggings".taggable_type = 'Album') AND ("taggings".taggable_id = 1)) [0m
+  [4;35;1mRating Load (0.000802)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".album_id = 1) [0m
+  [4;36;1mUser Load (0.001242)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.000666)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.26106 (3 reqs/sec) | Rendering: 0.11830 (45%) | DB: 0.00731 (2%) | 200 OK [http://localhost/albums/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-19 15:28:13) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/arts/show/missing.png" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:33:15) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;36;1mAlbum Load (0.001707)[0m   [0;1mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+
+
+ActionView::TemplateError (undefined method `total_pages' for #<Array:0x219452c>) on line #3 of albums/genre.html.erb:
+1: <%= title "Genre", :h2 %>
+2: 
+3: <%= will_paginate @albums %>
+4: 
+5: <% for album in @albums %>
+6:     <div class="albumartist"><%= album.artist_name %></div>
+
+    vendor/plugins/will_paginate/lib/will_paginate/view_helpers.rb:181:in `total_pages_for_collection'
+    vendor/plugins/will_paginate/lib/will_paginate/view_helpers.rb:92:in `will_paginate'
+    app/views/albums/genre.html.erb:3:in `_run_erb_47app47views47albums47genre46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:342:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:248:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1112:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:869:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/base.rb:884:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:131:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:160:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:154:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/albums_controller.rb:62:in `genre'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:579:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:503:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:510:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Users/paris/Sites/mixtape/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumsController#genre (for 127.0.0.1 at 2008-10-19 15:36:14) [GET]
+  Session ID: efa5c7d5f3b07c20886467c080fdcc67
+  Parameters: {"action"=>"genre", "id"=>"folk", "controller"=>"albums"}
+  [4;35;1mAlbum Load (0.001667)[0m   [0mSELECT DISTINCT albums.* FROM "albums" INNER JOIN taggings albums_taggings ON albums_taggings.taggable_id = albums.id AND albums_taggings.taggable_type = 'Album' INNER JOIN tags albums_tags ON albums_tags.id = albums_taggings.tag_id WHERE ((albums_tags.name LIKE 'folk')) [0m
+Rendering template within layouts/application
+Rendering albums/genre
+  [4;36;1mArtist Load (0.000828)[0m   [0;1mSELECT * FROM "artists" WHERE ("artists"."id" = 1) [0m
+  [4;35;1mUser Load (0.001249)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.000648)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Completed in 0.11198 (8 reqs/sec) | Rendering: 0.07112 (63%) | DB: 0.00569 (5%) | 200 OK [http://localhost/albums/folk/genre]

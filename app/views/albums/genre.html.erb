@@ -1,1 +1,10 @@
-<%= title "Genre: " + @genre, :h2 %>
+<%= title "Genre", :h2 %>
+
+<%= will_paginate @albums %>
+
+<% for album in @albums %>
+    <div class="albumartist"><%= album.artist_name %></div>
+    <div class="albumname"><%= link_to album.name, album %></div>
+<% end %>
+
+<%= will_paginate @albums %>

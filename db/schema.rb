@@ -32,11 +32,6 @@ ActiveRecord::Schema.define(:version => 20081019173502) do
     t.string   "photo_file_size"
   end
 
-  create_table "artists_labels", :force => true do |t|
-    t.integer "artist_id"
-    t.integer "label_id"
-  end
-
   create_table "labels", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -76,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20081019173502) do
 
   create_table "reviews", :force => true do |t|
     t.integer  "album_id"
-    t.integer  "rating_id"
     t.integer  "user_id"
     t.text     "body"
     t.datetime "created_at"
