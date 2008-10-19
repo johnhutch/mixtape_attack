@@ -1,26 +1,48 @@
+body {padding-top: 34px;}
 a {text-decoration: none; border-bottom: 1px solid;}
 label { clear: left; display: block; margin-top: 2em;}
 
 /************* HEADER ***********************/
 
-#header {float: left;}
+#header { padding-bottom: 2em;}
 
 /************* UTILITY NAVS *****************/
 
-#utility_top { text-align: right;}
-#utility_top ul { list-style: none; }
-#utility_top ul li {	display: inline; padding-right: 1em;}
-
-#utility_bottom {}
-#utility_bottom ul { list-style: none; text-align: right;}
+#utility_bottom { float: left;}
+#utility_bottom ul { list-style: none; text-align: right; margin: 0;}
 #utility_bottom ul li {display:inline; padding-right: 1em;}
+
+/************* USERNAV ****************/
+#usernav {
+	background-color: #333; 
+	padding: 0;	margin: 0;
+	color: white;
+	height: 34px;
+	position: absolute;
+	width: 100%;
+	top:0;	left: 0; z-index: 1;
+}
+#usernav ul {
+	margin: 0;	padding: 0;
+	padding-right: 2em;	padding-top: 8px;
+	list-style: none;
+	float: right;
+}
+#usernav li { margin: 0;	padding: 0;	display: inline; padding-right: 2em; }
+#usernav h6 { float: left; color: white;	padding-left: 2em; padding-top: 8px; }
+#usernav a { color: white; border-bottom: none;}
+#usernav a:hover { color: #ccc; border-bottom: 1px solid;}
 
 /************* NAV ********************/
 
-#nav { clear:both;}
+#nav { }
 #nav ul {list-style-type: none;}
 #nav ul li {display:inline;}
 #nav ul li a {font-size: 1.4em; border-bottom-width: 0; padding-left: 1em; padding-right: 1em;}
+
+/************* CONTENT ****************/
+
+#content {clear: both;}
 
 /************* FOOTER *****************/
 

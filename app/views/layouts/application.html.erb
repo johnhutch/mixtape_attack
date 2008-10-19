@@ -17,41 +17,19 @@
 	</head>
 	<body>
 		<div class="container">
-			<div id="header">
-				<h1><a href="/">Mixtape Attack</a></h1>
-			</div>
-			
-			<div id="utility_top">
-				<ul>
-					<li><a href="/about">About</a></li>
-					<li><a href="/contact">Contact</a></li>
-					<li><a href="/terms">Terms and Conditions</a></li>
-					<li><a href="/help">Help</a></li>
-				</ul>
-				<ul>
-					<% if logged_in? %>
-						<% if current_user.has_role?('admin') %>
-							<li><%= link_to 'Administer Users', admin_users_path %></li>
-						<% end %>
-						<% if current_user.has_role?('editor') %>
-							<li><%= link_to 'Contribute to Mixtape',  new_artist_path %></li>
-						<% end %>
-						<li><%= link_to 'Edit Profile', edit_user_path(current_user) %>
-						<li><%= link_to 'Logout', logout_path %></li>
-					<% else %>
-						<li><%= link_to 'Login', login_path %></li>
-						<li><%= link_to 'Signup', signup_path %></li>
-					<% end %>
-				</ul>
-			</div>
-			
-			<div id="nav">
-				<ul>
-					<li><a href="/reviews">Our Reviews</a></li>
-					<li><a href="/users">Our Staff</a></li>
-					<li><a href="/albums/calendar">Calendar</a></li>
-					<li><a href="/">Recommended for You</a></li>
-				</ul>
+			<div id="header" class="clearfix">
+				<div id="logo" class="column span-7 append-1">
+					<h1><a href="/">Mixtape Attack</a></h1>
+				</div>
+				
+				<div id="nav" class="column span-14 last">
+					<ul>
+						<li><a href="/reviews">Our Reviews</a></li>
+						<li><a href="/users">Our Staff</a></li>
+						<li><a href="/albums/calendar">Calendar</a></li>
+						<li><a href="/">Recommended</a></li>
+					</ul>
+				</div>
 			</div>
 			
 			<div id="content">
@@ -60,6 +38,15 @@
 			</div>
 			
 			<div id="footer">
+				<div id="utility_bottom">
+					<ul id="nav">
+						<li><a href="/about">About</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li><a href="/terms">Terms and Conditions</a></li>
+						<li><a href="/help">Help</a></li>
+					</ul>
+				</div>
+				
 				<p>Copyright &copy; 2008  <a href="/about/">Mixtape Attack</a>. <br/> 
 					Developed and Designed by <a href="http://www.johnhutch.com">John Hutchinson</a> and Jonathan E. Hall<br />
 					<a href="http://validator.w3.org/check/referer">XHTML</a>, 
@@ -67,14 +54,24 @@
 					<a href="http://www.contentquality.com/mynewtester/cynthia.exe?Url1=http://li47-127.members.linode.com/" title="Please note that no software can truly test your site for accessibility compliance.">508</a>.</p>	     				
 			</div>
 			
-			<div id="utility_bottom">
-				<ul id="nav">
-					<li><a href="/about">About</a></li>
-					<li><a href="/contact">Contact</a></li>
-					<li><a href="/terms">Terms and Conditions</a></li>
-					<li><a href="/help">Help</a></li>
-				</ul>
-			</div>
+		</div>
+		
+		<div id="usernav">
+			<ul>
+				<% if logged_in? %>
+					<% if current_user.has_role?('admin') %>
+						<li><%= link_to 'Administer Users', admin_users_path %></li>
+					<% end %>
+					<% if current_user.has_role?('editor') %>
+						<li><%= link_to 'Contribute to Mixtape',  new_artist_path %></li>
+					<% end %>
+					<li><%= link_to 'Edit Profile', edit_user_path(current_user) %>
+					<li><%= link_to 'Logout', logout_path %></li>
+				<% else %>
+					<li><%= link_to 'Login', login_path %></li>
+					<li><%= link_to 'Signup', signup_path %></li>
+				<% end %>
+			</ul>
 		</div>
 	</body>
 </html>
