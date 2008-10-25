@@ -2,6 +2,8 @@ class Album < ActiveRecord::Base
   acts_as_taggable
   
   has_attached_file :art,
+              :path => ":rails_root/public/bin/:class/:attachment/:id/:style_:basename.:extension",
+              :url => "/bin/:class/:attachment/:id/:style_:basename.:extension",
               :styles => { :frontlist => "90x90#",
                            :show => "190x190#" }
                            
