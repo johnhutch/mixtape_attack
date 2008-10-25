@@ -18,12 +18,12 @@
 	<body>
 		<div class="container">
 			<div id="header" class="clearfix">
-				<div id="logo" class="column span-7 append-1">
-					<a href="/" title="Mixtape Attack"><img src="/images/banner.png" height="190" width="480" alt="Mixtape Attack"></a>
+				<div id="logo" class="column span-10 append-1">
+					<a href="/" title="Mixtape Attack"><img src="/images/banner.png" height="154" width="390" alt="Mixtape Attack"></a>
 					<h1><a href="/">Mixtape Attack</a></h1>
 				</div>
 				
-				<div id="nav" class="column span-16 last">
+				<div id="nav" class="column span-13 last">
 					<ul>
 						<li><a href="/reviews">Reviews</a></li>
 						<li><a href="/users">Staff</a></li>
@@ -32,9 +32,23 @@
 				</div>
 			</div>
 			
-			<div id="content">
+			<div id="content" span="column span-21">
 				<%= flash_messages %>
 				<%= yield :layout %>
+			</div>
+			
+			<div id="ads" span="column span-3 last">
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-4842474752771191";
+				/* mixtape attack skyscraper */
+				google_ad_slot = "3838285668";
+				google_ad_width = 120;
+				google_ad_height = 600;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
 			</div>
 			
 			<div id="footer">
@@ -76,5 +90,13 @@
 				<% end %>
 			</ul>
 		</div>
+			<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+			var pageTracker = _gat._getTracker("UA-5665709-5");
+			pageTracker._trackPageview();
+			</script>
 	</body>
 </html>

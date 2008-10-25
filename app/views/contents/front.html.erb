@@ -1,4 +1,4 @@
-<div class="column span-12 colborder">
+<div class="column span-10 colborder">
 	<h3>Recent Albums Reviews</h3>
 	<% for review in @reviews %>
 		<div class="front_review">
@@ -18,7 +18,7 @@
 	<h4><a href="/reviews">Read more album reviews &gt;</a></h4>
 </div>
 
-<div class="column span-11 last">
+<div class="column span-10 last">
 	<h3>Upcoming Record Releases</h3>
 	<dl id="front_calendar">
 		<% @release_days = @albums.group_by { |a| a.release_date.beginning_of_day } unless @albums.nil? %>
