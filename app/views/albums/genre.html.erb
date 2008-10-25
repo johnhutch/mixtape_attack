@@ -2,9 +2,17 @@
 
 <%= will_paginate @albums %>
 
-<% for album in @albums %>
-    <div class="albumartist"><%= album.artist_name %></div>
-    <div class="albumname"><%= link_to album.name, album %></div>
+<% @bands = @albums.group_by { |a| a.artist } unless @albums.nil? %>
+<% unless @bands.nil? %>
+	<dl>
+	<% @bands.keys.sort.each do |band| %>
+		<dt><%= link_to band.name, artist_path(band) %></dt>
+		<% for album in band.albums %>
+			<dd><%= link_to album.name, album_path(album) %></dd>
+		<% end %>
+	<% end %>
+	</dl>
 <% end %>
 
 <%= will_paginate @albums %>
+

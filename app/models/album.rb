@@ -4,6 +4,7 @@ class Album < ActiveRecord::Base
   has_attached_file :art,
               :path => ":rails_root/public/bin/:class/:attachment/:id/:style_:basename.:extension",
               :url => "/bin/:class/:attachment/:id/:style_:basename.:extension",
+              :default_url => "/images/missing_:class_:style.png",
               :styles => { :frontlist => "90x90#",
                            :show => "190x190#" }
                            

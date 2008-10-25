@@ -68,8 +68,8 @@ class AlbumsController < ApplicationController
   end
   
   def genre
-    @albums = Album.find_tagged_with('folk')
-    @albums = @albums.paginate :per_page => 5, :page => params[:page]
+    @albums = Album.find_tagged_with(params[:id])
+    @albums = @albums.paginate :per_page => 20, :page => params[:page]
     
     respond_to do |format|
       format.html # genre.html.erb

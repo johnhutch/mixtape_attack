@@ -1,6 +1,7 @@
 body {padding-top: 34px;}
-a {text-decoration: none; border-bottom: 1px solid;}
+a {text-decoration: none; border-bottom: 1px solid; color: #555;}
 label { clear: left; display: block; margin-top: 2em;}
+fieldset label {margin-top: 0;}
 
 /************* HEADER ***********************/
 
@@ -18,30 +19,32 @@ label { clear: left; display: block; margin-top: 2em;}
 	background-color: #333; 
 	padding: 0;	margin: 0;
 	color: white;
-	height: 34px;
 	position: absolute;
 	width: 100%;
 	top:0;	left: 0; z-index: 1;
+	text-align: right;
+	font-size: 1.1em;
 }
+#usernav a { color: #ccc; border-bottom-width: 0;}
+#usernav a { color: #999; border-bottom-width: 1;}
+#usernav h6 { float: left; color: white; padding-left: 2em; padding-top: 5px; }
 #usernav ul {
 	margin: 0;	padding: 0;
-	padding-right: 2em;	padding-top: 8px;
 	list-style: none;
-	float: right;
 }
-#usernav li { margin: 0;	padding: 0;	display: inline; padding-right: 2em; }
-#usernav h6 { float: left; color: white;	padding-left: 2em; padding-top: 8px; }
-#usernav a { color: white; border-bottom: none;}
-#usernav a:hover { color: #ccc; border-bottom: 1px solid;}
+#usernav li { margin: 0; padding: 0; display: inline; float: right;}
+#usernav li a { display:block; color: white; border-bottom: none; padding: 5px 2em; font-weight: bold; }
+#usernav li a.useradmin { background-color: #666; font-weight: normal;}
+#usernav li a:hover { color: #333; background-color: #ccc;}
 
 /************* NAV ********************/
 
-#nav { text-align: right; padding-top: 19px; }
+#nav { text-align: right; padding-top: 10px; }
 #nav ul {list-style-type: none; margin: 0; width: 300px; float: right; margin-right: 3em;}
 #nav ul li { text-align: right; margin-top: .5em;}
 #nav ul li a {
 	display: block;
-	font-size: 1.8em; 
+	font-size: 2.2em; 
 	border-bottom-width: 0; 
 	font-weight: bold;
 	text-transform: uppercase; 

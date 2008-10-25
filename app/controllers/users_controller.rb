@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       authenticate_with_open_id(params[:openid_url], :return_to => open_id_create_url, 
         :required => [:nickname, :email]) do |result, identity_url, registration|
         if result.successful?
-          create_new_user(:identity_url => identity_url, :login => registration['nickname'], :email => registration['email'])
+          create_new_user(:identity_url => identity_url, :login => registration['nickname'], :email => registration['email'], :name => registration['nickname'])
         else
           failed_creation(result.message || "Sorry, something went wrong")
         end

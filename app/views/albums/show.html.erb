@@ -32,11 +32,5 @@
 </div>
 
 <div id="related" class="column span-7 last">
-	<h3>Other albums by <%= @album.artist.name %></h3>
-	<ul>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-	</ul>
-	
+	<%= other_albums(@album) unless @album.artist.albums.count.to_i < 2 %>
 </div>
