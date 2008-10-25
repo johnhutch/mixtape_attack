@@ -5,7 +5,7 @@
 		<%= image_tag @album.art.url(:show) %>
 	</div>
  
-	<div id="albuminfo" class="column span-14 append-1">
+	<div id="albuminfo" class="column span-9 append-1">
 		<div id="label">Released by <%= @album.label.name unless @album.label.nil? %> on <%= @album.release_date.strftime('%B %e, %Y') %></div>
 		<div id="genres">Genres: 
 			<% for tag in @album.tags %>
@@ -20,9 +20,9 @@
 	</div>
 </div>
 
-<div id="album_reviews" class="column span-16 colborder">
+<div id="album_reviews" class="column span-14 colborder">
 	<% @album.reviews.each_with_index do |review, i| %>
-		<div class="album_review column span-8 <%= i%2 == 0 ? "" : "last" %>">
+		<div class="album_review column span-7 <%= i%2 == 0 ? "" : "last" %>">
 			<div class="rating"><%= review.score %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
 			<div class="body"><%= review.truncated_body %></div>
@@ -31,6 +31,6 @@
 	<% end %>
 </div>
 
-<div id="related" class="column span-7 last">
+<div id="related" class="column span-4 last">
 	<%= other_albums(@album) unless @album.artist.albums.count.to_i < 2 %>
 </div>

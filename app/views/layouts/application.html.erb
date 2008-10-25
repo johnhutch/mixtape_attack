@@ -16,6 +16,14 @@
 		<%= javascript_include_tag :defaults %>
 	</head>
 	<body>
+		<% if logged_in? && current_user.has_role?('editor') %>
+		<div id="thispage_nav">
+			<ul>
+
+			</ul>
+		</div>
+		<% end %>
+		
 		<div class="container">
 			<div id="header" class="clearfix">
 				<div id="logo" class="column span-10 append-1">
@@ -32,17 +40,17 @@
 				</div>
 			</div>
 			
-			<div id="content" span="column span-21">
+			<div id="content" class="column span-19 append-1">
 				<%= flash_messages %>
 				<%= yield :layout %>
 			</div>
 			
-			<div id="ads" span="column span-3 last">
+			<div id="ads" class="column span-4 last">
 				<script type="text/javascript"><!--
 				google_ad_client = "pub-4842474752771191";
-				/* mixtape attack skyscraper */
-				google_ad_slot = "3838285668";
-				google_ad_width = 120;
+				/* mixtape 160x600 */
+				google_ad_slot = "4978381290";
+				google_ad_width = 160;
 				google_ad_height = 600;
 				//-->
 				</script>
@@ -78,11 +86,15 @@
 				<% if logged_in? %>
 					<li><a href="/logout" class="useradmin">Log Out</a></li>
 					<li><%= link_to 'Edit Profile', edit_user_path(current_user), :class => "useradmin" %>
-					<% if current_user.has_role?('admin') %>
-						<li><%= link_to 'Administer Users', admin_users_path %></li>
-					<% end %>
+
 					<% if current_user.has_role?('editor') %>
-						<li><%= link_to 'Contribute to Mixtape',  prelookup_artists_path %></li>
+						<li class="editor"><%= link_to 'Contribute to Mixtape',  prelookup_artists_path %></li>
+						<li class="thispage"><% if @review && current_user == @review.user %><%= link_to 'Edit this review', edit_review_path(@review) %><% end %></li>
+						<li class="thispage"><% if @album %><%= link_to 'Edit this album', edit_album_path(@album) %><% end %></li>
+						<li class="thispage"><% if @artist %><%= link_to 'Edit this artist', edit_artist_path(@artist) %><% end %></li>
+						<% if current_user.has_role?('admin') %>
+							<li><%= link_to 'Administer Users', admin_users_path %></li>
+						<% end %>
 					<% end %>
 				<% else %>
 					<li><a href="/signup" class="useradmin">Sign Up</a></li>

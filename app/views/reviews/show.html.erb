@@ -5,7 +5,7 @@
 		<%= image_tag @review.album.art.url(:show) %>
 	</div>
  
-	<div id="albuminfo" class="column span-14 append-1">
+	<div id="albuminfo" class="column span-9 append-1">
 		<div id="label">Released by <%= @review.album.label.name unless @review.album.label.nil? %> on <%= @review.album.release_date.strftime('%B %e, %Y') %></div>
 		<div id="genres">Genres: 
 			<% for tag in @review.album.tags %>
@@ -20,22 +20,12 @@
 	</div>
 </div>
 
-<div id="album_review" class="column span-16 colborder">
+<div id="album_review" class="column span-14 colborder">
 	<div class="body"><%= textilize(@review.body) %></div>
 </div>
 
-<div id="related" class="column span-7 last">
-	<h3>Other albums by <%= @review.album.artist.name %></h3>
-	<ul>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-	</ul>
-	
-	<h3>Other reviews by <%= @review.user.name %></h3>
-	<ul>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-		<li><a href="">Blah</a></li>
-	</ul>
+<div id="related" class="column span-4 last">
+	<%= other_albums(@review.album) unless @review.album.artist.albums.count.to_i < 2 %>
+
+	<%= other_reviews(current_user) unless current_user.reviews.count.to_i < 2 %>
 </div>

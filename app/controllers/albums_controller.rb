@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
-  protect_from_forgery :except => [:auto_complete_for_label_name]
+  protect_from_forgery :except => [:auto_complete_for_label_name, :auto_complete_for_artist_name]
   auto_complete_for :label, :name
+  
+  auto_complete_for :artist, :name
   
   # GET /albums
   # GET /albums.xml

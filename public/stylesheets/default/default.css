@@ -1,11 +1,12 @@
-body {padding-top: 34px;}
+body {}
 a {text-decoration: none; border-bottom: 1px solid; color: #555;}
 label { clear: left; display: block; margin-top: 2em;}
 fieldset label {margin-top: 0;}
+label p { margin-top: 0; padding-top: 0;}
 
 /************* HEADER ***********************/
 
-#header { padding-bottom: 2em;}
+#header { clear: left; padding-bottom: 2em;padding-top: 34px;}
 #header h1 {display: none;}
 #header a { border-bottom-width: 0;}
 /************* UTILITY NAVS *****************/
@@ -32,15 +33,18 @@ fieldset label {margin-top: 0;}
 	margin: 0;	padding: 0;
 	list-style: none;
 }
-#usernav li { margin: 0; padding: 0; display: inline; float: right;}
-#usernav li a { display:block; color: white; border-bottom: none; padding: 5px 2em; font-weight: bold; }
+#usernav li { margin: 0; padding: 0; float: right;}
+#usernav li a { display:block; color: white; border-bottom: none; padding: 5px 2em; }
 #usernav li a.useradmin { background-color: #666; font-weight: normal;}
+#usernav li.title { font-weight: bold; padding: 5px 2em;}
+#usernav li.editor a {padding-left: 5px 1em; background-color: #555;}
+#usernav li.thispage a {padding-left: 5px 1em; background-color: #444;}
 #usernav li a:hover { color: #333; background-color: #ccc;}
 
 /************* NAV ********************/
 
 #nav { text-align: right; padding-top: 10px; }
-#nav ul {list-style-type: none; margin: 0; width: 300px; float: right; margin-right: 3em;}
+#nav ul {list-style-type: none; margin: 0; width: 300px; float: right;}
 #nav ul li { text-align: right; margin-top: .5em;}
 #nav ul li a {
 	display: block;
@@ -69,7 +73,7 @@ dl#front_calendar .artist {font-weight: bold;}
 
 .front_review { clear: left; margin-bottom: 2em;}
 .front_review .front_image {float: left; margin-right: 1em; margin-bottom: 1em;}
-.front_review .rating {float: right; padding: 0; padding-top: .2em; padding-bottom: .2em; width: 2em; text-align: center;
+.front_review .rating {float: right; padding: 0; padding-top: .2em; padding-bottom: .2em; margin-left: .4em; width: 2em; text-align: center;
 	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
 .front_review .albumartist {font-size: 1.2em; font-weight: bold;}
 .front_review .byline {font-size: .9em;  font-variant: italic; margin-bottom: .6em;}

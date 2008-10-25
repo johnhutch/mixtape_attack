@@ -1,5 +1,21 @@
-<div class="column span-10 colborder">
-	<h3>Recent Albums Reviews</h3>
+<div class="column span-4 colborder">
+	<h3>Best New Albums</h3>
+	<ul>
+		<li>Blah</li>
+		<li>Blah</li>
+		<li>Blah</li>
+	</ul>
+	
+	<h4>Contentious New Albums</h4>
+	<ul>
+		<li>Blah</li>
+		<li>Blah</li>
+		<li>Blah</li>
+	</ul>
+</div>
+
+<div class="column span-8 colborder">
+	<h2>Recent Albums Reviews</h2>
 	<% for review in @reviews %>
 		<div class="front_review">
 			<div class="front_image"><%= image_tag review.album.art.url(:frontlist) %></div>
@@ -18,18 +34,9 @@
 	<h4><a href="/reviews">Read more album reviews &gt;</a></h4>
 </div>
 
-<div class="column span-10 last">
-	<h3>Upcoming Record Releases</h3>
-	<dl id="front_calendar">
-		<% @release_days = @albums.group_by { |a| a.release_date.beginning_of_day } unless @albums.nil? %>
-		<% unless @release_days.nil? %>
-			<% @release_days.keys.sort.each do |day| %>
-				<dt><%= day.strftime('%B %e')%></dt>
-				<% for album in @release_days[day] %>
-					<dd><%= link_to artist_album(album), album_path(album) %> on <%= link_to album.label.name, label_path(album.label) unless album.label.nil? %></dd>
-				<% end %>
-			<% end %>
-		<% end %>
-	</dl>
-	<h4><a href="/albums/calendar">What else is coming up &gt;</a></h4>
+<div class="column span-5 last">
+	<%= upcoming_albums(@albums) %>
+	
+	<h4>Featured Staff</h4>
+	<h5>So and So</h5>
 </div>

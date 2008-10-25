@@ -16,7 +16,7 @@ class Album < ActiveRecord::Base
   has_many :reviews
   
   def release_date_string
-    release_date.to_s
+    release_date.strftime('%B %e, %Y')
   end
   
   def release_date_string=(release_date_str)
