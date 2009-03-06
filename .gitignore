@@ -1,5 +1,5 @@
 log/*.log
 tmp/**/*
 db/development.sqlite3
-bin/
+public/bin/
 .DS_Store

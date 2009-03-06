@@ -1,6 +1,16 @@
 <%= title "Review " + @album.name + " by " + @album.artist.name, :h2 %>
 
-<% form_for @rating do |f| %>
+<% if @album.release_date > Time.now %>
+	<h4>You indicated that this album has not been released yet.</h4>
+	<p>If this was a mistake, you can <%= link_to "fix the release date now" %>. If the date is correct and you're simply adding it to the calendar, thanks!</p>
+	<h5><%= link_to_function ('But wait! I\'m a big pirating sneak and want to review a leaked copy!', nil, :id => "reviewlink") do |page|
+		page.visual_effect :blind_down, "reviewform_display", :duration => ".3"
+		page.replace_html :reviewlink, "Nevermind!"
+	end %></p>
+	<div id="reviewform_display">
+<% end %>
+
+<% form_for (@rating) do |f| %>
 	<%= f.error_messages %>
 
 	<% if current_user.unrated(@album) %>
@@ -9,12 +19,12 @@
 	<% else %>
 		<p>You already rated this album.</p>
 	<% end %>
-	
+
 	<% if current_user.has_role?('editor') && current_user.unreviewed(@album) %>
 		<label>What genre or genres would you say <%= @album.name %> falls under? <br />
 			<small>Please use commas to separate genres (e.g., metal, death metal, noise)</small></label>
 		<%= text_field_tag :tag_list %>
-			
+		
 		<% fields_for Review.new do |r| %>
 			<%= r.error_messages %>
 			<label>Your review of <%= @album.name %>:</label>
@@ -23,11 +33,15 @@
 	<% else %>
 		<p>You already reviewed this album! <%= link_to "View it here.", album_path(@album) %></p>
 	<% end %>
-	
+
 	<%= hidden_field_tag :album, @album.id %>
-	
-	
+
+
 	<% if current_user.unrated(@album) || current_user.unreviewed(@album) %>
 		<p><%= f.submit "Submit" %></p>
 	<% end %>
+<% end %>
+
+<% if @album.release_date > Time.now %>
+	</div>
 <% end %>

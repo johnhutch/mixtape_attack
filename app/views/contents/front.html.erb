@@ -18,7 +18,7 @@
 	<h2>Recent Albums Reviews</h2>
 	<% for review in @reviews %>
 		<div class="front_review">
-			<div class="front_image"><%= image_tag review.album.art.url(:frontlist) %></div>
+			<div class="front_image"><%= image_tag review.album.artwork.url(:frontlist) %></div>
 			<div class="rating"><%= review.score %></div>
 			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
 			<div class="genres">Genres: 

@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
   acts_as_taggable
   
-  has_attached_file :art,
+  has_attached_file :artwork,
               :path => ":rails_root/public/bin/:class/:attachment/:id/:style_:basename.:extension",
               :url => "/bin/:class/:attachment/:id/:style_:basename.:extension",
               :default_url => "/images/missing_:class_:style.png",
@@ -16,7 +16,7 @@ class Album < ActiveRecord::Base
   has_many :reviews
   
   def release_date_string
-    release_date.strftime('%B %e, %Y')
+    release_date.strftime('%B %e, %Y') unless release_date.nil?
   end
   
   def release_date_string=(release_date_str)

@@ -85,6 +85,7 @@ dl#front_calendar .artist {font-weight: bold;}
 
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
+#reviewform_display {display: none;}
 
 
 /************ ALBUMS AND REVIEWS GLOBAL*********/
