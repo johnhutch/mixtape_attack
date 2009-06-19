@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081019173502) do
+ActiveRecord::Schema.define(:version => 20090619214146) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20081019173502) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fans_of"
+    t.string   "tweet"
   end
 
   create_table "roles", :force => true do |t|
@@ -93,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20081019173502) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -103,8 +105,8 @@ ActiveRecord::Schema.define(:version => 20081019173502) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
 
   create_table "tags", :force => true do |t|
     t.string "name"

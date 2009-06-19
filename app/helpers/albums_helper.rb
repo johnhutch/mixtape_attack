@@ -7,7 +7,7 @@ module AlbumsHelper
     strout = "<h3>Other albums by " + album.artist.name + "</h3>\n"
     strout += "<ul id=\"otheralbums\">\n"
     for other in album.artist.albums
-      strout += "<li>" + link_to (other.name, album_path(other)) + "</li>" unless album == other
+      strout += "<li>" + link_to(other.name, album_path(other)) + "</li>" unless album == other
     end
     strout += "</ul>"
   end

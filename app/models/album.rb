@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
   acts_as_taggable
   
-  has_attached_file :artwork,
+  has_attached_file :art,
               :path => ":rails_root/public/bin/:class/:attachment/:id/:style_:basename.:extension",
               :url => "/bin/:class/:attachment/:id/:style_:basename.:extension",
               :default_url => "/images/missing_:class_:style.png",

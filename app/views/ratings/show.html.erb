@@ -40,7 +40,7 @@
 		<div class="album_review column span-8 <%= i%3 == 0 ? "" : "last" %>">
 			<div class="rating"><%= review.score %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
-			<div class="body"><%= review.truncated_body %></div>
+			<div class="body"><%= review.tweet %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>

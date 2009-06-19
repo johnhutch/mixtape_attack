@@ -12,7 +12,7 @@
 			<% end %>
 		</div>
 		<div class="byline">Reviewed by <%= review.user.name %></div>
-		<div class="body"><%= review.truncated_body %></div>
+		<div class="body"><%= review.tweet %></div>
 		<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 	<!--<%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %>-->
 	</div>

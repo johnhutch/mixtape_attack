@@ -19,10 +19,10 @@
 	
 	<div class="column span-10 last">
 	<label>Current album cover</label>
-	<%= image_tag @album.artwork.url(:show) %>
+	<%= image_tag @album.art.url(:show) %>
 	<p><label>Delete this cover and upload a new one?</label>
 	<small>Just leave this field blank if the current album cover is fine</small><br />
-	<%= f.file_field :artwork %></p>
+	<%= f.file_field :art %></p>
 	
   <p>
     <%= f.submit "Save my changes" %>

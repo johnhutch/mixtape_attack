@@ -2,7 +2,7 @@
 
 <div id="album_header" class="clearfix">
 	<div id="albumart" class="column span-5 append-1">
-		<%= image_tag @album.artwork.url(:show) %>
+		<%= image_tag @album.art.url(:show) %>
 	</div>
  
 	<div id="albuminfo" class="column span-9 append-1">
@@ -25,7 +25,7 @@
 		<div class="album_review column span-7 <%= i%2 == 0 ? "" : "last" %>">
 			<div class="rating"><%= review.score %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
-			<div class="body"><%= review.truncated_body %></div>
+			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>

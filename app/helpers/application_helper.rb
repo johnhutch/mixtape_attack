@@ -25,8 +25,8 @@ module ApplicationHelper
   			@release_days.keys.sort.each do |day|
   				strout += "<dt>" + day.strftime('%B %e') + "</dt>"
   				for album in @release_days[day]
-  					strout += "<dd>" + link_to (artist_album(album), album_path(album))
-  					strout += " on " + link_to (album.label.name, label_path(album.label)) unless album.label.nil? 
+  					strout += "<dd>" + link_to(artist_album(album), album_path(album))
+  					strout += " on " + link_to(album.label.name, label_path(album.label)) unless album.label.nil? 
   					strout += "</dd>"
   				end
   			end
@@ -35,4 +35,19 @@ module ApplicationHelper
   	strout += "<h4><a href=\"/albums/calendar\">More &gt;</a></h4>"
   end
   
+  def countdown_field(field_id,update_id,max,options = {})
+    function = "$('#{update_id}').innerHTML = (#{max} - $F('#{field_id}').length);"
+    count_field_tag(field_id,function,options)
+  end
+  
+  def count_field(field_id,update_id,options = {})
+    function = "$('#{update_id}').innerHTML = $F('#{field_id}').length;"
+    count_field_tag(field_id,function,options)
+  end
+  
+  def count_field_tag(field_id,function,options = {})  
+    out = javascript_tag function
+    out += observe_field(field_id, options.merge(:function => function))
+    return out
+  end
 end

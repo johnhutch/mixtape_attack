@@ -89,9 +89,6 @@
 
 					<% if current_user.has_role?('editor') %>
 						<li class="editor"><%= link_to 'Contribute to Mixtape',  prelookup_artists_path %></li>
-						<li class="thispage"><% if @review && current_user == @review.user %><%= link_to 'Edit this review', edit_review_path(@review) %><% end %></li>
-						<li class="thispage"><% if @album %><%= link_to 'Edit this album', edit_album_path(@album) %><% end %></li>
-						<li class="thispage"><% if @artist %><%= link_to 'Edit this artist', edit_artist_path(@artist) %><% end %></li>
 						<% if current_user.has_role?('admin') %>
 							<li><%= link_to 'Administer Users', admin_users_path %></li>
 						<% end %>

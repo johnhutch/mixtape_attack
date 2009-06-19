@@ -1,24 +1,8 @@
-<div class="column span-4 colborder">
-	<h3>Best New Albums</h3>
-	<ul>
-		<li>Blah</li>
-		<li>Blah</li>
-		<li>Blah</li>
-	</ul>
-	
-	<h4>Contentious New Albums</h4>
-	<ul>
-		<li>Blah</li>
-		<li>Blah</li>
-		<li>Blah</li>
-	</ul>
-</div>
-
-<div class="column span-8 colborder">
+<div class="column span-12 colborder">
 	<h2>Recent Albums Reviews</h2>
 	<% for review in @reviews %>
 		<div class="front_review">
-			<div class="front_image"><%= image_tag review.album.artwork.url(:frontlist) %></div>
+			<div class="front_image"><%= image_tag review.album.art.url(:frontlist) %></div>
 			<div class="rating"><%= review.score %></div>
 			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
 			<div class="genres">Genres: 
@@ -27,14 +11,14 @@
 				<% end %>
 			</div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
-			<div class="body"><%= review.truncated_body %></div>
+			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>
 	<h4><a href="/reviews">Read more album reviews &gt;</a></h4>
 </div>
 
-<div class="column span-5 last">
+<div class="column span-6 last">
 	<%= upcoming_albums(@albums) %>
 	
 	<h4>Featured Staff</h4>
