@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
   protect_from_forgery :except => [:auto_complete_for_artist_name]
   auto_complete_for :artist, :name
+  require_role "editor", :only => [:edit, :new, :create, :update, :destroy, :prelookup]
   
   # GET /artists
   # GET /artists.xml

@@ -1,6 +1,7 @@
 class LabelsController < ApplicationController
   # GET /labels
   # GET /labels.xml
+  require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
   def index
     @labels = Label.find(:all)
 

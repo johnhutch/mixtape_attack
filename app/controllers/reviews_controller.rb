@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.xml
+  require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
   def index
     @reviews = Review.paginate :per_page => 5, :page => params[:page]
 
