@@ -7,11 +7,11 @@ test:
   <<: *non_production_settings
 
 staging:
-  site_url: http://staging.mixtape.com
+  site_url: http://staging.mixtapeattack.com
   site_name: Mixtape Attack
   admin_email: johnhutch+mixtapeadmin@gmail.com  
   
 production:
-  site_url: http://www.mixtape.com
+  site_url: http://www.mixtapeattack.com
   site_name: Mixtape Attack
   admin_email: johnhutch+mixtapeadmin@gmail.com

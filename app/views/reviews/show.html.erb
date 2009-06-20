@@ -27,5 +27,5 @@
 <div id="related" class="column span-4 last">
 	<%= other_albums(@review.album) unless @review.album.artist.albums.count.to_i < 2 %>
 
-	<%= other_reviews(current_user) unless current_user.reviews.count.to_i < 2 %>
+	<%= other_reviews(@review.user) unless @review.user.reviews.count.to_i < 2 %>
 </div>
