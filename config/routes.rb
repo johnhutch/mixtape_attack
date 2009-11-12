@@ -1,17 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :news_items
+
   map.resources :labels
 
   map.resources :reviews
   map.resources :ratings
   map.resources :albums, :member => { :select => :get, :review => :get, :genre => :get }, :collection => { :calendar => :get }
   map.resources :artists, :collection => { :prelookup => :get, :new => :post }
-  
+    
   # Restful static pages
   map.with_options :controller => 'contents' do |contents|
     contents.about 'about', :action => 'about'
     contents.contact 'contact', :action => 'contact'
     contents.terms 'terms', :action => 'terms'
     contents.help 'help', :action => 'help'
+    contents.admin 'admin', :action => 'admin'
   end
  
   # Restful Authentication Rewrites

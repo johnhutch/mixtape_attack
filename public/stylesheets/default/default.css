@@ -1,87 +1,57 @@
-body {}
-a {text-decoration: none; border-bottom: 1px solid; color: #555;}
-label { clear: left; display: block; margin-top: 2em;}
-fieldset label {margin-top: 0;}
-label p { margin-top: 0; padding-top: 0;}
+/**** THEME ****/
+body {font-family: Georgia, Times New Roman, Times, Serif;}
+a {color: #f60;}
 
-/************* HEADER ***********************/
+/**** HERO ****/
+#header {position: relative; background: transparent url(images/header_bg.png) top left repeat-x; margin-top: 60px; height: 124px; z-index: 10;}
+#header .container {position: relative;}
+h1#logo {margin: 0; position: absolute; top: 5px;}
+h1#logo a {display: block; height:134px; width:450px; text-indent: -9999px; background: transparent url(images/logo_large.png) top left no-repeat; float: left;}
+h2#tagline {width: 450px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
+#header hr { width: 350px; margin: 5px 0; margin-left: 545px; background-color: #bbb;}
 
-#header { clear: left; padding-bottom: 2em;padding-top: 34px;}
-#header h1 {display: none;}
-#header a { border-bottom-width: 0;}
-/************* UTILITY NAVS *****************/
+/**** NAV ****/
+ul#nav {list-style-type: none; padding: 0; margin: 0 0 0 555px;}
+ul#nav li { float:left; color: #f60;}
+ul#nav li a { padding: 0 25px; color: #444; font-size: 2em; text-decoration: none; background: transparent url(images/orange_bullet.png) 50% right no-repeat;}
+ul#nav li a:hover {color: #f60;}
+ul#nav li a.first {padding-left: 0;}
+ul#nav li a.last {padding-right: 0; background-image: none;}
 
-#utility_bottom { float: left;}
-#utility_bottom ul { list-style: none; text-align: right; margin: 0;}
-#utility_bottom ul li {display:inline; padding-right: 1em;}
+/**** USER_NAV ****/
+#user_nav {position: absolute; font-size: 1.1em; background-color: #efeeee; border: 1px solid #ccc; border-bottom-width: 0; top: -30px; right: 0px; width: 360px; z-index: 5;}
+#user_nav p {float: left; margin: 8px 0 0 8px; font-style: italic;}
+#user_nav ul {list-style-type: none; text-align: right;}
+#user_nav ul li {float: right;}
+#user_nav ul li a {display: block; padding: 8px 10px 2px 10px; color: #444; text-decoration: none;}
+#user_nav ul li a:hover {text-decoration: underline;}
 
-/************* USERNAV ****************/
-#usernav {
-	background-color: #333; 
-	padding: 0;	margin: 0;
-	color: white;
-	position: absolute;
-	width: 100%;
-	top:0;	left: 0; z-index: 1;
-	text-align: right;
-	font-size: 1.1em;
-}
-#usernav a { color: #ccc; border-bottom-width: 0;}
-#usernav a { color: #999; border-bottom-width: 1;}
-#usernav h6 { float: left; color: white; padding-left: 2em; padding-top: 5px; }
-#usernav ul {
-	margin: 0;	padding: 0;
-	list-style: none;
-}
-#usernav li { margin: 0; padding: 0; float: right;}
-#usernav li a { display:block; color: white; border-bottom: none; padding: 5px 2em; }
-#usernav li a.useradmin { background-color: #666; font-weight: normal;}
-#usernav li.title { font-weight: bold; padding: 5px 2em;}
-#usernav li.editor a {padding-left: 5px 1em; background-color: #555;}
-#usernav li.thispage a {padding-left: 5px 1em; background-color: #444;}
-#usernav li a:hover { color: #333; background-color: #ccc;}
+/************* LOGIN SLIDER ************/
+#login_slider {	position: absolute;	top: 0;	z-index: 50; left: 35%;background-color: #fff; border: 1px solid #ccc; border-top-width: 0; }
+#login_slider #inner_slider { padding: 2em;}
 
-/************* NAV ********************/
+/**** MAIN_CONTENT ****/
+#main_content {background-color: #ccc;}
 
-#nav { text-align: right; padding-top: 10px; }
-#nav ul {list-style-type: none; margin: 0; width: 300px; float: right;}
-#nav ul li { text-align: right; margin-top: .5em;}
-#nav ul li a {
-	display: block;
-	font-size: 2.2em; 
-	border-bottom-width: 0; 
-	font-weight: bold;
-	text-transform: uppercase; 
-	color: #333;
-	 width: 300px; 
-	padding-right: 1em;
-}
-#nav ul li a:hover { background-color: #333; color: white; }
+/**** NEWS ****/
+#news {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px;}
 
-/************* CONTENT ****************/
+/**** CONTENT ****/
+#content {background-color: #eee;}
 
-#content {clear: both;}
+/**** FEATURED_REVIEWS ****/
+#featured_reviews {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; height: 300px;}
+
+/**** SUB_CONTENT ****/
+#sub_content {color: white; background-color: #333;}
+#sub_content h2 {color: #f60;}
+
+/**** EVENT CALENDAR ****/
+ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300px;}
 
 /************* FOOTER *****************/
 
 #footer {clear:both; text-align: right; margin-top: 2em; padding-top: 2em;}
-
-/************* FRONT PAGE *************/
-dl#front_calendar a {text-decoration: none; border-bottom-width: 0;}
-dl#front_calendar a:hover {border-bottom-width: 1px;}
-dl#front_calendar .artist {font-weight: bold;}
-
-.front_review { clear: left; margin-bottom: 2em;}
-.front_review .front_image {float: left; margin-right: 1em; margin-bottom: 1em;}
-.front_review .rating {float: right; padding: 0; padding-top: .2em; padding-bottom: .2em; margin-left: .4em; width: 2em; text-align: center;
-	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
-.front_review .albumartist {font-size: 1.2em; font-weight: bold;}
-.front_review .byline {font-size: .9em;  font-variant: italic; margin-bottom: .6em;}
-.front_review a {color: #444; border-bottom-width: 0;}
-.front_review a:hover {color: #777; border-bottom-width: 1px;}
-.front_review .genres a {margin-right: .4em;}
-
-/************ REVIEW PROCESS **********/
 
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
@@ -101,3 +71,23 @@ dl#front_calendar .artist {font-weight: bold;}
 /************ REVIEW SHOW PAGE *********/
 
 #album_review {margin-top: 2em;}
+
+
+/**** RAILS BASE ****/
+/* === FLASH MESSAGES === */
+div#flash-notice {}
+div#flash-warning {}
+div#flash-error {}
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {width: 400px;border: 2px solid red;padding: 7px;padding-bottom: 12px;margin-bottom: 20px;background-color: #f0f0f0;}
+div#errorExplanation h2 {text-align: left;font-weight: bold;padding: 5px 5px 5px 15px;font-size: 12px;margin: -7px;background-color: #c00;color: #fff;}
+div#errorExplanation p {color: #333;margin-bottom: 0;padding: 5px; margin-top: 10px;}
+div#errorExplanation ul { margin-bottom: 0;}
+div#errorExplanation ul li { font-size: 12px; list-style: square;}
+
+/* === FORMS === */
+div.fieldWithErrors { }
+div.fieldWithErrors label {}
+div.fieldWithErrors input, div.fieldWithErrors select, 
+div.fieldWithErrors textarea{ border: 2px solid red; background-color: #ffefef;}

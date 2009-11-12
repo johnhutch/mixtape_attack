@@ -1,7 +1,6 @@
-<div class="column span-12 colborder">
-	<h2>Recent Albums Reviews</h2>
-	<% for review in @reviews %>
-		<div class="front_review">
+<div id="featured_reviews">
+	<% for review in @recent_reviews %>
+		<div class="review">
 			<div class="front_image"><%= image_tag review.album.art.url(:frontlist) %></div>
 			<div class="rating"><%= review.score %></div>
 			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
@@ -15,12 +14,10 @@
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>
-	<h4><a href="/reviews">Read more album reviews &gt;</a></h4>
+	<h4><a href="/reviews">More &gt;</a></h4>
 </div>
 
-<div class="column span-6 last">
-	<%= upcoming_albums(@albums) %>
-	
-	<h4>Featured Staff</h4>
-	<h5>So and So</h5>
+
+<div id="news">
+	News goes here
 </div>

@@ -1,0 +1,17 @@
+<div id="user_nav">
+	<% if logged_in? %>
+		<ul>
+			<% if current_user.has_role?("admin") %><li><%= link_to "Admin", admin_path %></li><% end %>
+			<% if current_user.has_role?("author") %><li><%= link_to "Contribute", prelookup_artists_path %></li><% end %>
+	        <li><%= link_to 'Log out', logout_path %></li>
+		</ul>
+	<% else %>
+		<p>Want to participate?</p>
+		<ul>
+	        <li><%= link_to_function("Log In", nil) do |page|
+					page.visual_effect :toggle_appear, 'login_slider', :duration => 0.7
+					end %></li>
+	        <li><%= link_to 'Sign up', signup_path %></li>
+		</ul>
+	<% end %>
+</div>
