@@ -1,9 +1,9 @@
 <div id="user_nav">
 	<% if logged_in? %>
 		<ul>
-			<% if current_user.has_role?("admin") %><li><%= link_to "Admin", admin_path %></li><% end %>
-			<% if current_user.has_role?("author") %><li><%= link_to "Contribute", prelookup_artists_path %></li><% end %>
 	        <li><%= link_to 'Log out', logout_path %></li>
+			<% if current_user.has_role?("author") %><li><%= link_to "Contribute", prelookup_artists_path %></li><% end %>
+			<% if current_user.has_role?("admin") %><li><%= link_to "Admin", admin_path %></li><% end %>
 		</ul>
 	<% else %>
 		<p>Want to participate?</p>
