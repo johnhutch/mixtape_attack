@@ -8,13 +8,13 @@ a {color: #f60;}
 /**** HERO ****/
 #header {position: relative; background: transparent url(images/header_bg.png) top left repeat-x; margin-top: 60px; height: 124px; z-index: 10;}
 #header .container {position: relative;}
-h1#logo {margin: 0; position: absolute; top: 5px;}
-h1#logo a {display: block; height:134px; width:450px; text-indent: -9999px; background: transparent url(images/logo_large.png) top left no-repeat; float: left;}
-h2#tagline {width: 450px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
-#header hr { width: 350px; margin: 5px 0; margin-left: 545px; background-color: #bbb;}
+h1#logo {margin: 0; position: absolute; top: -15px;}
+h1#logo a {display: block; height:160px; width:429px; text-indent: -9999px; background: transparent url(images/logo_large.png) top left no-repeat; float: left;}
+h2#tagline {width: 435px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
+#header hr { width: 400px; margin: 5px 0; margin-left: 515px; background-color: #bbb;}
 
 /**** NAV ****/
-ul#nav {list-style-type: none; padding: 0; margin: 0 0 0 555px;}
+ul#nav {list-style-type: none; padding: 0; margin: 0 0 0 500px;}
 ul#nav li { float:left; color: #f60;}
 ul#nav li a { padding: 0 25px; color: #444; font-size: 2em; text-decoration: none; background: transparent url(images/orange_bullet.png) 50% right no-repeat;}
 ul#nav li a:hover {color: #f60;}
