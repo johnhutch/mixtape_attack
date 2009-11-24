@@ -11,4 +11,13 @@ module AlbumsHelper
     end
     strout += "</ul>"
   end
+  
+  def released(album)
+    if @review.album.label.nil?
+      strout = "Self or Unreleased"
+    else
+      strout = "Released by"
+      strout += @review.album.label.name
+    end
+  end
 end

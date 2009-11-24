@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090619214146) do
+ActiveRecord::Schema.define(:version => 20091112030809) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20090619214146) do
 
   create_table "labels", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_items", :force => true do |t|
+    t.string   "tite"
+    t.text     "body"
+    t.text     "excerpt"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

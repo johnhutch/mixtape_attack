@@ -34,13 +34,13 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #login_slider #inner_slider { padding: 2em;}
 
 /**** MAIN_CONTENT ****/
-#main_content {background-color: #ccc;}
+#main_content {background-color: #fff;}
 
 /**** NEWS ****/
 #news {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px;}
 
 /**** CONTENT ****/
-#content {background-color: #eee;}
+#content {background-color: #fff;}
 
 /**** FEATURED_REVIEWS ****/
 #featured_reviews {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; height: 300px;}
