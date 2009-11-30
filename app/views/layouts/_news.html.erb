@@ -1,1 +1,9 @@
-news goes here.
+<h2 id="news">News</h2>
+
+<% for news_item in NewsItem.find(:all, :order => "created_at DESC", :limit => 4) %>
+	<div class="news_item">
+		<h3><%= news_item.title %></h3>
+		<%= news_item.excerpt.blank? ? RedCloth.new(truncate(news_item.body(:source), 250)).to_html : news_item.excerpt %>
+		<p class="continue"><%= link_to "Continue Reading -&gt;", news_item_path(news_item) %></p>
+	</div>
+<% end %>

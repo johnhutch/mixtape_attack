@@ -1,7 +1,7 @@
 class CreateNewsItems < ActiveRecord::Migration
   def self.up
     create_table :news_items do |t|
-      t.string :tite
+      t.string :title
       t.text :body
       t.text :excerpt
       t.integer :user_id

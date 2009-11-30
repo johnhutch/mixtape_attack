@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20091112030809) do
   end
 
   create_table "news_items", :force => true do |t|
-    t.string   "tite"
+    t.string   "title"
     t.text     "body"
     t.text     "excerpt"
     t.integer  "user_id"

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :reviews
   has_many :ratings
+  has_many :news_items
 
   # Validations
   validates_presence_of :login, :if => :not_using_openid?

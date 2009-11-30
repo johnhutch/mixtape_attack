@@ -1,6 +1,8 @@
 class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.xml
+  require_role "editor", :only => [:edit, :new, :create, :update, :destroy ]
+  
   def index
     @news_items = NewsItem.find(:all)
 
@@ -40,7 +42,7 @@ class NewsItemsController < ApplicationController
   # POST /news_items
   # POST /news_items.xml
   def create
-    @news_item = NewsItem.new(params[:news_item])
+    @news_item = current_user.news_items.build(params[:news_item])
 
     respond_to do |format|
       if @news_item.save

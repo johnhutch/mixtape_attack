@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     contents.terms 'terms', :action => 'terms'
     contents.help 'help', :action => 'help'
     contents.admin 'admin', :action => 'admin'
+    contents.contribute 'contribute', :action => 'contribute'
   end
  
   # Restful Authentication Rewrites

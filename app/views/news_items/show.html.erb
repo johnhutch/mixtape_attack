@@ -1,23 +1,4 @@
-<p>
-  <b>Tite:</b>
-  <%=h @news_item.tite %>
-</p>
+<h2><%= @news_item.title %></h2>
+<p class="byline">By <%= link_to @news_item.user.name, user_path(@news_item.user) %></p>
 
-<p>
-  <b>Body:</b>
-  <%=h @news_item.body %>
-</p>
-
-<p>
-  <b>Excerpt:</b>
-  <%=h @news_item.excerpt %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%=h @news_item.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_news_item_path(@news_item) %> |
-<%= link_to 'Back', news_items_path %>
+  <%= @news_item.body %>
