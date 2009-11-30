@@ -12,9 +12,7 @@
 	<%= render :partial => 'layouts/hero' %>
 	
 	<div id="main_content" class="container">
-		<div id="content">
-			<%= yield :layout %>
-		</div>
+		<%= yield :layout %>
 		
 		<div id="contextual">
 			<%= (contextual = yield :contextual) ? contextual : render(:partial => 'layouts/news') %>		</div>

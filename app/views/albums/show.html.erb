@@ -1,36 +1,35 @@
 <%= title @album.name + " by " + @album.artist.name, :h2 %>
 
-<div id="album_header" class="clearfix">
-	<div id="albumart" class="column span-5 append-1">
-		<%= image_tag @album.art.url(:show) %>
-	</div>
- 
-	<div id="albuminfo" class="column span-9 append-1">
-		<div id="label">Released by <%= @album.label.name unless @album.label.nil? %> on <%= @album.release_date.strftime('%B %e, %Y') %></div>
-		<div id="genres">Genres: 
-			<% for tag in @album.tags %>
-				<%= link_to tag, genre_album_path(tag.name) %>
-			<% end %>
-		</div>
-		
-	</div>
-
-	<div id="scores" class="column span-3 last">
-		<%= sprintf ("%.1f", @album.score) %>
-	</div>
+<div id="albumart">
+	<%= image_tag @album.art.url(:show) %>
 </div>
 
-<div id="album_reviews" class="column span-14 colborder">
-	<% @album.reviews.each_with_index do |review, i| %>
-		<div class="album_review column span-7 <%= i%2 == 0 ? "" : "last" %>">
-			<div class="rating"><%= review.score %></div>
-			<div class="byline">Reviewed by <%= review.user.name %></div>
-			<div class="tweet"><%= strip_tags(review.tweet) %></div>
-			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
-		</div>
+<div id="label">Released by <%= @album.label.name unless @album.label.nil? %> on <%= @album.release_date.strftime('%B %e, %Y') %></div>
+
+<div id="genres">Genres: 
+	<% for tag in @album.tags %>
+		<%= link_to tag, genre_album_path(tag.name) %>
 	<% end %>
 </div>
-
-<div id="related" class="column span-4 last">
-	<%= other_albums(@album) unless @album.artist.albums.count.to_i < 2 %>
+	
+<div id="scores">
+	<%= sprintf ("%.1f", @album.score) %>
 </div>
+
+
+<% content_for :contextual do %>
+	<div id="album_reviews">
+		<% @album.reviews.each_with_index do |review, i| %>
+			<div class="album_review column span-7 <%= i%2 == 0 ? "" : "last" %>">
+				<div class="rating"><%= review.score %></div>
+				<div class="byline">Reviewed by <%= review.user.name %></div>
+				<div class="tweet"><%= strip_tags(review.tweet) %></div>
+				<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+			</div>
+		<% end %>
+	</div>
+
+	<div id="related">
+		<%= other_albums(@album) unless @album.artist.albums.count.to_i < 2 %>
+	</div>
+<% end %>

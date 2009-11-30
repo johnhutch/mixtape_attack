@@ -1,23 +1,31 @@
-<div id="featured_reviews">
+<div id="featured_review">
+	<% review = @recent_reviews.shift %>
+	<div class="genres">
+		Featured 
+		<% for tag in review.album.tags %>
+			<%= link_to tag, genre_album_path(tag.name) %>
+		<% end %>
+	</div>
+	<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:featured) %></a>
+	<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
+	<div class="tweet"><%= strip_tags(review.tweet) %></div>
+	<div class="byline">Reviewed by <%= review.user.name %></div>
+	<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+</div>
+
+<div id="recent_reviews">
 	<% for review in @recent_reviews %>
 		<div class="review">
-			<div class="front_image"><%= image_tag review.album.art.url(:frontlist) %></div>
-			<div class="rating"><%= review.score %></div>
-			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
-			<div class="genres">Genres: 
+			<div class="genres">Featured 
 				<% for tag in review.album.tags %>
 					<%= link_to tag, genre_album_path(tag.name) %>
 				<% end %>
 			</div>
-			<div class="byline">Reviewed by <%= review.user.name %></div>
+			<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
+			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
 			<div class="tweet"><%= strip_tags(review.tweet) %></div>
+			<div class="byline">Reviewed by <%= review.user.name %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>
-	<h4><a href="/reviews">More &gt;</a></h4>
-</div>
-
-
-<div id="news">
-	News goes here
 </div>

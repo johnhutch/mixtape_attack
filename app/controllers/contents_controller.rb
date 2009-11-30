@@ -19,7 +19,7 @@ class ContentsController < ApplicationController
                           :conditions => ['release_date > ?', Date.today], 
                           :order => "release_date ASC",
                           :limit => 15)
-    @recent_reviews = Review.find(:all, :order => "created_at DESC", :limit => 3)
+    @recent_reviews = Review.find(:all, :order => "created_at DESC", :limit => 4)
     
     respond_to do |format|
       #format.html { render :layout => "front" }

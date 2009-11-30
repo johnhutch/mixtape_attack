@@ -21,8 +21,8 @@
 	<%= @review.body %>
 </div>
 
-<div id="related">
+<% content_for :contextual do %>
 	<%= other_albums(@review.album) unless @review.album.artist.albums.count.to_i < 2 %>
 
 	<%= other_reviews(@review.user) unless @review.user.reviews.count.to_i < 2 %>
-</div>
+<% end %>

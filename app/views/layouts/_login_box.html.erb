@@ -1,27 +1,25 @@
 <div id="login_slider" style="display: none;">
 	<div id="inner_slider">
 		<h3>Login here, jerknuts</h3>
-		<div class="column append-1">
 		<% form_tag session_path do -%>
-			<p><label for="login">Login</label><br/>
-			<%= text_field_tag 'login' %></p>
+			<label for="login">Login</label>
+			<%= text_field_tag 'login' %>
 
-			<p><label for="password">Password</label><br/>
-			<%= password_field_tag 'password' %></p>
-		</div>
+			<label for="password">Password</label>
+			<%= password_field_tag 'password' %>
+			
+ 			<label for="openid">Or log in with your OpenID URL</label>
+			<%= text_field_tag 'openid_url' %></p>
 	
-		<div class="column last">
-			<p><br /><label for="remember_me">Remember me:</label>
-			<%= check_box_tag 'remember_me' %></p>
+			<p class="remember"><%= check_box_tag 'remember_me' %> <label for="remember_me" class="remember">Remember me:</label></p>
 
-			<p><a href="/forgot_password">Forgot your password?</a></p>
+			<p class="forgot"><a href="/forgot_password">Forgot your password?</a></p>
 		
+			<%= submit_tag 'Log in' %>
 		
-			<p><%= submit_tag 'Log in' %></p>
-		</div>
-		<div id="close_login_slider"><%= link_to_function("Close", nil) do |page|
+			<p class="close_login"><%= link_to_function("Close", nil) do |page|
 				page.visual_effect :toggle_appear, 'login_slider', :duration => 0.7
-		 	end %></div>
+		 	end %></p>
 		<% end %>
 	</div>
 </div>

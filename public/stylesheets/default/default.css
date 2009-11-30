@@ -1,6 +1,7 @@
 /**** THEME ****/
 body {margin: 0; padding: 0; font-family: Georgia, Times New Roman, Times, Serif;}
 a {color: #f60;}
+label {clear: left; display: block; margin: 1.5em 0 3px 0;}
 
 #flash_messages { background-color: #f2f8ff; margin: 0; padding: 0;}
 #flash_messages .container {margin-top: 0; padding: 0;}
@@ -16,7 +17,7 @@ h2#tagline {width: 435px; padding: 15px 0 0 500px; font-size: 1.1em; font-style:
 /**** NAV ****/
 ul#nav {list-style-type: none; padding: 0; margin: 0 0 0 500px;}
 ul#nav li { float:left; color: #f60;}
-ul#nav li a { padding: 0 25px; color: #444; font-size: 2em; text-decoration: none; background: transparent url(images/orange_bullet.png) 50% right no-repeat;}
+ul#nav li a { padding: 0 25px; color: #444; font-size: 2em; text-decoration: none; background: transparent url(images/orange_bullet.png) center right no-repeat;}
 ul#nav li a:hover {color: #f60;}
 ul#nav li a.first {padding-left: 0;}
 ul#nav li a.last {padding-right: 0; background-image: none;}
@@ -30,20 +31,45 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #user_nav ul li a:hover {text-decoration: underline;}
 
 /************* LOGIN SLIDER ************/
-#login_slider {	position: absolute;	top: 0;	z-index: 50; left: 35%;background-color: #fff; border: 1px solid #ccc; border-top-width: 0; }
-#login_slider #inner_slider { padding: 2em;}
+#login_slider {	position: absolute;	top: 20%; z-index: 50; left: 50%; margin-left: -80px; background: transparent url(images/alpha_grey.png) top left;  -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; border: 1px solid #666;}
+#login_slider #inner_slider { padding: 2em;margin: 7px; background-color: #fff; border: 1px solid #ccc; -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px;}
+#login_slider label.remember {clear: none; display: inline;}
+#login_slider p.remember {margin: 1.2em 0 0 0;}
+#login_slider p.close_login {float: right;}
 
 /**** MAIN_CONTENT ****/
-#main_content {background-color: #fff;}
-
-/**** NEWS ****/
-#news {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px;}
+#main_content {background-color: #fff; overflow: hidden; margin-top: -5px;}
 
 /**** CONTENT ****/
-#content {background-color: #fff;}
+#content {background-color: #fff; float: left; width: 590px;}
 
-/**** FEATURED_REVIEWS ****/
-#featured_reviews {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; height: 300px;}
+/**** FEATURED REVIEW ****/
+#featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	padding-bottom: 30px;}
+#featured_review .genres {float: right; margin: 20px 30px 0 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
+#featured_review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
+#featured_review .genres a:hover {text-decoration: underline;}
+#featured_review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0 0; }
+#featured_review .albumartist {margin: 40px 0 0 20px; font-size: 1.8em;}
+#featured_review .albumartist a { text-decoration: none; }
+#featured_review .albumartist a:hover {text-decoration: underline; color: #f60;}
+#featured_review .tweet {font-size: 2.6em; line-height: 1em; margin: 0 0 0 20px; width: 320px;}
+#featured_review .byline {font-size: 1.3em; font-style: italic; margin-left: 20px; float: left; color: #777;}
+#featured_review .readmore { float: right; font-size: 1.3em; margin: 0 35px 0 1em; padding-top: 4px;}
+
+/**** RECENT REVIEWS ****/
+#recent_reviews {padding-left: 15px;}
+#recent_reviews .review {float: left; margin-right: 35px; width: 156px; padding: 30px 0;}
+#recent_reviews .genres a { text-decoration: none; color: #444; text-transform: capitalize; }
+#recent_reviews .genres a:hover {text-decoration: underline;}
+#recent_reviews .review img { background: #ddd; border: 1px solid #aaa; padding: 3px; margin-top: 3px;}
+#recent_reviews .albumartist {font-size: 1.4em; line-height: 1em; margin-bottom: 3px;}
+#recent_reviews .albumartist a {text-decoration: none;}
+#recent_reviews .tweet {font-size: 1.6em; line-height: 1em; color: #555; margin-bottom: 3px;}
+#recent_reviews .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 3px;}
+#recent_reviews .readmore {font-size: 1.2em; }
+
+/**** NEWS ****/
+#contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px; margin-bottom: -9999px; padding-bottom: 9999px;} 
 
 /**** SUB_CONTENT ****/
 #sub_content {color: white; background-color: #333;}
@@ -53,26 +79,24 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300px;}
 
 /************* FOOTER *****************/
-
 #footer {clear:both; text-align: right; margin-top: 2em; padding-top: 2em;}
 
+/**** REVIEW FORM ***/
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
 #reviewform_display {display: none;}
 
-
 /************ ALBUMS AND REVIEWS GLOBAL*********/
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 #related {margin-top: 2em;}
-/************ ALBUM SHOW PAGE *********/
 
+/************ ALBUM SHOW PAGE *********/
 #album_reviews {clear: both; margin-top: 2em;}
 #album_reviews .album_review { margin-top: 2em;}
 #album_reviews .rating {float: left; margin-right: 1em; margin-bottom: 1em; padding: 0; padding-top: .2em; padding-bottom: .2em; width: 2em; text-align: center;
 	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
 	
 /************ REVIEW SHOW PAGE *********/
-
 #album_review {margin-top: 2em;}
 
 
