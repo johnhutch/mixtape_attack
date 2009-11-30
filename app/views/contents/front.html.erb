@@ -1,6 +1,7 @@
 <div id="featured_review">
 	<% review = @recent_reviews.shift %>
 	<div class="genres"> 
+		<strong>Genres:</strong> 
 		<% for tag in review.album.tags %>
 			<%= link_to tag, genre_album_path(tag.name) %>
 		<% end %>

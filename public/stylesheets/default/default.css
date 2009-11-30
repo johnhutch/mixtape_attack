@@ -2,6 +2,7 @@
 body {margin: 0; padding: 0; font-family: Georgia, Times New Roman, Times, Serif;}
 a {color: #f60;}
 label {clear: left; display: block; margin: 1.5em 0 3px 0;}
+h1, h2, h3, h4, h5, h6 {color: #444;}
 
 #flash_messages { background-color: #f2f8ff; margin: 0; padding: 0;}
 #flash_messages .container {margin-top: 0; padding: 0;}
@@ -23,27 +24,29 @@ ul#nav li a.first {padding-left: 0;}
 ul#nav li a.last {padding-right: 0; background-image: none;}
 
 /**** USER_NAV ****/
-#user_nav {position: absolute; font-size: 1.1em; background-color: #efeeee; border: 1px solid #ccc; border-bottom-width: 0; top: -30px; right: 0px; width: 360px; z-index: 5;}
+#user_nav {position: absolute; font-size: 1.1em; background-color: #efeeee; border: 1px solid #ccc; border-bottom-width: 0; top: -31px; right: 0px; width: 360px; z-index: 5;}
 #user_nav p {float: left; margin: 8px 0 0 8px; font-style: italic;}
 #user_nav ul {list-style-type: none; text-align: right;}
 #user_nav ul li {float: right;}
 #user_nav ul li a {display: block; padding: 8px 10px 2px 10px; color: #444; text-decoration: none;}
 #user_nav ul li a:hover {text-decoration: underline;}
 
-/************* LOGIN SLIDER ************/
+/**** LOGIN SLIDER ****/
 #login_slider {	position: absolute;	top: 20%; z-index: 50; left: 50%; margin-left: -80px; background: transparent url(images/alpha_grey.png) top left;  -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; border: 1px solid #666;}
 #login_slider #inner_slider { padding: 2em;margin: 7px; background-color: #fff; border: 1px solid #ccc; -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px;}
 #login_slider label.remember {clear: none; display: inline;}
 #login_slider p.remember {margin: 1.2em 0 0 0;}
 #login_slider p.close_login {float: right;}
 
-/**** CONTENT FRAME ****/
+
+
+/************* CONTENT FRAME *******************/
 #main_content {background-color: #fff; overflow: hidden; margin-top: -5px;}
-#content {background-color: #fff; float: left; width: 590px;}
+#content {background-color: #fff; float: left; width: 590px; padding-top: 30px;}
 #contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px; margin-bottom: -9999px; padding-bottom: 9999px;}
 
 /**** FEATURED REVIEW ****/
-#featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	padding-bottom: 30px;}
+#featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	margin-top: -30px; padding-bottom: 30px;}
 #featured_review .genres {float: right; margin: 20px 30px 0 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
 #featured_review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #featured_review .genres a:hover {text-decoration: underline;}
@@ -67,15 +70,65 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #recent_reviews .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
 #recent_reviews .readmore {font-size: 1.2em; }
 
+#scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
+
+/**** REVIEW SHOW ****/
+#review {padding-bottom: 2em;}
+#review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 1em; }
+#review #scores {clear: right; float: right; width: 3em; margin:0 30px 0 1em;}
+#review h2 {line-height: 1em; margin: 0; }
+#review #byline {font-size: 1.2em; font-style:italic; color: #666; }
+#review #genres {float: right; margin: 0px 30px 0 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
+#review #genres a { text-decoration: none; text-transform: capitalize; color: #555;}
+#review #genres a:hover {text-decoration: underline;}
+#review #label {}
+#review #release_date {}
+#review #body {margin-top: 1em;}
+
+/**** ALBUM SHOW ****/
+#album {padding-bottom: 2em;}
+#album img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 1em; }
+#album #scores {clear: right; float: right; width: 3em; margin:0 30px 0 1em;}
+#album h2 {line-height: 1em; margin: 0; }
+#album #byline {font-size: 1.2em; font-style:italic; color: #666; }
+#album #genres {font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
+#album #genres a { text-decoration: none; text-transform: capitalize; color: #555;}
+#album #genres a:hover {text-decoration: underline;}
+#album #label {}
+#album #release_date {}
+
+
+
+/********* CONTEXTUAL FRAME ********************/
+#contextual h3 {margin: 1.4em 25px 0 25px; text-transform: uppercase; font-size: 1.4em; color: #777; clear: left;}
+
+/**** OTHER INFO ****/
+h2#other_info {height:31px; width:174px; text-indent: -9999px; background: transparent url(images/other_info_banner.png) top left no-repeat; margin: 30px 0 0 25px;}
+ul#otheralbums {list-style-type: none; margin: 5px 25px 20px 25px;}
+ul#otheralbums li {float: left; margin-right: 12px; }
+ul#otheralbums li a img {width: 80px; background: #ddd; border: 1px solid #aaa; padding: 3px;}
+ul#otherreviews {list-style-type: none; margin: 5px 25px 0 25px;}
+ul#otherreviews h4 {margin: 0; height: auto;}
+ul#otherreviews h4 a {text-decoration: none; font-weight: bold;}
+ul#otherreviews h4 a:hover {text-decoration: underline;}
+ul#otherreviews p {margin: 0 0 2em 0;}
+
+#album_other_reviews .review {width: 250px; margin-right: 10px; float: left;}
+#album_other_reviews .review .rating {float: right; margin: 0 1em 1em 0; padding: 0 2px; width: 2em; text-align: center; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
+
 /**** NEWS ****/
 h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent url(images/news_banner.png) top left no-repeat; margin: 30px 0 0 25px;}
-.news_item {margin: 20px 25px 40px 25px;}
-.news_item h3 {font-size: 1.6em; color: #444; text-transform: uppercase; margin: 0;}
+.news_item{margin: 0 25px 2em 0;} 
+ #contextual .news_item {margin: 20px 25px 40px 25px;}
+.news_item h3, #contextual .news_item h3 {font-size: 1.6em; color: #444; text-transform: uppercase; margin: 0;}
 .news_item p {font-size: 1.1em; margin: 4px 0;}
+.news_item p.byline {margin: 0; font-style: italic; color: #777;}
 .news_item .continue {margin: 0; text-transform: uppercase;}
 
 
-/**** SUB_CONTENT ****/
+
+
+/******** SUB_CONTENT FRAME ************/
 #sub_content {color: white; background-color: #333;}
 #sub_content h2 {color: #f60;}
 
@@ -95,18 +148,6 @@ ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300
 #review_form_info h5 {margin-top: 1em;}
 #reviewform_display {display: none;}
 
-/************ ALBUMS AND REVIEWS GLOBAL*********/
-#scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
-#related {margin-top: 2em;}
-
-/************ ALBUM SHOW PAGE *********/
-#album_reviews {clear: both; margin-top: 2em;}
-#album_reviews .album_review { margin-top: 2em;}
-#album_reviews .rating {float: left; margin-right: 1em; margin-bottom: 1em; padding: 0; padding-top: .2em; padding-bottom: .2em; width: 2em; text-align: center;
-	 background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
-	
-/************ REVIEW SHOW PAGE *********/
-#album_review {margin-top: 2em;}
 
 
 /**** RAILS BASE ****/

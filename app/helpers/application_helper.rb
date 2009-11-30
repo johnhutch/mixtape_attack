@@ -32,4 +32,28 @@ module ApplicationHelper
     out += observe_field(field_id, options.merge(:function => function))
     return out
   end
+  
+  def artist_album(album)
+    "<span class=\"artist\">" + album.artist.name + "</span> - <spam class=\"album\">" + album.name + "</span>"
+  end
+  def other_albums(album)
+    strout = "<h3>Other albums by " + album.artist.name + "</h3>\n"
+    strout += "<ul id=\"otheralbums\" class=\"clearfix\">\n"
+    for other in album.artist.albums
+      strout += "<li>" + link_to((image_tag other.art.url(:featured), :alt => other.name), album_path(other)) + "</li>" unless album == other
+    end
+    strout += "</ul>"
+  end
+  
+  def other_reviews(user)
+    strout = "<h3>Reviews by " + user.name + "</h3>\n"
+    strout += "<ul id=\"otherreviews\">\n"
+    for other in user.reviews
+      strout += "<li><h4>" + link_to(other.album.artist.name + " - " + other.album.name, review_path(other)) + "</h4>"
+      strout += "<p>" + other.tweet + "</p>"
+      strout += "</li>"
+    end
+    strout += "</ul>"
+  end
+  
 end

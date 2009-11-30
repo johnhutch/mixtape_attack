@@ -3,7 +3,8 @@
 <% for news_item in NewsItem.find(:all, :order => "created_at DESC", :limit => 4) %>
 	<div class="news_item">
 		<h3><%= news_item.title %></h3>
+		<p class="byline">By <%= news_item.user.name %></p>
 		<%= news_item.excerpt.blank? ? RedCloth.new(truncate(news_item.body(:source), 250)).to_html : news_item.excerpt %>
-		<p class="continue"><%= link_to "Continue Reading -&gt;", news_item_path(news_item) %></p>
+		<p class="continue"><%= link_to "Continue Reading -&gt;", news_item_path(news_item) unless news_item.body.length < 250 %></p>
 	</div>
 <% end %>

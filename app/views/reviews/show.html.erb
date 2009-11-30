@@ -1,27 +1,28 @@
-<%= title @review.user.name + "'s " + @review.album.name + " review", :h2 %>
+<div id="review">
+	<div id="genres">
+		<strong>Genres:</strong> 
+		<% for tag in @review.album.tags %>
+			<%= link_to tag, genre_album_path(tag.name) %>
+		<% end %>
+	</div>	
+	
+	<%= image_tag @review.album.art.url(:featured), :id => "art" %>
+	<div id="scores"><%= @review.decimal_score %></div>
 
-<div id="albumart">
-	<%= image_tag @review.album.art.url(:show) %>
-</div>
+	<%= title @review.album.artist.name + " - " + @review.album.name, :h2 %>
+	
+	<div id="date">Released <%= @review.album.release_date.strftime('%B %e, %Y') %></div>
+	<div id="label"><%= @review.album.label.name rescue nil %></div>
 
-<div id="label"><%= released(@review) %> on <%= @review.album.release_date.strftime('%B %e, %Y') %></div>
-
-<div id="genres">
-	<strong>Genres:</strong> 
-	<% for tag in @review.album.tags %>
-		<%= link_to tag, genre_album_path(tag.name) %>
-	<% end %>
-</div>
-
-<div id="scores">
-	<%= @review.decimal_score %>
-</div>
-
-<div id="body">
-	<%= @review.body %>
+	<div id="body">
+		<%= @review.body %>
+	</div>
+	
+	<div id="byline">Reviewed by <%= @review.user.name %></div>
 </div>
 
 <% content_for :contextual do %>
+	<h2 id="other_info">Other Info</h2>
 	<%= other_albums(@review.album) unless @review.album.artist.albums.count.to_i < 2 %>
 
 	<%= other_reviews(@review.user) unless @review.user.reviews.count.to_i < 2 %>
