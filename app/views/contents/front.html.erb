@@ -1,13 +1,18 @@
 <div id="featured_review">
 	<% review = @recent_reviews.shift %>
-	<div class="genres"> 
-		<strong>Genres:</strong> 
-		<% for tag in review.album.tags %>
-			<%= link_to tag, genre_album_path(tag.name) %>
-		<% end %>
-	</div>
+	<div class="type">Featured Album Review</div>
 	<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:featured) %></a>
-	<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
+	<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+		<em>by</em>
+		<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
+		<div class="genres">
+			<% i = 1 %>
+			<% for tag in review.album.tags %>
+				<%= link_to tag, genre_album_path(tag.name) %>
+				<%= "&bull" unless i == review.album.tags.count %>
+				<% i = i+1 %>
+			<% end %>
+		</div>
 	<div class="tweet"><%= strip_tags(review.tweet) %></div>
 	<div class="byline">Reviewed by <%= review.user.name %></div>
 	<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
@@ -16,13 +21,19 @@
 <div id="recent_reviews">
 	<% for review in @recent_reviews %>
 		<div class="review">
-			<div class="genres"> 
+			<div class="type">Album Review</div>	
+			<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
+			<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+				<em>by</em>
+				<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
+			<div class="genres">
+				<% i = 1 %>
 				<% for tag in review.album.tags %>
 					<%= link_to tag, genre_album_path(tag.name) %>
+					<%= "&bull" unless i == review.album.tags.count %>
+					<% i = i+1 %>
 				<% end %>
 			</div>
-			<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
-			<div class="albumartist"><%= link_to artist_album(review.album), album_path(review.album) %></div>
 			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
