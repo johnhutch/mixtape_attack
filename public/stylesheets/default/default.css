@@ -82,7 +82,7 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 
 /**** REVIEW INDEX ****/
-.list_review { clear: left; margin-bottom: 20px; position: relative;}
+.list_review { clear: left; margin-bottom: 20px; padding-right: 25px; position: relative;}
 .list_review .genres { margin-bottom: 7px; font-style: italic;color: #777; line-height: 1em;}
 .list_review .genres a { text-decoration: none; color: #444; text-transform: capitalize;}
 .list_review .genres a:hover {text-decoration: underline;}
