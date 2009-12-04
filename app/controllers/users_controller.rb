@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:edit, :update]
   
   def index
+    @users = User.find(:all)
   end 
   
   def show 

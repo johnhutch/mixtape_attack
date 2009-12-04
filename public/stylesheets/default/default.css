@@ -81,6 +81,22 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 
+/**** REVIEW INDEX ****/
+.list_review { clear: left; margin-bottom: 20px; position: relative;}
+.list_review .genres { margin-bottom: 7px; font-style: italic;color: #777; line-height: 1em;}
+.list_review .genres a { text-decoration: none; color: #444; text-transform: capitalize;}
+.list_review .genres a:hover {text-decoration: underline;}
+.list_review img { width: 120px; float: left; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0 15px 0 0;}
+.list_review h3 {font-size: 1.2em; line-height: 1em; margin: 0 0 5px 0; padding: 8px 0 0 0; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em;}
+.list_review h3 a {text-decoration: none;}
+.list_review h3 em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
+.list_review .tweet {font-size: 1.4em; line-height: 1em; color: #555; margin-bottom: 5px;}
+.list_review .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
+.list_review .byline a {text-decoration: none; color: #777;}
+.list_review .byline a:hover {text-decoration:underline;}
+.list_review .readmore {font-size: 1em;text-transform: uppercase;}
+.list_review .score {width: 30px; height: 30px; background-color:#333;color:white;font-size:18px;text-align:center; position: absolute; z-index: 10; top: 94px; left: 94px;}
+
 /**** REVIEW SHOW ****/
 #review {padding-bottom: 2em;}
 #review .type {float:right;font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;margin:0px 30px 0 0;}
@@ -147,7 +163,7 @@ h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent 
 .news_item .continue {margin: 0; text-transform: uppercase;}
 
 /**** ADS ****/
-#contextual #square_ad {padding-left: 20px;}
+#contextual #square_ad {padding-left: 28px;}
 
 
 

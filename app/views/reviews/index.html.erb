@@ -1,22 +1,26 @@
-<%= title "Browse Reviews", :h2 %>
+<%= title "Mixtape Attack Reviews", :h2 %>
 
 <p><%= will_paginate @reviews %></p>
 
 <% for review in @reviews %>
-	<div class="front_review">
-		<div class="rating"><%= review.score %></div>
-		<div class="albumartist"><%= link_to artist_album(review.album), review_path(review) %></div>
-		<div class="genres">Genres: 
+	<div class="list_review clearfix">
+		<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
+		<h3><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+			<em>by</em>
+			<%= link_to review.album.artist.name, artist_path(review.album.artist) %></h3>
+		<div class="genres">
+			<% i = 1 %>
 			<% for tag in review.album.tags %>
 				<%= link_to tag, genre_album_path(tag.name) %>
+				<%= "&bull" unless i == review.album.tags.count %>
+				<% i = i+1 %>
 			<% end %>
 		</div>
-		<div class="byline">Reviewed by <%= review.user.name %></div>
-		<div class="body"><%= review.tweet %></div>
+		<div class="tweet"><%= strip_tags(review.tweet) %></div>
+		<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
 		<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
-	<!--<%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %>-->
+		<div class="score"><%= review.score %></div>
 	</div>
-
 <% end %>
 
 <p><%= will_paginate @reviews %></p>

@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.xml
   require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
   def index
-    @reviews = Review.paginate :per_page => 5, :page => params[:page]
+    @reviews = Review.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
 
     respond_to do |format|
       format.html # index.html.erb
