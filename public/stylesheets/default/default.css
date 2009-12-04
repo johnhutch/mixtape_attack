@@ -42,8 +42,8 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 
 /************* CONTENT FRAME *******************/
 #main_content {background-color: #fff; overflow: hidden; margin-top: -5px;}
-#content {background-color: #fff; float: left; width: 590px; padding-top: 30px;}
-#contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px; margin-bottom: -9999px; padding-bottom: 9999px;}
+#content {background-color: #fff; float: left; width: 590px; margin-bottom: -9999px; padding: 30px 0 9999px 0;}
+#contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: left; margin-bottom: -9999px; padding-bottom: 9999px;}
 
 /**** FEATURED REVIEW ****/
 #featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	margin-top: -30px; padding-bottom: 20px;}
@@ -163,7 +163,7 @@ h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent 
 .news_item .continue {margin: 0; text-transform: uppercase;}
 
 /**** ADS ****/
-#contextual #square_ad {padding-left: 28px;}
+#contextual #square_ad {padding-left: 28px; margin-bottom: 30px;}
 
 
 
