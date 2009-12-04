@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {color: #444;}
 /**** HERO ****/
 #header {position: relative; background: transparent url(images/header_bg.png) top left repeat-x; margin-top: 60px; height: 124px; z-index: 10;}
 #header .container {position: relative;}
-h1#logo {margin: 0; position: absolute; top: -15px;}
+h1#logo {margin: 0; position: absolute; top: -1px;}
 h1#logo a {display: block; height:160px; width:429px; text-indent: -9999px; background: transparent url(images/logo_large.png) top left no-repeat; float: left;}
 h2#tagline {width: 435px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
 #header hr { width: 400px; margin: 5px 0; margin-left: 515px; background-color: #bbb;}
@@ -48,7 +48,7 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 /**** FEATURED REVIEW ****/
 #featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	margin-top: -30px; padding-bottom: 30px;}
 #featured_review .type {float:right;font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;margin:20px 30px 0 0;}
-#featured_review .genres {margin: 0 0 5px 20px;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; line-height: 1em; font-style: italic;color: #777;width: 320px;}
+#featured_review .genres {margin: 0 0 5px 20px;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; line-height: 1em; font-style: italic;color: #777;width: 320px; line-height: 1em;}
 #featured_review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #featured_review .genres a:hover {text-decoration: underline;}
 #featured_review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin:0px 30px 5px 0; }
@@ -57,23 +57,27 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #featured_review .albumartist em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
 #featured_review .albumartist a:hover {text-decoration: underline; color: #f60;}
 #featured_review .tweet {font-size: 2.6em; line-height: 1em; margin: 0 0 5px 20px; width: 320px;}
-#featured_review .byline {font-size: 1.3em; font-style: italic; margin: 0 0 5px 20px; float: left; color: #777;}
-#featured_review .readmore { float: right; font-size: 1.3em; margin: 0 35px 0 1em; padding-top: 4px;}
+#featured_review .byline {font-size: 1.3em; font-style: italic; margin: 0 0 5px 20px; color: #777;}
+#featured_review .byline a {text-decoration: none; color: #777;}
+#featured_review .byline a:hover {text-decoration:underline;}
+#featured_review .readmore { font-size: 1em; margin: 0 0px 0 20px; text-transform: uppercase;}
 
 /**** RECENT REVIEWS ****/
 #recent_reviews {padding-left: 15px;}
 #recent_reviews .review {float: left; margin-right: 35px; width: 156px; padding: 30px 0;}
 #recent_reviews .type {font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;}
-#recent_reviews .genres { margin-bottom: 5px;}
+#recent_reviews .genres { margin-bottom: 5px; font-style: italic;color: #777; line-height: 1em;}
 #recent_reviews .genres a { text-decoration: none; color: #444; text-transform: capitalize;}
 #recent_reviews .genres a:hover {text-decoration: underline;}
 #recent_reviews .review img { background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 3px 0 5px 0;}
-#recent_reviews .albumartist {font-size: 1.4em; line-height: 1em; margin-bottom: 2px;font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em;}
+#recent_reviews .albumartist {font-size: 1.2em; line-height: 1em; margin-bottom: 5px;font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em;}
 #recent_reviews .albumartist a {text-decoration: none;}
 #recent_reviews  .albumartist em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
-#recent_reviews .tweet {font-size: 1.6em; line-height: 1em; color: #555; margin-bottom: 5px;}
+#recent_reviews .tweet {font-size: 1.4em; line-height: 1em; color: #555; margin-bottom: 5px;}
 #recent_reviews .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
-#recent_reviews .readmore {font-size: 1.2em; }
+#recent_reviews .byline a {text-decoration: none; color: #777;}
+#recent_reviews .byline a:hover {text-decoration:underline;}
+#recent_reviews .readmore {font-size: 1em; }
 
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 
