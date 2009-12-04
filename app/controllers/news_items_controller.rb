@@ -4,7 +4,7 @@ class NewsItemsController < ApplicationController
   require_role "editor", :only => [:edit, :new, :create, :update, :destroy ]
   
   def index
-    @news_items = NewsItem.find(:all)
+    @news_items = NewsItem.paginate :per_page => 10, :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

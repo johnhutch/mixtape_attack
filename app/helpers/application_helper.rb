@@ -49,7 +49,7 @@ module ApplicationHelper
     strout = "<h3>Reviews by " + user.name + "</h3>\n"
     strout += "<ul id=\"otherreviews\">\n"
     for other in user.reviews
-      strout += "<li><h4>" + link_to(other.album.artist.name + " - " + other.album.name, review_path(other)) + "</h4>"
+      strout += "<li><h4><a href=\"/reviews/" + other.id.to_s + "\"><strong>" + other.album.artist.name + "</strong> <em>by</em> " + other.album.name + "</a></h4>"
       strout += "<p>" + other.tweet + "</p>"
       strout += "</li>"
     end

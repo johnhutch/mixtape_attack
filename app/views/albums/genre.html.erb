@@ -1,18 +1,15 @@
-<%= title "Genre", :h2 %>
+<%= title "Genre Listing for #{@genre}", :h2 %>
 
 <%= will_paginate @albums %>
 
-<% @bands = @albums.group_by { |a| a.artist } unless @albums.nil? %>
-<% unless @bands.nil? %>
-	<dl>
-	<% @bands.keys.sort.each do |band| %>
-		<dt><%= link_to band.name, artist_path(band) %></dt>
-		<% for album in band.albums %>
-			<dd><%= link_to album.name, album_path(album) %></dd>
-		<% end %>
+<dl>
+<% @albums.group_by(&:artist).each do |artist, albums| %>
+	<dt><%= link_to artist.name, artist %></dt>
+	<% for album in albums %>
+		<dd><%= link_to album.name, album %></dd>
 	<% end %>
-	</dl>
 <% end %>
+</dl>
 
 <%= will_paginate @albums %>
 

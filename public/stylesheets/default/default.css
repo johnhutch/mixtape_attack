@@ -17,7 +17,7 @@ h2#tagline {width: 435px; padding: 15px 0 0 500px; font-size: 1.1em; font-style:
 
 /**** NAV ****/
 ul#nav {list-style-type: none; padding: 0; margin: 0 0 0 500px;}
-ul#nav li { float:left; color: #f60;}
+ul#nav li { float:left; color: #f60;text-shadow: #999 1px 1px 1px;}
 ul#nav li a { padding: 0 25px; color: #444; font-size: 2em; text-decoration: none; background: transparent url(images/orange_bullet.png) center right no-repeat;}
 ul#nav li a:hover {color: #f60;}
 ul#nav li a.first {padding-left: 0;}
@@ -46,13 +46,13 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: right; height: 450px; margin-bottom: -9999px; padding-bottom: 9999px;}
 
 /**** FEATURED REVIEW ****/
-#featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	margin-top: -30px; padding-bottom: 30px;}
+#featured_review {background: #f2f8ff url(images/featured_bg.png) bottom left repeat-x; width: 590px; float: left; color: #444;	margin-top: -30px; padding-bottom: 20px;}
 #featured_review .type {float:right;font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;margin:20px 30px 0 0;}
 #featured_review .genres {margin: 0 0 5px 20px;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; line-height: 1em; font-style: italic;color: #777;width: 320px; line-height: 1em;}
 #featured_review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #featured_review .genres a:hover {text-decoration: underline;}
 #featured_review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin:0px 30px 5px 0; }
-#featured_review .albumartist {margin: 40px 0 0 20px; font-size: 1.4em; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em;}
+#featured_review .albumartist {margin: 40px 0 0 20px; font-size: 1.4em; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em;width: 330px;}
 #featured_review .albumartist a { text-decoration: none; }
 #featured_review .albumartist em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
 #featured_review .albumartist a:hover {text-decoration: underline; color: #f60;}
@@ -64,9 +64,9 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 
 /**** RECENT REVIEWS ****/
 #recent_reviews {padding-left: 15px;}
-#recent_reviews .review {float: left; margin-right: 35px; width: 156px; padding: 30px 0;}
+#recent_reviews .review {float: left; margin-right: 35px; width: 156px; padding: 20px 0;}
 #recent_reviews .type {font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;}
-#recent_reviews .genres { margin-bottom: 5px; font-style: italic;color: #777; line-height: 1em;}
+#recent_reviews .genres { margin-bottom: 7px; font-style: italic;color: #777; line-height: 1em;}
 #recent_reviews .genres a { text-decoration: none; color: #444; text-transform: capitalize;}
 #recent_reviews .genres a:hover {text-decoration: underline;}
 #recent_reviews .review img { background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 3px 0 5px 0;}
@@ -77,22 +77,30 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #recent_reviews .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
 #recent_reviews .byline a {text-decoration: none; color: #777;}
 #recent_reviews .byline a:hover {text-decoration:underline;}
-#recent_reviews .readmore {font-size: 1em; }
+#recent_reviews .readmore {font-size: 1em;text-transform: uppercase;}
 
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 
 /**** REVIEW SHOW ****/
 #review {padding-bottom: 2em;}
-#review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 1em; }
-#review #scores {clear: right; float: right; width: 3em; margin:0 30px 0 1em;}
-#review h2 {line-height: 1em; margin: 0; }
+#review .type {float:right;font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;margin:0px 30px 0 0;}
+#review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 20px; }
+#review #scores {clear: right; float: right; width: 208px; margin:0 30px 10px 20px;padding-bottom: 3px;-moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px;}
+#review #scores em {font-size: .6em; text-transform: uppercase; color: #bbb;}
+#review h2 {margin: 0px; padding-top: 20px; font-size: 2em; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em; width: 330px; }
+#review h2 a { text-decoration: none; }
+#review h2 em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
+#review h2 a:hover {text-decoration: underline; color: #f60;}
+#review .genres {margin: 1em 0 5px 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; line-height: 1em; font-style: italic;color: #777;width: 320px; line-height: 1em;}
+#review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
+#review .genres a:hover {text-decoration: underline;}
 #review #byline {font-size: 1.2em; font-style:italic; color: #666; }
 #review #genres {float: right; margin: 0px 30px 0 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
 #review #genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #review #genres a:hover {text-decoration: underline;}
 #review #label {}
 #review #release_date {}
-#review #body {margin-top: 1em;}
+#review #body {margin: 1em 30px 1em 0;}
 
 /**** ALBUM SHOW ****/
 #album {padding-bottom: 2em;}
@@ -107,6 +115,9 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #album #release_date {}
 
 
+/**** NEWS ****/
+#news_body {padding-right: 20px;}
+
 
 /********* CONTEXTUAL FRAME ********************/
 #contextual h3 {margin: 1.4em 25px 0 25px; text-transform: uppercase; font-size: 1.4em; color: #777; clear: left;}
@@ -114,13 +125,14 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 /**** OTHER INFO ****/
 h2#other_info {height:31px; width:174px; text-indent: -9999px; background: transparent url(images/other_info_banner.png) top left no-repeat; margin: 30px 0 0 25px;}
 ul#otheralbums {list-style-type: none; margin: 5px 25px 20px 25px;}
-ul#otheralbums li {float: left; margin-right: 12px; }
+ul#otheralbums li {float: left; padding-top: 8px; margin-right: 12px; }
 ul#otheralbums li a img {width: 80px; background: #ddd; border: 1px solid #aaa; padding: 3px;}
 ul#otherreviews {list-style-type: none; margin: 5px 25px 0 25px;}
-ul#otherreviews h4 {margin: 0; height: auto;}
-ul#otherreviews h4 a {text-decoration: none; font-weight: bold;}
-ul#otherreviews h4 a:hover {text-decoration: underline;}
-ul#otherreviews p {margin: 0 0 2em 0;}
+ul#otherreviews h4 {margin: 1em 0 0 0; height: auto; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em; width: 330px; }
+ul#otherreviews h4 a { text-decoration: none; }
+ul#otherreviews h4 em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
+ul#otherreviews h4 a:hover {text-decoration: underline; color: #f60;}
+ul#otherreviews p {margin: 0 0 1em 0;}
 
 #album_other_reviews .review {width: 250px; margin-right: 10px; float: left;}
 #album_other_reviews .review .rating {float: right; margin: 0 1em 1em 0; padding: 0 2px; width: 2em; text-align: center; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
@@ -134,6 +146,8 @@ h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent 
 .news_item p.byline {margin: 0; font-style: italic; color: #777;}
 .news_item .continue {margin: 0; text-transform: uppercase;}
 
+/**** ADS ****/
+#contextual #square_ad {padding-left: 20px;}
 
 
 

@@ -1,4 +1,6 @@
 <h2><%= @news_item.title %></h2>
 <p class="byline">By <%= link_to @news_item.user.name, user_path(@news_item.user) %></p>
 
+<div id="news_body">
   <%= @news_item.body %>
+</div>
