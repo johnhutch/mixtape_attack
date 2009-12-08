@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @reviews }
+      format.xml  { render :xml => @reviews.to_xml(:include => [:album]) }
     end
   end
 

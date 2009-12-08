@@ -4,33 +4,21 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %>:<br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :artist_id %>:<br />
+    <%= f.label :artist_id %>
     <%= text_field_with_auto_complete :artist, :name %>
   </p>
   <p>
-    <%= f.label :label_id %>:<br />
+    <%= f.label :label_id %>
     <%= text_field_with_auto_complete :label, :name %>
   </p>
   <p>
-    <%= f.label :release_date %>:<br />
+    <%= f.label :release_date %>
     <%= f.text_field :release_date_string %>
   </p>
-  <p>
-	<label>Rating:</label>
-	<%= select_tag :score, "<option>1</option><option>2</option>
-							<option>3</option><option>4</option>
-							<option>5</option><option>6</option>
-							<option>7</option><option>8</option>
-							<option>9</option><option>10</option>" %>
-  </p>
-	<p>
-		<label>Review:</label><br />
-		<%= text_area_tag :review %>
-	</p>
   <p>
     <%= f.submit "Create" %>
   </p>
