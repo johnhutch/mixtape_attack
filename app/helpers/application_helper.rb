@@ -56,4 +56,8 @@ module ApplicationHelper
     strout += "</ul>"
   end
   
+  def parent_url
+    parent = controller.controller_name.singularize
+    comments_path(:parent_type => parent, :parent_id => controller.instance_variable_get("@#{parent}").id)
+  end
 end

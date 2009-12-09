@@ -1,0 +1,5 @@
+	<h4>Comment on this <%= type %></h4>
+	<% form_for Comment.new, :url => parent_url do |f| %>
+		<%= f.text_area :body %>
+		<p><%= f.submit 'Post my comment' %></p>
+	<% end %>

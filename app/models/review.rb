@@ -1,6 +1,8 @@
 class Review < ActiveRecord::Base
   belongs_to :album
   belongs_to :user
+  has_many :comments, :as => :parent, :dependent => :destroy
+
   validates_presence_of :body, :fans_of, :tweet
   validates_length_of :tweet, :maximum => 100
   
