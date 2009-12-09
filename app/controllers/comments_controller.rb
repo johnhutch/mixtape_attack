@@ -11,14 +11,15 @@ class CommentsController < ApplicationController
       else
         flash[:notice] = "There was a problem saving your comment."
       end
-      format.html {redirect_to :controller => @parent.class.to_s.pluralize.downcase, :action => :show, :id => @parent.id}
+      format.html {redirect_to :controller => @parent.class.to_s.pluralize.underscore, :action => :show, :id => @parent.id}
     end
   end
 
   private
 
   def find_parent
-    @klass = params[:parent_type].capitalize.constantize
+    @klass = @klass
+    @klass = params[:parent_type].camelize.constantize
     @parent = @klass.find(params[:parent_id])
   end
 end

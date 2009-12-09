@@ -13,7 +13,7 @@
 	
 	<% for comment in @news_item.comments do %>
 		<div class="comment <%= cycle("even", "odd") %>">
-			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.profile.real_name %> said:</div>
+			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.name %> said:</div>
 			<div class="body"><%= comment.body %></div>
 		</div>
 	<% end %>
