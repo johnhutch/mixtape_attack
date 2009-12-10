@@ -14,7 +14,14 @@
 	<%= f.error_messages %>
 
 	<% if current_user.unrated(@album) %>
-		<label>On a scale of 1-10, how would you rate this album?</label>
+		<ul id="rating_scale">
+			<li>5: A classic</li>
+			<li>4: I love it</li>
+			<li>3: I like it</li>
+			<li>2: I don't like it</li>
+			<li>1: I hate it.</li>
+		</ul>
+		<label>On a scale of 1-5, how would you rate this album?</label>
 		<%= f.select :score, 1..5 %>
 	<% else %>
 		<p>You already rated this album.</p>
