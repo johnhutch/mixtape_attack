@@ -12,7 +12,9 @@ h1, h2, h3, h4, h5, h6 {color: #444;}
 #header .container {position: relative;}
 h1#logo {margin: 0; position: absolute; top: -1px;}
 h1#logo a {display: block; height:160px; width:429px; text-indent: -9999px; background: transparent url(images/logo_large.png) top left no-repeat; float: left;}
-h2#tagline {width: 435px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
+h2#tagline {width: 435px; height: 40px; padding: 15px 0 0 500px; font-size: 1.1em; font-style: italic; text-align: center;}
+h2#tagline a {color: #777;}
+h2#tagline span {font-size: .8em;}
 #header hr { width: 400px; margin: 5px 0; margin-left: 515px; background-color: #bbb;}
 
 /**** NAV ****/
@@ -186,7 +188,8 @@ ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
 #reviewform_display {display: none;}
-form#new_rating ul#rating_scale {float: right; margin: 0 20px; list-style-type: none;}
+form ul#rating_scale {list-style-type: none; float: left; margin: 0 0 0 40px; padding-bottom: 1.4em;}
+form select#review_rating {font-size: 2em; font-weight: bold; color: #444; float: left; margin: 8px 0 0 10px;}
 
 
 

@@ -19,7 +19,7 @@
 		<div class="tweet"><%= strip_tags(review.tweet) %></div>
 		<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
 		<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
-		<div class="score"><%= review.score %></div>
+		<div class="score"><%= review.rating %></div>
 	</div>
 <% end %>
 

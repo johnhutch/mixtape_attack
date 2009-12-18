@@ -12,13 +12,4 @@ class Review < ActiveRecord::Base
     RedCloth.new(truncate(self.body(:source), 250)).to_html
   end
   
-  def score
-    @rating = Rating.find(:first, :conditions => ['user_id = ? and album_id = ?', self.user.id, self.album.id])
-    @rating.score
-  end
-  
-  def decimal_score
-    sprintf ("%.1f", self.score)
-  end
-  
 end

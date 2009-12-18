@@ -60,4 +60,9 @@ module ApplicationHelper
     parent = controller.controller_name.singularize
     comments_path(:parent_type => parent, :parent_id => controller.instance_variable_get("@#{parent}").id)
   end
+  
+  def random_tweet
+    @review = Review.find(:first, :order => :random)
+    @random_tweet = @review.tweet + "<span> &gt;&gt; " + link_to(@review.album.name, review_path(@review)) + "</span>"
+  end
 end

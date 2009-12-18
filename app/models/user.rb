@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   include Authorization::AasmRoles
   
   has_many :reviews
-  has_many :ratings
   has_many :news_items
 
   # Validations
@@ -33,14 +32,9 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
 
 
-  def unreviewed(album)
+  def unreviewed?(album)
     @review = Review.find(:first, :conditions => ['user_id = ? and album_id = ?', self.id, album.id])
     @review.nil?
-  end
-  
-  def unrated(album)
-    @rating = Rating.find(:first, :conditions => ['user_id = ? and album_id = ?', self.id, album.id])
-    @rating.nil?
   end
   
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.

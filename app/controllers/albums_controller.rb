@@ -1,10 +1,12 @@
 class AlbumsController < ApplicationController
   protect_from_forgery :except => [:auto_complete_for_label_name, :auto_complete_for_artist_name]
   
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy, :create_review, :review, :select]
+  require_role "editor", :only => [:edit, :new, :create, :update, :destroy, :review, :select]
   auto_complete_for :label, :name
-  
   auto_complete_for :artist, :name
+  
+  before_filter :review_exists?, :only => [:review]
+  
   
   # GET /albums
   # GET /albums.xml
@@ -59,7 +61,6 @@ class AlbumsController < ApplicationController
   def review
     @album = Album.find(params[:id])
     @review = @album.reviews.build
-    @rating = @album.ratings.build
   end
 
   def genre
@@ -128,6 +129,16 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(albums_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  protected
+  
+  def review_exists?
+    @album = Album.find(params[:id])
+    unless current_user.unreviewed?(@album)
+      flash[:notice] = "You have already reviewed this album, you dummy. Here it is below."
+      redirect_to album_path(@album)
     end
   end
 end

@@ -3,17 +3,7 @@
 <% form_for(@review) do |f| %>
   <%= f.error_messages %>
 	
-	<%= label :fans_of, "This album is for fans of..." %>
-	<%= f.text_field :fans_of %>
-	
-	<%= label :tweet, "Summarize this album: (140 characters max)" %>
-	<%= f.text_area :tweet, :id => "tweet" %>
-	<p>You have used <span id="counter">...</span> letters.</p>
-
-	<%= count_field('tweet','counter') %>
-
-    <%= f.label :body, "Your main review:" %>
-    <%= f.text_area :body %>
+	<%= render :partial => 'reviews/form', :locals => {:f => f, :album => @review.album} %>
 
   <p>
     <%= f.submit "Update" %>

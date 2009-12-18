@@ -3,25 +3,7 @@
 <% form_for (@review) do |f| %>
 	<%= f.error_messages %>
 
-	<%= render :partial => 'albums/rating_form' %>
-
-	<label>What genre or genres would you say <%= @album.name %> falls under? <br />
-	<small>Please use commas to separate genres (e.g., metal, death metal, noise)</small></label>
-	<%= text_field_tag :tag_list %>
-		
-	<%= label :fans_of, "This album is for fans of..." %>
-	<%= f.text_field :fans_of %>
-
-	<%= label :tweet, "Summarize this album: (100 characters max)" %>
-	<%= f.text_area :tweet, :id => "tweet" %>
-	<p>You have used <span id="counter">...</span> letters.</p>
-
-	<%= count_field('tweet','counter') %>
-
-	<label>Your review of <%= @album.name %>:</label>
-	<%= f.text_area :body %>
-
-	<%= hidden_field_tag :album, @album.id %>
+	<%= render :partial => 'reviews/form', :locals => {:f => f, :album => @album} %>
 
 	<p><%= f.submit "Submit" %></p>
 <% end %>

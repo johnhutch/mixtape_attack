@@ -4,7 +4,7 @@
 	<div class="type">Album Review</div>	
 	
 	<%= image_tag @review.album.art.url(:featured), :id => "art" %>
-	<div id="scores"><em>Rating:</em> <%= @review.decimal_score %></div>
+	<div id="scores"><em>Rating:</em> <%= @review.rating %>/5</div>
 
 	<h2><strong><%= link_to @review.album.name, album_path(@review.album) %></strong>
 		<em>by</em>

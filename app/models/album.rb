@@ -12,9 +12,8 @@ class Album < ActiveRecord::Base
                            
   belongs_to :artist
   belongs_to :label
-  has_many :ratings
   has_many :reviews
-  
+    
   def release_date_string
     release_date.strftime('%B %e, %Y') unless release_date.nil?
   end
@@ -33,15 +32,17 @@ class Album < ActiveRecord::Base
     Label.find(self.label_id).name
   end
   
-  def score
+  def rating
     score = 0
-    self.ratings.each do |rating|
-      score += rating.score
+    self.reviews.each do |review|
+      score += review.rating
     end
-    score = score.to_f / self.ratings.length
+    score = score.to_f / self.reviews.length
   end
   
   def validate
     errors.add(:release_date, "is invalid.") if @release_date_invalid
   end
+  
+
 end

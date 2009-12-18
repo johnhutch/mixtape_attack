@@ -11,14 +11,14 @@
 		<% end %>
 	</div>
 	<div id="scores">
-		<%= sprintf ("%.1f", @album.score) %>
+		<%= @album.rating %>
 	</div>
 </div>
 
 <div id="album_other_reviews">
 	<% @album.reviews.each_with_index do |review, i| %>
 		<div class="review">
-			<div class="rating"><%= review.score %></div>
+			<div class="rating"><%= review.rating %></div>
 			<div class="byline">Reviewed by <%= review.user.name %></div>
 			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>

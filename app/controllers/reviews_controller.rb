@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.xml
   require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
+  
   def index
     @reviews = Review.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
 
@@ -31,11 +32,11 @@ class ReviewsController < ApplicationController
   # POST /reviews.xml
   def create
     @review = current_user.reviews.build(params[:review])
-    @rating = current_user.ratings.build(params[:rating])
 
     respond_to do |format|
       if @review.save
-        @rating.save
+        add_tags(params[:tag_list], @review)
+        
         flash[:notice] = 'Review was successfully created.'
         format.html { redirect_to(@review) }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
@@ -54,6 +55,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
+        add_tags(params[:tag_list], @review)
         flash[:notice] = 'Review was successfully updated.'
         format.html { redirect_to(@review) }
         format.xml  { head :ok }
@@ -74,5 +76,14 @@ class ReviewsController < ApplicationController
       format.html { redirect_to(reviews_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def add_tags(tags, review)
+    @a = Album.new()
+    @a.tag_list = tags
+    review.album.tag_list.add(@a.tag_list)
+    review.album.save
   end
 end
