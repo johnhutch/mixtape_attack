@@ -22,17 +22,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /reviews/new
-  # GET /reviews/new.xml
-  def new
-    @review = Review.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @review }
-    end
-  end
-
   # GET /reviews/1/edit
   def edit
     @review = Review.find(params[:id])
@@ -42,14 +31,17 @@ class ReviewsController < ApplicationController
   # POST /reviews.xml
   def create
     @review = current_user.reviews.build(params[:review])
+    @rating = current_user.ratings.build(params[:rating])
 
     respond_to do |format|
       if @review.save
+        @rating.save
         flash[:notice] = 'Review was successfully created.'
         format.html { redirect_to(@review) }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
-        format.html { render :action => "new" }
+        @album = Album.find(params[:album])
+        format.html { render :action => "../albums/review" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end

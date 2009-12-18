@@ -3,7 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :body, :fans_of, :tweet
   validates_length_of :tweet, :maximum => 100
-  
+
   acts_as_textiled :body
   
   def truncated_body

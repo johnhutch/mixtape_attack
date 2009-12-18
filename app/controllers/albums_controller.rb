@@ -58,19 +58,10 @@ class AlbumsController < ApplicationController
 
   def review
     @album = Album.find(params[:id])
-    @rating = Rating.new
-    #in the view, display rating select and, if current_user.has_role?('editor') display review form
-    # give user option to do one, both, or neither
-    # form submits to create_review_album_path
+    @review = @album.reviews.build
+    @rating = @album.ratings.build
   end
-  
-  def create_review
-    #lookg up album from params
-    #create rating from params and assign to album
-    #create review from params and assign to album
-    #redirect to album show with review highlighted?
-  end
-  
+
   def genre
     @albums = Album.find_tagged_with(params[:id])
     @albums = @albums.paginate :per_page => 20, :page => params[:page]

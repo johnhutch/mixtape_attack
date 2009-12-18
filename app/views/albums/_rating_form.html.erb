@@ -1,0 +1,5 @@
+	<% fields_for Rating.new do |r| %>	
+		<%= r.error_messages %>
+		<label>On a scale of 1-10, how would you rate this album?</label>
+		<%= r.select :score, 1..10 %>
+	<% end %>
