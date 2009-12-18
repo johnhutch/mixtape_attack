@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112030809) do
+ActiveRecord::Schema.define(:version => 20091209182200) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20091112030809) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "labels", :force => true do |t|

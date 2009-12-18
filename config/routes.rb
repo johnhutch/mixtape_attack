@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ratings
   map.resources :albums, :member => { :select => :get, :review => :get, :genre => :get }, :collection => { :calendar => :get }
   map.resources :artists, :collection => { :prelookup => :get, :new => :post }
+  map.resources :comments
     
   # Restful static pages
   map.with_options :controller => 'contents' do |contents|

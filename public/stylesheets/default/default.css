@@ -186,6 +186,7 @@ ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300
 #review_form_info #artist { font-size: 1.2em; font-weight: bold;}
 #review_form_info h5 {margin-top: 1em;}
 #reviewform_display {display: none;}
+form#new_rating ul#rating_scale {float: right; margin: 0 20px; list-style-type: none;}
 
 
 

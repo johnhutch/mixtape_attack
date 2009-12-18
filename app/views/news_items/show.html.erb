@@ -4,3 +4,20 @@
 <div id="news_body">
   <%= @news_item.body %>
 </div>
+
+<div id="comments">
+	<h2>Comments</h2>
+	<% if @news_item.comments.blank? %>
+		<p>This news_item has no comments</p>
+	<% end %>
+	
+	<% for comment in @news_item.comments do %>
+		<div class="comment <%= cycle("even", "odd") %>">
+			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.name %> said:</div>
+			<div class="body"><%= comment.body %></div>
+		</div>
+	<% end %>
+	
+<%= render :partial => 'shared/comment_form', :locals => {:type => "article"} unless ! logged_in? %>
+
+</div>

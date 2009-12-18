@@ -28,6 +28,22 @@
 	<div id="byline">Reviewed by <%= link_to @review.user.name, @review.user %></div>
 </div>
 
+<div id="comments">
+	<h2>Comments</h2>
+	<% if @review.comments.blank? %>
+		<p>This review has no comments</p>
+	<% end %>
+	
+	<% for comment in @review.comments do %>
+		<div class="comment <%= cycle("even", "odd") %>">
+			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.name %> said:</div>
+			<div class="body"><%= comment.body %></div>
+		</div>
+	<% end %>
+	
+<%= render :partial => 'shared/comment_form', :locals => {:type => "review"} unless ! logged_in? %>
+</div>
+
 <% content_for :contextual do %>
 	<h2 id="other_info">Other Info</h2>
 	<%= other_albums(@review.album) unless @review.album.artist.albums.count.to_i < 2 %>
