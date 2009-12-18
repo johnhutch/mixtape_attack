@@ -8,7 +8,7 @@
 		<div class="genres">
 			<% i = 1 %>
 			<% for tag in review.album.tags %>
-				<%= link_to tag, genre_album_path(tag.name) %>
+				<%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
 				<%= "&bull" unless i == review.album.tags.count %>
 				<% i = i+1 %>
 			<% end %>
@@ -29,7 +29,7 @@
 			<div class="genres">
 				<% i = 1 %>
 				<% for tag in review.album.tags %>
-					<%= link_to tag, genre_album_path(tag.name) %>
+					<%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
 					<%= "&bull" unless i == review.album.tags.count %>
 					<% i = i+1 %>
 				<% end %>
