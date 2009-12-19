@@ -5,5 +5,5 @@
 <% content_for :contextual do %>
 	<h2 id="other_info">Other Info</h2>
 
-	<%= other_reviews(@review.user) unless @user.reviews.count.to_i < 2 %>
+	<%= other_reviews(@user) unless @user.reviews.count.to_i < 2 %>
 <% end %>
