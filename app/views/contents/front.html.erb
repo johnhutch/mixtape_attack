@@ -1,7 +1,7 @@
 <div id="featured_review">
 	<% review = @recent_reviews.shift %>
 	<div class="type">Featured Album Review</div>
-	<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:featured) %></a>
+	<a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:featured) %></a>
 	<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
 		<em>by</em>
 		<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
@@ -22,7 +22,7 @@
 	<% for review in @recent_reviews %>
 		<div class="review">
 			<div class="type">Album Review</div>	
-			<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
+			<a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
 			<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
 				<em>by</em>
 				<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
