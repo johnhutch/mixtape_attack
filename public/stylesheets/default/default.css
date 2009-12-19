@@ -3,6 +3,7 @@ body {margin: 0; padding: 0; font-family: Georgia, Times New Roman, Times, Serif
 a {color: #f60;}
 label {clear: left; display: block; margin: 1.5em 0 3px 0;}
 h1, h2, h3, h4, h5, h6 {color: #444;}
+ol {margin-left: 2.2em}
 
 #flash_messages { background-color: #f2f8ff; margin: 0; padding: 0;}
 #flash_messages .container {margin-top: 0; padding: 0;}
