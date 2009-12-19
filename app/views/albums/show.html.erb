@@ -7,7 +7,7 @@
 	<div id="label"><%= @album.label.name %></div>
 	<div id="genres">Genres: 
 		<% for tag in @album.tags %>
-	        <%= link_to tag, genre_album_path(tag.name) %>
+	        <%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
 		<% end %>
 	</div>
 	<div id="scores">
