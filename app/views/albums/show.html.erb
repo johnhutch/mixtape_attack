@@ -1,6 +1,10 @@
+<% @page_title = @album.name + " by " + @album.artist.name   %>
+
 <div id="album">
 
 	<%= image_tag @album.art.url(:featured), :id => "art" %>
+	<div id="scores"><em>Rating:</em> <%= @album.rating %>/5</div>
+	
 	<%= title @album.name + " by " + @album.artist.name, :h2 %>
 
 	<div id="date">Released <%= @album.release_date.strftime('%B %e, %Y') %></div>
@@ -10,12 +14,10 @@
 	        <%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
 		<% end %>
 	</div>
-	<div id="scores">
-		<%= @album.rating %>
-	</div>
 </div>
 
 <div id="album_other_reviews">
+	<h2>Album Reviews</h2>
 	<% @album.reviews.each_with_index do |review, i| %>
 		<div class="review">
 			<div class="rating"><%= review.rating %></div>

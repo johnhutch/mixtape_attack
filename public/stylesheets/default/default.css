@@ -103,8 +103,8 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #review {padding-bottom: 2em;}
 #review .type {float:right;font-family:Garamond,Hoefler Text,Times New Roman,Times,serif;font-size:1.2em;margin:0px 30px 0 0;}
 #review img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 20px; }
-#review #scores {clear: right; float: right; width: 208px; margin:0 30px 10px 20px;padding-bottom: 3px;-moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px;}
-#review #scores em {font-size: .6em; text-transform: uppercase; color: #bbb;}
+#review #scores, #album #scores {clear: right; float: right; width: 208px; margin:0 30px 10px 20px;padding-bottom: 3px;-moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px;}
+#review #scores em, #album #scores em  {font-size: .6em; text-transform: uppercase; color: #bbb;}
 #review h2 {margin: 0px; padding-top: 20px; font-size: 2em; font-family: helvetica, arial, sans-serif; text-transform: uppercase; line-height: 1em; width: 330px; }
 #review h2 a { text-decoration: none; }
 #review h2 em { font-family: Georgia, Times New Roman, Times, Serif; font-size: .8em; color: #f60; text-transform: lowercase;}
@@ -123,7 +123,6 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 /**** ALBUM SHOW ****/
 #album {padding-bottom: 2em;}
 #album img { clear: right; float: right; background: #ddd; border: 1px solid #aaa; padding: 3px; margin: 0px 30px 0px 1em; }
-#album #scores {clear: right; float: right; width: 3em; margin:0 30px 0 1em;}
 #album h2 {line-height: 1em; margin: 0; }
 #album #byline {font-size: 1.2em; font-style:italic; color: #666; }
 #album #genres {font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
@@ -152,7 +151,8 @@ ul#otherreviews h4 em { font-family: Georgia, Times New Roman, Times, Serif; fon
 ul#otherreviews h4 a:hover {text-decoration: underline; color: #f60;}
 ul#otherreviews p {margin: 0 0 1em 0;}
 
-#album_other_reviews .review {width: 250px; margin-right: 10px; float: left;}
+#album_other_reviews {float: left; margin-top: 1em;}
+#album_other_reviews .review {width: 260px; margin: 0 20px 1.4em 0; float: left;}
 #album_other_reviews .review .rating {float: right; margin: 0 1em 1em 0; padding: 0 2px; width: 2em; text-align: center; background-color: #333; color: white; font-size: 1.4em; font-weight: bold;}
 
 /**** NEWS ****/
