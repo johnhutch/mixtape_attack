@@ -11,7 +11,7 @@
 	<p><%= @album.artist.name %></p>
 	
     <label>Label name</label>
-	<p><%= @album.label.name %></p>
+	<p><%= @album.label.name rescue nil %></p>
 	
 	<label>Release date</label>
     <%= f.text_field :release_date_string %>

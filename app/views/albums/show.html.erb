@@ -8,7 +8,7 @@
 	<%= title @album.name + " by " + @album.artist.name, :h2 %>
 
 	<div id="date">Released <%= @album.release_date.strftime('%B %e, %Y') %></div>
-	<div id="label"><%= @album.label.name %></div>
+	<div id="label"><%= @album.label.name rescue nil %></div>
 	<div id="genres">Genres: 
 		<% for tag in @album.tags %>
 	        <%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
