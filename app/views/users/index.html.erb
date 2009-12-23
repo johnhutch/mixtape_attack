@@ -2,7 +2,7 @@
 
 <ul>
 	<% for user in @users %>
-		<% if user.has_role?("editor") && user.id != 1 %>
+		<% if user.has_role?("editor") || user.reviews.count > 1 && user.id != 1 %>
 			<li><%= link_to user.name, user %></li>
 		<% end  %>
 	<% end %>

@@ -22,20 +22,8 @@
 <% form_for(@album, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-    <label>What's the album called?</label>
-    <%= f.text_field :name %>
-
-    <label>What label was the album released on?</label>
-    <%= text_field_with_auto_complete :label, :name %>
-
-    <label>When? <small>(e.g., 10/7/1981 or October 7th, 1981)</small></label>
-    <%= f.text_field :release_date_string %>
-
-	<label>Upload a picture for album art:</label>
-	<%= f.file_field :art %>
-	
+	<%= render :partial => 'form', :locals => {:f => f} %>
 	<%= f.hidden_field :artist_id, :value => @artist.id %>
-	
   <p>
     <%= f.submit "Add Album" %>
   </p>

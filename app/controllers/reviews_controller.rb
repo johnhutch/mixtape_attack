@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to(@review) }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
-        @album = Album.find(params[:album])
+        @album = Album.find(params[:review][:album_id])
         format.html { render :action => "../albums/review" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end

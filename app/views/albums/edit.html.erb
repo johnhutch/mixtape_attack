@@ -3,31 +3,11 @@
 <% form_for(@album, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-	<div class="column span-8 append-1">
-    <label>Album name</label>
-    <%= f.text_field :name %>
+	<%= render :partial => 'form', :locals => {:f => f} %>
 
-    <label>Artist name</label>
-	<p><%= @album.artist.name %></p>
-	
-    <label>Label name</label>
-	<p><%= @album.label.name rescue nil %></p>
-	
-	<label>Release date</label>
-    <%= f.text_field :release_date_string %>
-	</div>
-	
-	<div class="column span-10 last">
-	<label>Current album cover</label>
-	<%= image_tag @album.art.url(:show) %>
-	<p><label>Delete this cover and upload a new one?</label>
-	<small>Just leave this field blank if the current album cover is fine</small><br />
-	<%= f.file_field :art %></p>
-	
   <p>
     <%= f.submit "Save my changes" %>
   </p>
-	</div>
 	
 <% end %>
 
