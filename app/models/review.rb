@@ -6,7 +6,7 @@ class Review < ActiveRecord::Base
   validates_presence_of :body, :fans_of, :tweet
   validates_length_of :tweet, :maximum => 100
 
-  acts_as_textiled :body
+  acts_as_textiled :body => [ :no_span_caps ]
   
   def truncated_body
     RedCloth.new(truncate(self.body(:source), 250)).to_html

@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authorization::AasmRoles
   
-  has_many :reviews
-  has_many :news_items
+  has_many :reviews, :order => 'created_at DESC'
+  has_many :news_items, :order => 'created_at DESC'
 
   # Validations
   validates_presence_of :login, :if => :not_using_openid?
