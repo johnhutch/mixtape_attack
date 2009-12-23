@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   auto_complete_for :artist, :name
   before_filter :login_required, :only => [:prelookup]
   require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
-  require_role "edidtor", :only => [:admin, :destroy]
+  require_role "editor", :only => [:admin, :destroy]
   
   # GET /artists
   # GET /artists.xml

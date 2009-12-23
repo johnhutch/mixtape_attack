@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :find_parent
+  require_role "writer", :only => [:create]
   
   def create
     @comment = @parent.comments.create(params[:comment])
