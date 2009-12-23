@@ -71,6 +71,11 @@ class AlbumsController < ApplicationController
   def review
     @album = Album.find(params[:id])
     @review = @album.reviews.build
+    
+    respond_to do |format|
+      format.html { render :layout => "formatting" }
+      format.xml  { render :xml => @albums }
+    end
   end
 
   def genre

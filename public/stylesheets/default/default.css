@@ -165,6 +165,12 @@ h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent 
 .news_item p.byline {margin: 0; font-style: italic; color: #777;}
 .news_item .continue {margin: 0; text-transform: uppercase;}
 
+/**** FORMATTING GUIDE ****/
+#formatting_guide {margin-top: 20px;}
+#formatting_guide h2 {padding: 0 20px; }
+#formatting_guide table tr td, #formatting_guide table tr th {padding-left: 20px;}
+#formatting_guide p {padding: 0 20px;}
+
 /**** ADS ****/
 #contextual #square_ad {padding-left: 28px; margin-bottom: 30px;}
 

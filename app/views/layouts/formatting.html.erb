@@ -1,0 +1,40 @@
+<%= render :partial => 'layouts/doctype' %>
+<%= render :partial => 'layouts/head' %>
+
+<body>
+	<div id="flash_messages">
+		<div class="container">
+			<%= flash_messages %>
+		</div>
+	</div>
+
+		
+	<%= render :partial => 'layouts/hero' %>
+	
+	<div id="main_content" class="container">
+		<div id="content">
+			<%= yield :layout %>
+		</div>
+		
+		<div id="contextual">
+			<%= render :partial => 'shared/formatting_guide' %>
+		</div>
+	</div>
+	
+	<div id="sub_content">
+		<div class="container">
+			
+			<%#= render :partial => 'calendar', :collection => @coming_soon, :as => :albums %>
+
+			
+			<%#= render :partial => 'layouts/long_ad' %>
+			<%= render :partial => 'layouts/footer' %>
+		</div>
+	</div>
+
+	<%= render :partial => 'layouts/login_box' unless current_user %>
+	<%= render :partial => 'layouts/analytics' %>
+
+</body>
+</html>
+
