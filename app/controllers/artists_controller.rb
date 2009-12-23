@@ -2,12 +2,22 @@ class ArtistsController < ApplicationController
   protect_from_forgery :except => [:auto_complete_for_artist_name]
   auto_complete_for :artist, :name
   before_filter :login_required, :only => [:prelookup]
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "edidtor", :only => [:admin, :destroy]
   
   # GET /artists
   # GET /artists.xml
   def index
-    @artists = Artist.find(:all)
+    @artists = Artist.paginate :per_page => 20, :page => params[:page]
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @artists }
+    end
+  end
+  
+  def admin
+    @artists = Artist.paginate :per_page => 20, :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

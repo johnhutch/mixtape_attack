@@ -1,9 +1,20 @@
 class LabelsController < ApplicationController
   # GET /labels
   # GET /labels.xml
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "edidtor", :only => [:admin, :destroy]
+  
   def index
-    @labels = Label.find(:all)
+    @labels = Label.paginate :per_page => 20, :page => params[:page]
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @labels }
+    end
+  end
+  
+  def admin
+    @labels = Label.paginate :per_page => 20, :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

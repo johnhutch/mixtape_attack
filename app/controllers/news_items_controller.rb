@@ -1,9 +1,19 @@
 class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.xml
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy ]
+  require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "editor", :only => [:admin, :destroy]
   
   def index
+    @news_items = NewsItem.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @news_items }
+    end
+  end
+  
+  def admin
     @news_items = NewsItem.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
 
     respond_to do |format|

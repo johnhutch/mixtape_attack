@@ -1,22 +1,14 @@
-<h1>Listing albums</h1>
+<h2>Albums We Know About</h2>
 
-<table>
-  <tr>
-    <th>Artist</th>
-    <th>Label</th>
-    <th>Name</th>
-    <th>Release date</th>
-  </tr>
+<%= will_paginate @albums %>
 
-<% for album in @albums %>
-  <tr>
-    <td><%=h album.artist_name %></td>
-    <td><%=h album.label_name %></td>
-    <td><%=h album.name %></td>
-    <td><%=h album.release_date %></td>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<dl>
+<% @albums.group_by(&:artist).each do |artist, albums| %>
+	<dt><%= link_to artist.name, artist %></dt>
+	<% for album in albums %>
+		<dd><%= link_to album.name, album %></dd>
+	<% end %>
 <% end %>
-</table>
+</dl>
+
+<%= will_paginate @albums %>

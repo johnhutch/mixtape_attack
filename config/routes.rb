@@ -1,11 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :news_items
-
-  map.resources :labels
-
-  map.resources :reviews
-  map.resources :ratings
-  map.resources :albums, :member => { :select => :get, :review => :get, :genre => :get }, :collection => { :calendar => :get }
+  map.resources :news_items, :collection => { :admin => :get }
+  map.resources :labels, :collection => { :admin => :get }
+  map.resources :reviews, :collection => { :admin => :get }
+  map.resources :albums, :member => { :select => :get, :review => :get, :genre => :get }, :collection => { :calendar => :get, :admin => :get }
   map.resources :artists, :collection => { :prelookup => :get, :new => :post }
   map.resources :comments
     

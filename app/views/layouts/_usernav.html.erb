@@ -3,7 +3,7 @@
 		<ul>
 	        <li><%= link_to 'Log out', logout_path %></li>
 			<li><%= link_to 'Profile', edit_user_path(current_user) %></li>
-			<% if current_user.has_role?("editor") %><li><%= link_to "Contribute", contribute_path %></li><% end %>
+			<% if current_user.has_role?("writer") %><li><%= link_to "Contribute", contribute_path %></li><% end %>
 			<% if current_user.has_role?("admin") %><li><%= link_to "Admin", admin_path %></li><% end %>
 		</ul>
 	<% else %>

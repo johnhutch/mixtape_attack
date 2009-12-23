@@ -1,20 +1,9 @@
-<h1>Listing labels</h1>
+<h2>Labels We Know About</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
 
+<%= will_paginate @albums %>
 <% for label in @labels %>
-  <tr>
-    <td><%=h label.name %></td>
-    <td><%= link_to 'Show', label %></td>
-    <td><%= link_to 'Edit', edit_label_path(label) %></td>
-    <td><%= link_to 'Destroy', label, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<div class="label"><%= link_to label.name, label %></div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New label', new_label_path %>
+<%= will_paginate @albums %>

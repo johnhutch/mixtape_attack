@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.xml
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
+  require_role "edidtor", :only => [:admin, :destroy]
   
   def index
     @reviews = Review.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
@@ -11,6 +12,16 @@ class ReviewsController < ApplicationController
       format.xml  { render :xml => @reviews.to_xml(:include => [:album]) }
     end
   end
+  
+  def admin
+    @reviews = Review.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @reviews.to_xml(:include => [:album]) }
+    end
+  end
+  
 
   # GET /reviews/1
   # GET /reviews/1.xml

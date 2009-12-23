@@ -1,7 +1,8 @@
 class AlbumsController < ApplicationController
   protect_from_forgery :except => [:auto_complete_for_label_name, :auto_complete_for_artist_name]
   
-  require_role "editor", :only => [:edit, :new, :create, :update, :destroy, :review, :select]
+  require_role "editor", :only => [:admin, :destroy]
+  require_role "writer", :only => [:new, :create, :edit, :update, :review, :select]
   auto_complete_for :label, :name
   auto_complete_for :artist, :name
   
@@ -11,7 +12,16 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.find(:all)
+    @albums = Album.paginate :per_page => 20, :page => params[:page]
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @albums }
+    end
+  end
+  
+  def admin
+    @albums = Album.paginate :per_page => 20, :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

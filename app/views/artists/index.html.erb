@@ -1,20 +1,8 @@
-<h1>Listing artists</h1>
+<h2>Artists We Know About</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
+<%= will_paginate @albums %>
 <% for artist in @artists %>
-  <tr>
-    <td><%=h artist.name %></td>
-    <td><%= link_to 'Show', artist %></td>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<div class="artist"><%= link_to artist.name, artist %></div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New artist', new_artist_path %>
+<%= will_paginate @albums %>
