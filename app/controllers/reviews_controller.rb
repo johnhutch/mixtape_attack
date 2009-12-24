@@ -22,6 +22,9 @@ class ReviewsController < ApplicationController
     end
   end
   
+  def new
+    redirect_to prelookup_artists_path
+  end
 
   # GET /reviews/1
   # GET /reviews/1.xml
@@ -53,7 +56,7 @@ class ReviewsController < ApplicationController
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
         @album = Album.find(params[:review][:album_id])
-        format.html { render :action => "../albums/review" }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end
