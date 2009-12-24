@@ -1,7 +1,7 @@
 class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.xml
-  require_role "writer", :only => [:edit, :new, :create, :update, :destroy]
+  before_filter :login_required, :only => [:edit, :new, :create, :update, :destroy]
   require_role "editor", :only => [:admin, :destroy]
   
   def index

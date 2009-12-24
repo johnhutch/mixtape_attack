@@ -2,9 +2,9 @@
 	<% review = @recent_reviews.shift %>
 	<div class="type">Featured Album Review</div>
 	<a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:featured) %></a>
-	<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+	<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album), :title => "All reviews for #{review.album.name}" %></strong>
 		<em>by</em>
-		<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
+		<%= link_to review.album.artist.name, artist_path(review.album.artist), :title => "More info on #{review.album.artist.name}" %></div>
 		<div class="genres">
 			<% i = 1 %>
 			<% for tag in review.album.tags %>
@@ -15,7 +15,8 @@
 		</div>
 	<div class="tweet"><%= strip_tags(review.tweet) %></div>
 	<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
-	<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+	<div class="comment_count"><a href="/reviews/<%= review.id %>" title="<%= review.comments.count %> comments"><%= review.comments.count rescue 0 %></a></div>
+	<div class="readmore"><%= link_to 'Read the review &gt;', review_path(review) %></div>
 </div>
 
 <div id="recent_reviews">
@@ -23,9 +24,9 @@
 		<div class="review">
 			<div class="type">Album Review</div>	
 			<a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
-			<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+			<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album), :title => "All reviews for #{review.album.name}" %></strong>
 				<em>by</em>
-				<%= link_to review.album.artist.name, artist_path(review.album.artist) %></div>
+				<%= link_to review.album.artist.name, artist_path(review.album.artist), :title => "More info on #{review.album.artist.name}" %></div>
 			<div class="genres">
 				<% i = 1 %>
 				<% for tag in review.album.tags %>
@@ -36,6 +37,7 @@
 			</div>
 			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
+			<div class="comment_count"><a href="/reviews/<%= review.id %>" title="<%= review.comments.count %> comments"><%= review.comments.count rescue 0 %></a></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>

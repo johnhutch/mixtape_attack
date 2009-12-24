@@ -1,5 +1,12 @@
-<h4>Comment on this <%= type %></h4>
-<% form_for Comment.new, :url => parent_url do |f| %>
-	<%= f.text_area :body %>
-	<p><%= f.submit 'Post my comment' %></p>
+<% if logged_in? %>
+	<h4>Comment on this <%= type %></h4>
+	<% form_for Comment.new, :url => parent_url do |f| %>
+		<%= f.text_area :body %>
+		<p><%= f.submit 'Post my comment' %></p>
+	<% end %>
+<% else %>
+	<h4>You must be logged in to comment</h4>
+	<p><%= link_to_function("Log in", nil) do |page|
+	page.visual_effect :toggle_appear, 'login_slider', :duration => 0.7
+	end %> or <%= link_to 'sign up', signup_path %> to comment. Hell, we might even let you write some reviews.</p>
 <% end %>

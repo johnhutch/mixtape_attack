@@ -5,9 +5,9 @@
 <% for review in @reviews %>
 	<div class="list_review clearfix">
 		<a href="/albums/<%= review.album.id %>"><%= image_tag review.album.art.url(:frontlist) %></a>
-		<h3><strong><%= link_to review.album.name, album_path(review.album) %></strong>
+		<h3><strong><%= link_to review.album.name, album_path(review.album), :title => "All reviews for #{review.album.name}" %></strong>
 			<em>by</em>
-			<%= link_to review.album.artist.name, artist_path(review.album.artist) %></h3>
+			<%= link_to review.album.artist.name, artist_path(review.album.artist), :title => "More info on #{review.album.artist.name}" %></h3>
 		<div class="genres">
 			<% i = 1 %>
 			<% for tag in review.album.tags %>
@@ -18,7 +18,8 @@
 		</div>
 		<div class="tweet"><%= strip_tags(review.tweet) %></div>
 		<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
-		<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
+		<div class="comment_count"><a href="/reviews/<%= review.id %>" title="<%= review.comments.count %> comments"><%= review.comments.count rescue 0 %></a></div>
+		<div class="readmore"><%= link_to 'Read the review &gt;', review_path(review) %></div>
 		<div class="score"><%= review.rating %></div>
 	</div>
 <% end %>

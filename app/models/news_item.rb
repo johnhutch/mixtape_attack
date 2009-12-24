@@ -4,6 +4,6 @@ class NewsItem < ActiveRecord::Base
   
   validates_presence_of :title, :body
   
-  acts_as_textiled :body
+  acts_as_textiled :body, :excerpt
 
 end

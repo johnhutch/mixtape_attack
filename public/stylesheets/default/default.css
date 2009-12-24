@@ -45,7 +45,7 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 
 
 /************* CONTENT FRAME *******************/
-#main_content {background-color: #fff; overflow: hidden; margin-top: -5px;}
+#main_content {background-color: #fff; overflow: hidden; margin-top: -5px; padding-bottom: 2em;}
 #content {background-color: #fff; float: left; width: 590px; margin-bottom: -9999px; padding: 30px 0 9999px 0;}
 #contextual {width: 358px; background-color: #f9f9f8; border: 1px solid #e2e2e2; border-width: 0 1px; float: left; margin-bottom: -9999px; padding-bottom: 9999px;}
 
@@ -64,7 +64,9 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #featured_review .byline {font-size: 1.3em; font-style: italic; margin: 0 0 5px 20px; color: #777;}
 #featured_review .byline a {text-decoration: none; color: #777;}
 #featured_review .byline a:hover {text-decoration:underline;}
-#featured_review .readmore { font-size: 1em; margin: 0 0px 0 20px; text-transform: uppercase;}
+#featured_review .readmore { font-size: 1.1em; margin: 9px 0px 0 0px; text-transform: uppercase; }
+#featured_review .readmore a {text-decoration: none;}
+#featured_review .comment_count {margin-left: 20px;}
 
 /**** RECENT REVIEWS ****/
 #recent_reviews {padding-left: 15px;}
@@ -81,7 +83,9 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #recent_reviews .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
 #recent_reviews .byline a {text-decoration: none; color: #777;}
 #recent_reviews .byline a:hover {text-decoration:underline;}
-#recent_reviews .readmore {font-size: 1em;text-transform: uppercase;}
+#recent_reviews .readmore {font-size: 1em;text-transform: uppercase; margin-top: 10px;}
+#recent_reviews .readmore a {text-decoration: none;}
+
 
 #scores {background-color: #333; color: white; font-size: 2.4em; text-align: center;}
 
@@ -98,7 +102,8 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 .list_review .byline {font-size: 1.2em; color: #888; font-style: italic; line-height: 1.1em; margin-bottom: 5px;}
 .list_review .byline a {text-decoration: none; color: #777;}
 .list_review .byline a:hover {text-decoration:underline;}
-.list_review .readmore {font-size: 1em;text-transform: uppercase;}
+.list_review .readmore {font-size: 1.1em; margin-top: 8px; text-transform: uppercase;}
+.list_review .readmore a {text-decoration: none;}
 .list_review .score {width: 30px; height: 30px; background-color:#333;color:white;font-size:18px;text-align:center; position: absolute; z-index: 10; top: 94px; left: 94px;}
 
 /**** REVIEW SHOW ****/
@@ -148,6 +153,8 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #comments h4 {margin: 0;}
 form#new_comment textarea {width: 550px; margin-right: 25px; height: 100px;}
 
+.comment_count a {width: 30px; height: 25px; color: white; text-align: center; font-size: 12px; font-family: helventica, arial, sans-serif;  background: transparent url(images/comment_box.png) top left no-repeat; float: left; margin: 5px 8px 0 0 ; display: block; text-decoration: none;}
+
 
 /********* CONTEXTUAL FRAME ********************/
 #contextual h3 {margin: 1.4em 25px 0 25px; text-transform: uppercase; font-size: 1.4em; color: #777; clear: left;}
@@ -175,7 +182,8 @@ h2#news {height:31px; width:92px; text-indent: -9999px; background: transparent 
 .news_item h3, #contextual .news_item h3 {font-size: 1.6em; color: #444; text-transform: uppercase; margin: 0;}
 .news_item p {font-size: 1.1em; margin: 4px 0;}
 .news_item p.byline {margin: 0; font-style: italic; color: #777;}
-.news_item .continue {margin: 0; text-transform: uppercase;}
+.news_item .continue {font-size: 1.1em; margin: 8px 0 0 0; text-transform: uppercase;}
+.news_item .continue a {text-decoration: none;}
 
 /**** FORMATTING GUIDE ****/
 #formatting_guide {margin-top: 20px;}

@@ -7,9 +7,9 @@
 	<div id="scores"><em>Rating:</em> <%= @review.rating %>/5</div>
 	<div id="tweet"><%= @review.tweet %></div>
 
-	<h2><strong><%= link_to @review.album.name, album_path(@review.album) %></strong>
+	<h2><strong><%= link_to @review.album.name, album_path(@review.album), :title => "All reviews for #{@review.album.name}" %></strong>
 		<em>by</em>
-		<%= link_to @review.album.artist.name, artist_path(@review.album.artist) %>
+		<%= link_to @review.album.artist.name, artist_path(@review.album.artist), :title => "More info on #{@review.album.artist.name}" %>
 	</h2>	
 	
 	<div id="date">Released <%= @review.album.release_date.strftime('%B %e, %Y') %> by <%= link_to @review.album.label.name, @review.album.label rescue nil %></div>
@@ -38,7 +38,7 @@
 	
 	<%= render :partial => 'shared/comment', :collection => @review.comments %>
 	
-	<%= render :partial => 'shared/comment_form', :locals => {:type => "review"} unless ! logged_in? %>
+	<%= render :partial => 'shared/comment_form', :locals => {:type => "review"} %>
 </div>
 
 <% content_for :contextual do %>

@@ -5,6 +5,7 @@
 		<h3><%= news_item.title %></h3>
 		<p class="byline">By <%= news_item.user.name %></p>
 		<%= news_item.excerpt.blank? ? RedCloth.new(truncate(news_item.body(:source), 250)).to_html : news_item.excerpt %>
-		<p class="continue"><%= link_to "Continue Reading -&gt;", news_item_path(news_item) unless news_item.body.length < 250 %></p>
+		<div class="comment_count"><a href="/news_items/<%= news_item.id %>" title="<%= news_item.comments.count %> comments"><%= news_item.comments.count rescue 0 %></a></div>
+		<p class="continue"><%= link_to "Continue Reading -&gt;", news_item_path(news_item) %></p>
 	</div>
 <% end %>
