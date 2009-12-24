@@ -40,7 +40,7 @@ module ApplicationHelper
     strout = "<h3>Other albums by " + album.artist.name + "</h3>\n"
     strout += "<ul id=\"otheralbums\" class=\"clearfix\">\n"
     for other in album.artist.albums
-      strout += "<li>" + link_to((image_tag other.art.url(:featured), :alt => other.name), album_path(other)) + "</li>" unless album == other
+      strout += "<li>" + link_to((image_tag other.art.url(:thumb), :alt => other.name), album_path(other)) + "</li>" unless album == other
     end
     strout += "</ul>"
   end

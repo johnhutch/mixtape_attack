@@ -5,7 +5,8 @@ class Album < ActiveRecord::Base
               :path => ":rails_root/public/bin/:class/:attachment/:id/:style_:basename.:extension",
               :url => "/bin/:class/:attachment/:id/:style_:basename.:extension",
               :default_url => "/images/missing_:class_:style.png",
-              :styles => { :frontlist => "150x150#",
+              :styles => { :thumb => "80x80#",
+                           :frontlist => "150x150#",
                            :featured => "200x200#" }
                            
   validates_presence_of :artist_id, :name

@@ -9,9 +9,9 @@
 <% else %>
 
 	<h3>We currently have these albums on file:</h3>
-	<ul id="albumlist">
+	<ul id="albumlist" class="clearfix">
 	<% @albums.each do |album| %>
-		<li><%= link_to album.name, review_album_path(album) %></li>
+		<li><a href="albums/<%= album.id %>/review"><%= image_tag album.art.url(:thumb) %> <%= album.name %></a></li>
 	<% end %>
 	</ul>
 

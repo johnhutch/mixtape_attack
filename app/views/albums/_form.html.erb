@@ -1,7 +1,8 @@
     <label>What's the album title?</label>
     <%= f.text_field :name %>
 
-    <label>What label was the album released on?</label>
+    <label>What label was the album released on?<br />
+	<small>Hint: if you start typing and wait a second, you'll see all of the artists in our system that match.</small></label>
 	<% label_name = @album.label.name rescue nil %>
     <%= text_field_with_auto_complete :label, :name, :value => label_name %>
 

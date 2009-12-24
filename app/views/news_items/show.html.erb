@@ -1,23 +1,19 @@
-<h2><%= @news_item.title %></h2>
-<p class="byline">By <%= link_to @news_item.user.name, user_path(@news_item.user) %></p>
-
-<div id="news_body">
-  <%= @news_item.body %>
+<div id="news_item">
+	<h2><%= @news_item.title %></h2>
+	<h4 class="byline">Posted by <%= link_to @news_item.user.name, user_path(@news_item.user) %></h4>
+	<div id="body">
+	  <%= @news_item.body %>
+	</div>
 </div>
 
 <div id="comments">
 	<h2>Comments</h2>
 	<% if @news_item.comments.blank? %>
-		<p>This news_item has no comments</p>
+		<p>This post has no comments</p>
 	<% end %>
 	
-	<% for comment in @news_item.comments do %>
-		<div class="comment <%= cycle("even", "odd") %>">
-			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.name %> said:</div>
-			<div class="body"><%= comment.body %></div>
-		</div>
-	<% end %>
+	<%= render :partial => 'shared/comment', :collection => @news_item.comments %>
 	
-<%= render :partial => 'shared/comment_form', :locals => {:type => "article"} unless ! logged_in? %>
+	<%= render :partial => 'shared/comment_form', :locals => {:type => "article"} unless ! logged_in? %>
 
 </div>

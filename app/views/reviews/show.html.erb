@@ -5,14 +5,14 @@
 	
 	<%= image_tag @review.album.art.url(:featured), :id => "art" %>
 	<div id="scores"><em>Rating:</em> <%= @review.rating %>/5</div>
+	<div id="tweet"><%= @review.tweet %></div>
 
 	<h2><strong><%= link_to @review.album.name, album_path(@review.album) %></strong>
 		<em>by</em>
 		<%= link_to @review.album.artist.name, artist_path(@review.album.artist) %>
 	</h2>	
 	
-	<div id="date">Released <%= @review.album.release_date.strftime('%B %e, %Y') %></div>
-	<div id="label"><%= link_to @review.album.label.name, @review.album.label rescue nil %></div>
+	<div id="date">Released <%= @review.album.release_date.strftime('%B %e, %Y') %> by <%= link_to @review.album.label.name, @review.album.label rescue nil %></div>
 	<div class="genres">
 		<% i = 1 %>
 		<% for tag in @review.album.tags %>
@@ -23,9 +23,11 @@
 	</div>
 	<div id="body">
 		<%= @review.body %>
-	</div>
+	</div>	
 	
 	<div id="byline">Reviewed by <%= link_to @review.user.name, @review.user %></div>
+	<div id="fans_of">For fans of: <%= @review.fans_of %></div>
+	
 </div>
 
 <div id="comments">
@@ -34,14 +36,9 @@
 		<p>This review has no comments</p>
 	<% end %>
 	
-	<% for comment in @review.comments do %>
-		<div class="comment <%= cycle("even", "odd") %>">
-			<div class="byline"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.name %> said:</div>
-			<div class="body"><%= comment.body %></div>
-		</div>
-	<% end %>
+	<%= render :partial => 'shared/comment', :collection => @review.comments %>
 	
-<%= render :partial => 'shared/comment_form', :locals => {:type => "review"} unless ! logged_in? %>
+	<%= render :partial => 'shared/comment_form', :locals => {:type => "review"} unless ! logged_in? %>
 </div>
 
 <% content_for :contextual do %>

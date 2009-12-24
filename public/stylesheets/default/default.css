@@ -2,6 +2,7 @@
 body {margin: 0; padding: 0; font-family: Georgia, Times New Roman, Times, Serif;}
 a {color: #f60;}
 label {clear: left; display: block; margin: 1.5em 0 3px 0;}
+label small {font-weight: normal;}
 h1, h2, h3, h4, h5, h6 {color: #444;}
 ol {margin-left: 2.2em}
 
@@ -113,13 +114,15 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #review .genres {margin: 1em 0 5px 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; line-height: 1em; font-style: italic;color: #777;width: 320px; line-height: 1em;}
 #review .genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #review .genres a:hover {text-decoration: underline;}
-#review #byline {font-size: 1.2em; font-style:italic; color: #666; }
+#review #byline {font-size: 1.2em; font-style:italic; color: #666; float: right; margin-right: 25px;}
 #review #genres {float: right; margin: 0px 30px 0 0;font-size: 1.2em; font-family: Garamond, Hoefler Text, Times New Roman, Times, serif; }
 #review #genres a { text-decoration: none; text-transform: capitalize; color: #555;}
 #review #genres a:hover {text-decoration: underline;}
 #review #label {}
 #review #release_date {}
 #review #body {margin: 1em 30px 1em 0;}
+#review #fans_of {font-size: 1.2em; color: #666; width: 300px;}
+#review #tweet {float: right; font-size: 2.4em; color: #666; margin: 1em 25px .7em 0; line-height: 1em; padding: 20px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 
 /**** ALBUM SHOW ****/
 #album {padding-bottom: 2em;}
@@ -134,7 +137,16 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 
 
 /**** NEWS ****/
-#news_body {padding-right: 20px;}
+#news_item h2 {margin-bottom: 0;}
+#news_item h4.byline { color: #555; font-style: italic;}
+#news_item #body {padding-right: 20px;}
+
+/**** COMMENTS ****/
+.comment .body {margin: 0 25px 2.4em 10px;}
+.comment .byline {background: #e7f4f6 url(images/comment_header_bg.png) bottom left no-repeat; padding: 5px 10px 18px 10px; margin-right: 20px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;}
+#comments h2 {padding-top: 1em; border-top: 1px solid #eee; margin-right: 25px;}
+#comments h4 {margin: 0;}
+form#new_comment textarea {width: 550px; margin-right: 25px; height: 100px;}
 
 
 /********* CONTEXTUAL FRAME ********************/
@@ -198,7 +210,13 @@ ul#event_calendar {width: 590px; padding: 0; margin: 0; float: left; height: 300
 form ul#rating_scale {list-style-type: none; float: left; margin: 0 0 0 40px; padding-bottom: 1.4em;}
 form select#review_rating {font-size: 2em; font-weight: bold; color: #444; float: left; margin: 8px 0 0 10px;}
 
+ul#albumlist {list-style-type: none; margin: 10px 0 20px 0;}
+ul#albumlist li {float: left; margin-right: 10px;}
+ul#albumlist li a {text-decoration: none; color: #444; display: block; width: 95px; height: 150px; padding: 10px 5px 5px 5px; text-align: center;}
+ul#albumlist li a img {padding: 3px; background: #ddd; border: 1px solid #aaa;}
+ul#albumlist li a:hover {background-color: #e7f4f6; border: 1px solid #a7b4b6; padding: 9px 4px 4px 4px;}
 
+form#new_artist h3 {margin-bottom: 5px;}
 
 /**** RAILS BASE ****/
 /* === FLASH MESSAGES === */

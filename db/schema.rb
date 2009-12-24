@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218024748) do
+ActiveRecord::Schema.define(:version => 20091224010703) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20091218024748) do
     t.datetime "updated_at"
     t.string   "fans_of"
     t.string   "tweet"
-    t.integer  "rating"
+    t.integer  "rating",     :limit => 10, :precision => 10, :scale => 0
   end
 
   create_table "roles", :force => true do |t|

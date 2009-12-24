@@ -8,7 +8,17 @@
     <label>Artist or Band Name:</label>
     <%= text_field_with_auto_complete :artist, :name %>
   </p>
+
+  <p><small>Hint: if you start typing and wait a second, you'll see all of the artists in our system that match.</small></p>
   <p>
     <%= f.submit "Look them up" %>
   </p>
+
+	<h3>Don't know what to review?</h3>
+	<p>Maybe you'd like to review one of the recently added albums below.</p>
+	<ul id="albumlist">
+		<% @albums.each do |album| %>
+			<li><a href="albums/<%= album.id %>/review"><%= image_tag album.art.url(:thumb) %> <%= truncate(album.name + " by " + album.artist.name, 50) %></a></li>
+		<% end %>
+	</ul>
 <% end %>

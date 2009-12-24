@@ -40,6 +40,7 @@ class ArtistsController < ApplicationController
   # GET /artists/prelookup.xml
   def prelookup
     @artist = Artist.new
+    @albums = Album.find(:all, :order => "created_at DESC", :limit => 15)
 
     respond_to do |format|
       format.html # new.html.erb
