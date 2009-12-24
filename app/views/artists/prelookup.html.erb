@@ -18,7 +18,7 @@
 	<p>Maybe you'd like to review one of the recently added albums below.</p>
 	<ul id="albumlist">
 		<% @albums.each do |album| %>
-			<li><a href="albums/<%= album.id %>/review"><%= image_tag album.art.url(:thumb) %> <%= truncate(album.name + " by " + album.artist.name, 50) %></a></li>
+			<li><a href="/albums/<%= album.id %>/review"><%= image_tag album.art.url(:thumb) %> <%= truncate(album.name + " by " + album.artist.name, 50) %></a></li>
 		<% end %>
 	</ul>
 <% end %>
