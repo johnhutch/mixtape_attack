@@ -40,6 +40,11 @@ class ReviewsController < ApplicationController
   # GET /reviews/1/edit
   def edit
     @review = Review.find(params[:id])
+    
+    unless current_user.owns_review?(@review) || current_user.has_role?("admin")
+      flash[:notice] = "You cannot edit reviews you did not write."
+      render :action => "show"
+    end
   end
 
   # POST /reviews

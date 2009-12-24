@@ -2,16 +2,16 @@
 <%= render :partial => 'layouts/head' %>
 
 <body>
+	<%= render :partial => 'layouts/hero' %>
+	
 	<div id="flash_messages">
 		<div class="container">
 			<%= flash_messages %>
 		</div>
 	</div>
-
-		
-	<%= render :partial => 'layouts/hero' %>
 	
 	<div id="main_content" class="container">
+				
 		<div id="content">
 			<%= yield :layout %>
 		</div>

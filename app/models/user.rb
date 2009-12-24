@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
   def password_required?
     new_record? ? not_using_openid? && (crypted_password.blank? || !password.blank?) : !password.blank?
   end
+  
+  def owns_review?(review)
+    self.reviews.include?(review)
+  end
 
   protected
     
