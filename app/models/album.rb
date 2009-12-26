@@ -38,7 +38,11 @@ class Album < ActiveRecord::Base
     self.reviews.each do |review|
       score += review.rating
     end
-    score = sprintf ("%.1f", score / self.reviews.length)
+    if score == 0
+      score = 0
+    else
+      score = sprintf ("%.1f", score / self.reviews.length)
+    end
   end
   
   def validate
