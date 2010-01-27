@@ -15,7 +15,6 @@
 		</div>
 	<div class="tweet"><%= strip_tags(review.tweet) %></div>
 	<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
-	<div class="comment_count"><a href="/reviews/<%= review.id %>" title="<%= review.comments.count %> comments"><%= review.comments.count rescue 0 %></a></div>
 	<div class="readmore"><%= link_to 'Read the review &gt;', review_path(review) %></div>
 </div>
 
@@ -37,7 +36,6 @@
 			</div>
 			<div class="tweet"><%= strip_tags(review.tweet) %></div>
 			<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
-			<div class="comment_count"><a href="/reviews/<%= review.id %>" title="<%= review.comments.count %> comments"><%= review.comments.count rescue 0 %></a></div>
 			<div class="readmore"><%= link_to 'Read More &gt;', review_path(review) %></div>
 		</div>
 	<% end %>

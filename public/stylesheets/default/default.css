@@ -64,7 +64,7 @@ ul#nav li a.last {padding-right: 0; background-image: none;}
 #featured_review .byline {font-size: 1.3em; font-style: italic; margin: 0 0 5px 20px; color: #777;}
 #featured_review .byline a {text-decoration: none; color: #777;}
 #featured_review .byline a:hover {text-decoration:underline;}
-#featured_review .readmore { font-size: 1.1em; margin: 9px 0px 0 0px; text-transform: uppercase; }
+#featured_review .readmore { font-size: 1.1em; margin: 9px 0px 0 20px; text-transform: uppercase; }
 #featured_review .readmore a {text-decoration: none;}
 #featured_review .comment_count {margin-left: 20px;}
 
