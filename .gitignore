@@ -3,3 +3,4 @@ tmp/**/*
 db/development.sqlite3
 public/bin/
 .DS_Store
+public
