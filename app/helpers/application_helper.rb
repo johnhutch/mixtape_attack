@@ -63,6 +63,6 @@ module ApplicationHelper
   
   def random_tweet
     @review = Review.find(:first, :order => :random)
-    @random_tweet = @review.tweet + "<span> &gt;&gt; " + link_to(@review.album.name, review_path(@review)) + "</span>"
+    @random_tweet = @review.tweet + "<span> &gt;&gt; " + link_to(@review.album.name, review_path(@review)) + "</span>" rescue "No content yet"
   end
 end

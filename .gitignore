@@ -5,3 +5,4 @@ public/bin/
 .DS_Store
 public
 config/deploy.rb.dreamhost_ex
+config/database.yml.example

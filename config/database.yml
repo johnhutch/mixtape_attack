@@ -1,0 +1,15 @@
+development:
+  # Sqlite3 Settings
+    adapter: mysql
+    database: mixtapeattack
+    username: root
+    password: 
+    host: localhost
+
+production:
+  adapter: mysql
+  database: mixtapeattack
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+  host: localhost

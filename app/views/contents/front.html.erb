@@ -1,22 +1,24 @@
-<div id="featured_review">
-	<% review = @recent_reviews.shift %>
-	<div class="type">Featured Album Review</div>
-	<a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:featured) %></a>
-	<div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album), :title => "All reviews for #{review.album.name}" %></strong>
-		<em>by</em>
-		<%= link_to review.album.artist.name, artist_path(review.album.artist), :title => "More info on #{review.album.artist.name}" %></div>
-		<div class="genres">
-			<% i = 1 %>
-			<% for tag in review.album.tags %>
-				<%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
-				<%= "&bull" unless i == review.album.tags.count %>
-				<% i = i+1 %>
-			<% end %>
-		</div>
-	<div class="tweet"><%= strip_tags(review.tweet) %></div>
-	<div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
-	<div class="readmore"><%= link_to 'Read the review &gt;', review_path(review) %></div>
-</div>
+<% unless @recent_reviews.empty? %>
+  <div id="featured_review">
+    <% review = @recent_reviews.shift %>
+    <div class="type">Featured Album Review</div>
+    <a href="/reviews/<%= review.id %>"><%= image_tag review.album.art.url(:featured) %></a>
+    <div class="albumartist"><strong><%= link_to review.album.name, album_path(review.album), :title => "All reviews for #{review.album.name}" %></strong>
+      <em>by</em>
+      <%= link_to review.album.artist.name, artist_path(review.album.artist), :title => "More info on #{review.album.artist.name}" %></div>
+      <div class="genres">
+        <% i = 1 %>
+        <% for tag in review.album.tags %>
+          <%= link_to tag, genre_album_path(CGI::escape(tag.name)) %>
+          <%= "&bull" unless i == review.album.tags.count %>
+          <% i = i+1 %>
+        <% end %>
+      </div>
+    <div class="tweet"><%= strip_tags(review.tweet) %></div>
+    <div class="byline">Reviewed by <%= link_to review.user.name, review.user %></div>
+    <div class="readmore"><%= link_to 'Read the review &gt;', review_path(review) %></div>
+  </div>
+<% end %>
 
 <div id="recent_reviews">
 	<% for review in @recent_reviews %>
